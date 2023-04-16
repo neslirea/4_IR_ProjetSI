@@ -29,7 +29,8 @@ void tabSymboles_add(char* nom, short init){
     Symbole* symbole = symbole_init(nom, init, depth);
     tab->taille+=1;
     if (tab->taille>=tab->taille_allouee){
-        tab->symboles = (Symbole**) realloc(tab->symboles,sizeof(Symbole*)*tab->taille_allouee*2);
+        tab->taille_allouee*=2;
+        tab->symboles = (Symbole**) realloc(tab->symboles,sizeof(Symbole*)*tab->taille_allouee);
     }
     tab->symboles[tab->taille-1] = symbole;
 
@@ -102,6 +103,7 @@ int tabSymboles_get_last_address(void) {
 }
 
 int tabSymboles_remove_last(void) {
+    free(tab->symboles[tab->taille - 1]); 
     tab->taille--;
 }
 
@@ -112,7 +114,7 @@ int tabSymboles_get_address(char *n) {
             return i;
     }
     // TODO: erreur (non decl)
-    printf("???? %s\n", n);
+    printf("!Erreur : symbole %s non déclaré\n", n);
     exit(1);
 }
 

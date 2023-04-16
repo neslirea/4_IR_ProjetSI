@@ -159,8 +159,8 @@ expression:
     asm_add("ADD", tabSymboles_get_last_address() - 1, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address());
     tabSymboles_remove_last();
   }
-  // à dupliquer pour sub mul et div
-  // TODO : voir pk core dumped au realloc
+  // TODO : à dupliquer pour sub mul et div
+  // +Comprendre shift/reduce conflict sur le ADD
   | tLPAR expression tRPAR
   ;
 // Les comparateurs des booléens
@@ -172,18 +172,7 @@ comparator:
   | tLT
   | tGT
   ;
-// Les opérateurs arithmétique
-operation:
-   tADD
-  | tSUB
-  | tMUL
-  | tDIV
-  ;
-// Une valeur : soit une variable, soit un entier
-nb:
-   tNB // { printf("get a number : %s\n", $1); }
-   | tID
-   ;
+
 %%
 
 void yyerror(const char *msg) {
