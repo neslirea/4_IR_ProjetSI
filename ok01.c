@@ -4,19 +4,18 @@
 
 }
 */
-
+/*
+	if (a == 2) {
+		int c = 2;
+		print(a);
+	}
+*/
 void main(int x) {
 
     int a;
 
     if (a == 3) {
-		int b = 2 + a;
-		b = 3 + b;
-		
-		if (a == 2) {
-			int c = 2;
-			print(a);
-		}
+		int b = 2*a - 9 + a/3;
     }
     return a;
 }

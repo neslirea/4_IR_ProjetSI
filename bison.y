@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "tabSymboles.h"
 #include "asm.h"
+#include <limits.h>
 
 //TabSymbolesStack* tab;
 //int depth;
@@ -28,8 +29,12 @@
     tAND tOR 
     tNOT 
     tSEMI tCOMMA tERROR
-
+%left tADD tSUB
+%left tMUL tDIV
 %%
+// %left tADD tSUB ==> tADD et tSUB ont le meme niveau de priorité
+// %left tMUL tDIV ==> tMUL et tDIV aussi, mais ils sont + prioritaires !
+// plus c'est "bas", plus c'est prioritaire
 
 // De base : le code se compose d'un nombre >=1 de fonctions
 code:
@@ -149,18 +154,29 @@ condition:
 expression:
   tNB {
     tabSymboles_add("", 1);
-    asm_add("AFC", tabSymboles_get_last_address(), $1, 0);
+    asm_add(AFC, tabSymboles_get_last_address(), $1, INT_MAX);
   }
   | tID {
     tabSymboles_add("", 1);
-    asm_add("COP", tabSymboles_get_last_address(), tabSymboles_get_address($1), 0);
+    asm_add(COP, tabSymboles_get_last_address(), tabSymboles_get_address($1), INT_MAX);
   }
   | expression tADD expression {
-    asm_add("ADD", tabSymboles_get_last_address() - 1, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address());
+    asm_add(ADD, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address());
+    tabSymboles_remove_last();
+  }
+  | expression tSUB expression {
+    asm_add(SUB, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address());
+    tabSymboles_remove_last();
+  }
+  | expression tMUL expression {
+    asm_add(MUL, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address());
+    tabSymboles_remove_last();
+  }
+  | expression tDIV expression {
+    asm_add(DIV, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address());
     tabSymboles_remove_last();
   }
   // TODO : à dupliquer pour sub mul et div
-  // +Comprendre shift/reduce conflict sur le ADD
   | tLPAR expression tRPAR
   ;
 // Les comparateurs des booléens
@@ -183,4 +199,5 @@ void yyerror(const char *msg) {
 int main(void) {
   init_ts();
   yyparse();
+  afficher_instructions();
 }
