@@ -51,15 +51,15 @@ extern int yydebug;
   {
     tID = 258,
     tNB = 259,
-    tVOID = 260,
-    tINT = 261,
-    tLBRACE = 262,
-    tRBRACE = 263,
-    tLPAR = 264,
-    tRPAR = 265,
-    tIF = 266,
-    tELSE = 267,
-    tWHILE = 268,
+    tWHILE = 260,
+    tVOID = 261,
+    tINT = 262,
+    tLBRACE = 263,
+    tRBRACE = 264,
+    tLPAR = 265,
+    tRPAR = 266,
+    tIF = 267,
+    tELSE = 268,
     tPRINT = 269,
     tRETURN = 270,
     tADD = 271,
@@ -87,7 +87,7 @@ extern int yydebug;
 union YYSTYPE
 {
 #line 18 "bison.y"
- char *s; int n; 
+ char *s; int n; struct {int n1; int n2;} while_info; struct {int n1; int n2;} if_info; 
 
 #line 93 "bison.tab.h"
 

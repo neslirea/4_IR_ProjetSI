@@ -61,68 +61,74 @@ Grammaire
 
    35 return_stmt: tRETURN expression tSEMI
 
-   36 if_stmt: tIF tLPAR con tRPAR body
-   37        | tIF tLPAR con tRPAR body tELSE body
-   38        | tIF tLPAR con tRPAR body tELSE if_stmt
+   36 if_memo: %empty
 
-   39 while_stmt: tWHILE tLPAR con tRPAR body
+   37 if_stmt: tIF if_memo tLPAR con tRPAR body
+   38        | tIF if_memo tLPAR con tRPAR body tELSE body
+   39        | tIF if_memo tLPAR con tRPAR body tELSE if_stmt
 
-   40 con: condition
-   41    | tLPAR con tRPAR
-   42    | tNOT tLPAR con tRPAR
-   43    | con tOR condition
-   44    | con tAND condition
+   40 $@2: %empty
 
-   45 condition: expression comparator expression
-   46          | tNOT condition
+   41 $@3: %empty
 
-   47 expression: tNB
-   48           | tID
-   49           | expression tADD expression
-   50           | expression tSUB expression
-   51           | expression tMUL expression
-   52           | expression tDIV expression
-   53           | tLPAR expression tRPAR
+   42 while_stmt: tWHILE tLPAR $@2 con $@3 tRPAR body
 
-   54 comparator: tNE
-   55           | tEQ
-   56           | tGE
-   57           | tLE
-   58           | tLT
-   59           | tGT
+   43 con: condition
+   44    | tLPAR con tRPAR
+   45    | tNOT tLPAR con tRPAR
+   46    | con tOR condition
+   47    | con tAND condition
+
+   48 condition: expression comparator expression
+   49          | tNOT condition
+
+   50 expression: tNB
+   51           | tID
+   52           | expression tADD expression
+   53           | expression tSUB expression
+   54           | expression tMUL expression
+   55           | expression tDIV expression
+   56           | tLPAR expression tRPAR
+
+   57 comparator: tNE
+   58           | tEQ
+   59           | tGE
+   60           | tLE
+   61           | tLT
+   62           | tGT
 
 
 Terminaux, suivis des règles où ils apparaissent
 
     $end (0) 0
     error (256)
-    tID <s> (258) 3 4 10 26 27 28 30 48
-    tNB <n> (259) 47
-    tVOID (260) 4 6
-    tINT (261) 3 10 22
-    tLBRACE (262) 11 13
-    tRBRACE (263) 11 13
-    tLPAR (264) 3 4 30 34 36 37 38 39 41 42 53
-    tRPAR (265) 3 4 30 34 36 37 38 39 41 42 53
-    tIF (266) 36 37 38
-    tELSE (267) 37 38
-    tWHILE (268) 39
+    tID <s> (258) 3 4 10 26 27 28 30 51
+    tNB <n> (259) 50
+    tWHILE <while_info> (260) 42
+    tVOID (261) 4 6
+    tINT (262) 3 10 22
+    tLBRACE (263) 11 13
+    tRBRACE (264) 11 13
+    tLPAR (265) 3 4 30 34 37 38 39 42 44 45 56
+    tRPAR (266) 3 4 30 34 37 38 39 42 44 45 56
+    tIF (267) 37 38 39
+    tELSE (268) 38 39
     tPRINT (269) 34
     tRETURN (270) 35
-    tADD (271) 49
-    tSUB (272) 50
-    tMUL (273) 51
-    tDIV (274) 52
-    tLT (275) 58
-    tGT (276) 59
-    tNE (277) 54
-    tEQ (278) 55
-    tGE (279) 56
-    tLE (280) 57
+    tADD (271) 52
+    tSUB (272) 53
+    tMUL (273) 54
+    tDIV (274) 55
+    tLT (275) 61
+    tGT (276) 62
+    tNE (277) 57
+    tEQ (278) 58
+    tGE (279) 59
+    tLE (280) 60
     tASSIGN (281) 27 28
-    tAND (282) 44
-    tOR (283) 43
-    tNOT (284) 42 46
+    tAND (282) 47
+    tOR (283) 46
+    tNOT (284) 45 49
     tSEMI (285) 22 28 29 34 35
     tCOMMA (286) 9 25 33
     tERROR (287)
@@ -149,7 +155,7 @@ Non-terminaux, suivis des règles où ils apparaissent
         à droite: 7 9
     body (39)
         à gauche: 11 13
-        à droite: 3 4 36 37 38 39
+        à droite: 3 4 37 38 39 42
     $@1 (40)
         à gauche: 12
         à droite: 13
@@ -186,24 +192,33 @@ Non-terminaux, suivis des règles où ils apparaissent
     return_stmt (51)
         à gauche: 35
         à droite: 19
-    if_stmt (52)
-        à gauche: 36 37 38
-        à droite: 20 38
-    while_stmt (53)
-        à gauche: 39
+    if_memo <if_info> (52)
+        à gauche: 36
+        à droite: 37 38 39
+    if_stmt (53)
+        à gauche: 37 38 39
+        à droite: 20 39
+    while_stmt (54)
+        à gauche: 42
         à droite: 21
-    con (54)
-        à gauche: 40 41 42 43 44
-        à droite: 36 37 38 39 41 42 43 44
-    condition (55)
-        à gauche: 45 46
-        à droite: 40 43 44 46
-    expression (56)
-        à gauche: 47 48 49 50 51 52 53
-        à droite: 27 28 32 33 34 35 45 49 50 51 52 53
-    comparator (57)
-        à gauche: 54 55 56 57 58 59
-        à droite: 45
+    $@2 (55)
+        à gauche: 40
+        à droite: 42
+    $@3 (56)
+        à gauche: 41
+        à droite: 42
+    con (57)
+        à gauche: 43 44 45 46 47
+        à droite: 37 38 39 42 44 45 46 47
+    condition (58)
+        à gauche: 48 49
+        à droite: 43 46 47 49
+    expression (59)
+        à gauche: 50 51 52 53 54 55 56
+        à droite: 27 28 32 33 34 35 48 52 53 54 55 56
+    comparator (60)
+        à gauche: 57 58 59 60 61 62
+        à droite: 48
 
 
 État 0
@@ -433,9 +448,9 @@ Non-terminaux, suivis des règles où ils apparaissent
    13 body: tLBRACE $@1 . stmts tRBRACE
 
     tID      décalage et aller à l'état 28
-    tINT     décalage et aller à l'état 29
-    tIF      décalage et aller à l'état 30
-    tWHILE   décalage et aller à l'état 31
+    tWHILE   décalage et aller à l'état 29
+    tINT     décalage et aller à l'état 30
+    tIF      décalage et aller à l'état 31
     tPRINT   décalage et aller à l'état 32
     tRETURN  décalage et aller à l'état 33
 
@@ -468,28 +483,30 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 29
 
-   22 declaration_stmt: tINT . id_list tSEMI
+   42 while_stmt: tWHILE . tLPAR $@2 con $@3 tRPAR body
 
-    tID  décalage et aller à l'état 45
-
-    id_list  aller à l'état 46
-    id_decl  aller à l'état 47
+    tLPAR  décalage et aller à l'état 45
 
 
 État 30
 
-   36 if_stmt: tIF . tLPAR con tRPAR body
-   37        | tIF . tLPAR con tRPAR body tELSE body
-   38        | tIF . tLPAR con tRPAR body tELSE if_stmt
+   22 declaration_stmt: tINT . id_list tSEMI
 
-    tLPAR  décalage et aller à l'état 48
+    tID  décalage et aller à l'état 46
+
+    id_list  aller à l'état 47
+    id_decl  aller à l'état 48
 
 
 État 31
 
-   39 while_stmt: tWHILE . tLPAR con tRPAR body
+   37 if_stmt: tIF . if_memo tLPAR con tRPAR body
+   38        | tIF . if_memo tLPAR con tRPAR body tELSE body
+   39        | tIF . if_memo tLPAR con tRPAR body tELSE if_stmt
 
-    tLPAR  décalage et aller à l'état 49
+    $défaut  réduction par utilisation de la règle 36 (if_memo)
+
+    if_memo  aller à l'état 49
 
 
 État 32
@@ -516,10 +533,10 @@ Non-terminaux, suivis des règles où ils apparaissent
    15 stmts: stmts . stmt
 
     tID      décalage et aller à l'état 28
-    tINT     décalage et aller à l'état 29
+    tWHILE   décalage et aller à l'état 29
+    tINT     décalage et aller à l'état 30
     tRBRACE  décalage et aller à l'état 55
-    tIF      décalage et aller à l'état 30
-    tWHILE   décalage et aller à l'état 31
+    tIF      décalage et aller à l'état 31
     tPRINT   décalage et aller à l'état 32
     tRETURN  décalage et aller à l'état 33
 
@@ -616,60 +633,48 @@ Non-terminaux, suivis des règles où ils apparaissent
 
 État 45
 
-   26 id_decl: tID .
-   27        | tID . tASSIGN expression
+   42 while_stmt: tWHILE tLPAR . $@2 con $@3 tRPAR body
 
-    tASSIGN  décalage et aller à l'état 61
+    $défaut  réduction par utilisation de la règle 40 ($@2)
 
-    $défaut  réduction par utilisation de la règle 26 (id_decl)
+    $@2  aller à l'état 61
 
 
 État 46
 
-   22 declaration_stmt: tINT id_list . tSEMI
+   26 id_decl: tID .
+   27        | tID . tASSIGN expression
 
-    tSEMI  décalage et aller à l'état 62
+    tASSIGN  décalage et aller à l'état 62
+
+    $défaut  réduction par utilisation de la règle 26 (id_decl)
 
 
 État 47
 
-   23 id_list: id_decl . id_list1
+   22 declaration_stmt: tINT id_list . tSEMI
 
-    tCOMMA  décalage et aller à l'état 63
-
-    $défaut  réduction par utilisation de la règle 24 (id_list1)
-
-    id_list1  aller à l'état 64
+    tSEMI  décalage et aller à l'état 63
 
 
 État 48
 
-   36 if_stmt: tIF tLPAR . con tRPAR body
-   37        | tIF tLPAR . con tRPAR body tELSE body
-   38        | tIF tLPAR . con tRPAR body tELSE if_stmt
+   23 id_list: id_decl . id_list1
 
-    tID    décalage et aller à l'état 51
-    tNB    décalage et aller à l'état 52
-    tLPAR  décalage et aller à l'état 65
-    tNOT   décalage et aller à l'état 66
+    tCOMMA  décalage et aller à l'état 64
 
-    con         aller à l'état 67
-    condition   aller à l'état 68
-    expression  aller à l'état 69
+    $défaut  réduction par utilisation de la règle 24 (id_list1)
+
+    id_list1  aller à l'état 65
 
 
 État 49
 
-   39 while_stmt: tWHILE tLPAR . con tRPAR body
+   37 if_stmt: tIF if_memo . tLPAR con tRPAR body
+   38        | tIF if_memo . tLPAR con tRPAR body tELSE body
+   39        | tIF if_memo . tLPAR con tRPAR body tELSE if_stmt
 
-    tID    décalage et aller à l'état 51
-    tNB    décalage et aller à l'état 52
-    tLPAR  décalage et aller à l'état 65
-    tNOT   décalage et aller à l'état 66
-
-    con         aller à l'état 70
-    condition   aller à l'état 68
-    expression  aller à l'état 69
+    tLPAR  décalage et aller à l'état 66
 
 
 État 50
@@ -680,47 +685,47 @@ Non-terminaux, suivis des règles où ils apparaissent
     tNB    décalage et aller à l'état 52
     tLPAR  décalage et aller à l'état 53
 
-    expression  aller à l'état 71
+    expression  aller à l'état 67
 
 
 État 51
 
-   48 expression: tID .
+   51 expression: tID .
 
-    $défaut  réduction par utilisation de la règle 48 (expression)
+    $défaut  réduction par utilisation de la règle 51 (expression)
 
 
 État 52
 
-   47 expression: tNB .
+   50 expression: tNB .
 
-    $défaut  réduction par utilisation de la règle 47 (expression)
+    $défaut  réduction par utilisation de la règle 50 (expression)
 
 
 État 53
 
-   53 expression: tLPAR . expression tRPAR
+   56 expression: tLPAR . expression tRPAR
 
     tID    décalage et aller à l'état 51
     tNB    décalage et aller à l'état 52
     tLPAR  décalage et aller à l'état 53
 
-    expression  aller à l'état 72
+    expression  aller à l'état 68
 
 
 État 54
 
    35 return_stmt: tRETURN expression . tSEMI
-   49 expression: expression . tADD expression
-   50           | expression . tSUB expression
-   51           | expression . tMUL expression
-   52           | expression . tDIV expression
+   52 expression: expression . tADD expression
+   53           | expression . tSUB expression
+   54           | expression . tMUL expression
+   55           | expression . tDIV expression
 
-    tADD   décalage et aller à l'état 73
-    tSUB   décalage et aller à l'état 74
-    tMUL   décalage et aller à l'état 75
-    tDIV   décalage et aller à l'état 76
-    tSEMI  décalage et aller à l'état 77
+    tADD   décalage et aller à l'état 69
+    tSUB   décalage et aller à l'état 70
+    tMUL   décalage et aller à l'état 71
+    tDIV   décalage et aller à l'état 72
+    tSEMI  décalage et aller à l'état 73
 
 
 État 55
@@ -749,22 +754,22 @@ Non-terminaux, suivis des règles où ils apparaissent
    30 function_call: tID tLPAR params_call . tRPAR
    33 params_call: params_call . tCOMMA expression
 
-    tRPAR   décalage et aller à l'état 78
-    tCOMMA  décalage et aller à l'état 79
+    tRPAR   décalage et aller à l'état 74
+    tCOMMA  décalage et aller à l'état 75
 
 
 État 59
 
    32 params_call: expression .
-   49 expression: expression . tADD expression
-   50           | expression . tSUB expression
-   51           | expression . tMUL expression
-   52           | expression . tDIV expression
+   52 expression: expression . tADD expression
+   53           | expression . tSUB expression
+   54           | expression . tMUL expression
+   55           | expression . tDIV expression
 
-    tADD  décalage et aller à l'état 73
-    tSUB  décalage et aller à l'état 74
-    tMUL  décalage et aller à l'état 75
-    tDIV  décalage et aller à l'état 76
+    tADD  décalage et aller à l'état 69
+    tSUB  décalage et aller à l'état 70
+    tMUL  décalage et aller à l'état 71
+    tDIV  décalage et aller à l'état 72
 
     $défaut  réduction par utilisation de la règle 32 (params_call)
 
@@ -772,19 +777,33 @@ Non-terminaux, suivis des règles où ils apparaissent
 État 60
 
    28 assign_call_stmt: tID tASSIGN expression . tSEMI
-   49 expression: expression . tADD expression
-   50           | expression . tSUB expression
-   51           | expression . tMUL expression
-   52           | expression . tDIV expression
+   52 expression: expression . tADD expression
+   53           | expression . tSUB expression
+   54           | expression . tMUL expression
+   55           | expression . tDIV expression
 
-    tADD   décalage et aller à l'état 73
-    tSUB   décalage et aller à l'état 74
-    tMUL   décalage et aller à l'état 75
-    tDIV   décalage et aller à l'état 76
-    tSEMI  décalage et aller à l'état 80
+    tADD   décalage et aller à l'état 69
+    tSUB   décalage et aller à l'état 70
+    tMUL   décalage et aller à l'état 71
+    tDIV   décalage et aller à l'état 72
+    tSEMI  décalage et aller à l'état 76
 
 
 État 61
+
+   42 while_stmt: tWHILE tLPAR $@2 . con $@3 tRPAR body
+
+    tID    décalage et aller à l'état 51
+    tNB    décalage et aller à l'état 52
+    tLPAR  décalage et aller à l'état 77
+    tNOT   décalage et aller à l'état 78
+
+    con         aller à l'état 79
+    condition   aller à l'état 80
+    expression  aller à l'état 81
+
+
+État 62
 
    27 id_decl: tID tASSIGN . expression
 
@@ -792,203 +811,137 @@ Non-terminaux, suivis des règles où ils apparaissent
     tNB    décalage et aller à l'état 52
     tLPAR  décalage et aller à l'état 53
 
-    expression  aller à l'état 81
+    expression  aller à l'état 82
 
 
-État 62
+État 63
 
    22 declaration_stmt: tINT id_list tSEMI .
 
     $défaut  réduction par utilisation de la règle 22 (declaration_stmt)
 
 
-État 63
+État 64
 
    25 id_list1: tCOMMA . id_decl id_list1
 
-    tID  décalage et aller à l'état 45
+    tID  décalage et aller à l'état 46
 
-    id_decl  aller à l'état 82
+    id_decl  aller à l'état 83
 
 
-État 64
+État 65
 
    23 id_list: id_decl id_list1 .
 
     $défaut  réduction par utilisation de la règle 23 (id_list)
 
 
-État 65
-
-   41 con: tLPAR . con tRPAR
-   53 expression: tLPAR . expression tRPAR
-
-    tID    décalage et aller à l'état 51
-    tNB    décalage et aller à l'état 52
-    tLPAR  décalage et aller à l'état 65
-    tNOT   décalage et aller à l'état 66
-
-    con         aller à l'état 83
-    condition   aller à l'état 68
-    expression  aller à l'état 84
-
-
 État 66
 
-   42 con: tNOT . tLPAR con tRPAR
-   46 condition: tNOT . condition
+   37 if_stmt: tIF if_memo tLPAR . con tRPAR body
+   38        | tIF if_memo tLPAR . con tRPAR body tELSE body
+   39        | tIF if_memo tLPAR . con tRPAR body tELSE if_stmt
 
     tID    décalage et aller à l'état 51
     tNB    décalage et aller à l'état 52
-    tLPAR  décalage et aller à l'état 85
-    tNOT   décalage et aller à l'état 86
+    tLPAR  décalage et aller à l'état 77
+    tNOT   décalage et aller à l'état 78
 
-    condition   aller à l'état 87
-    expression  aller à l'état 69
+    con         aller à l'état 84
+    condition   aller à l'état 80
+    expression  aller à l'état 81
 
 
 État 67
 
-   36 if_stmt: tIF tLPAR con . tRPAR body
-   37        | tIF tLPAR con . tRPAR body tELSE body
-   38        | tIF tLPAR con . tRPAR body tELSE if_stmt
-   43 con: con . tOR condition
-   44    | con . tAND condition
+   34 print_stmt: tPRINT tLPAR expression . tRPAR tSEMI
+   52 expression: expression . tADD expression
+   53           | expression . tSUB expression
+   54           | expression . tMUL expression
+   55           | expression . tDIV expression
 
-    tRPAR  décalage et aller à l'état 88
-    tAND   décalage et aller à l'état 89
-    tOR    décalage et aller à l'état 90
+    tRPAR  décalage et aller à l'état 85
+    tADD   décalage et aller à l'état 69
+    tSUB   décalage et aller à l'état 70
+    tMUL   décalage et aller à l'état 71
+    tDIV   décalage et aller à l'état 72
 
 
 État 68
 
-   40 con: condition .
+   52 expression: expression . tADD expression
+   53           | expression . tSUB expression
+   54           | expression . tMUL expression
+   55           | expression . tDIV expression
+   56           | tLPAR expression . tRPAR
 
-    $défaut  réduction par utilisation de la règle 40 (con)
+    tRPAR  décalage et aller à l'état 86
+    tADD   décalage et aller à l'état 69
+    tSUB   décalage et aller à l'état 70
+    tMUL   décalage et aller à l'état 71
+    tDIV   décalage et aller à l'état 72
 
 
 État 69
 
-   45 condition: expression . comparator expression
-   49 expression: expression . tADD expression
-   50           | expression . tSUB expression
-   51           | expression . tMUL expression
-   52           | expression . tDIV expression
+   52 expression: expression tADD . expression
 
-    tADD  décalage et aller à l'état 73
-    tSUB  décalage et aller à l'état 74
-    tMUL  décalage et aller à l'état 75
-    tDIV  décalage et aller à l'état 76
-    tLT   décalage et aller à l'état 91
-    tGT   décalage et aller à l'état 92
-    tNE   décalage et aller à l'état 93
-    tEQ   décalage et aller à l'état 94
-    tGE   décalage et aller à l'état 95
-    tLE   décalage et aller à l'état 96
+    tID    décalage et aller à l'état 51
+    tNB    décalage et aller à l'état 52
+    tLPAR  décalage et aller à l'état 53
 
-    comparator  aller à l'état 97
+    expression  aller à l'état 87
 
 
 État 70
 
-   39 while_stmt: tWHILE tLPAR con . tRPAR body
-   43 con: con . tOR condition
-   44    | con . tAND condition
+   53 expression: expression tSUB . expression
 
-    tRPAR  décalage et aller à l'état 98
-    tAND   décalage et aller à l'état 89
-    tOR    décalage et aller à l'état 90
+    tID    décalage et aller à l'état 51
+    tNB    décalage et aller à l'état 52
+    tLPAR  décalage et aller à l'état 53
+
+    expression  aller à l'état 88
 
 
 État 71
 
-   34 print_stmt: tPRINT tLPAR expression . tRPAR tSEMI
-   49 expression: expression . tADD expression
-   50           | expression . tSUB expression
-   51           | expression . tMUL expression
-   52           | expression . tDIV expression
+   54 expression: expression tMUL . expression
 
-    tRPAR  décalage et aller à l'état 99
-    tADD   décalage et aller à l'état 73
-    tSUB   décalage et aller à l'état 74
-    tMUL   décalage et aller à l'état 75
-    tDIV   décalage et aller à l'état 76
+    tID    décalage et aller à l'état 51
+    tNB    décalage et aller à l'état 52
+    tLPAR  décalage et aller à l'état 53
+
+    expression  aller à l'état 89
 
 
 État 72
 
-   49 expression: expression . tADD expression
-   50           | expression . tSUB expression
-   51           | expression . tMUL expression
-   52           | expression . tDIV expression
-   53           | tLPAR expression . tRPAR
+   55 expression: expression tDIV . expression
 
-    tRPAR  décalage et aller à l'état 100
-    tADD   décalage et aller à l'état 73
-    tSUB   décalage et aller à l'état 74
-    tMUL   décalage et aller à l'état 75
-    tDIV   décalage et aller à l'état 76
+    tID    décalage et aller à l'état 51
+    tNB    décalage et aller à l'état 52
+    tLPAR  décalage et aller à l'état 53
+
+    expression  aller à l'état 90
 
 
 État 73
-
-   49 expression: expression tADD . expression
-
-    tID    décalage et aller à l'état 51
-    tNB    décalage et aller à l'état 52
-    tLPAR  décalage et aller à l'état 53
-
-    expression  aller à l'état 101
-
-
-État 74
-
-   50 expression: expression tSUB . expression
-
-    tID    décalage et aller à l'état 51
-    tNB    décalage et aller à l'état 52
-    tLPAR  décalage et aller à l'état 53
-
-    expression  aller à l'état 102
-
-
-État 75
-
-   51 expression: expression tMUL . expression
-
-    tID    décalage et aller à l'état 51
-    tNB    décalage et aller à l'état 52
-    tLPAR  décalage et aller à l'état 53
-
-    expression  aller à l'état 103
-
-
-État 76
-
-   52 expression: expression tDIV . expression
-
-    tID    décalage et aller à l'état 51
-    tNB    décalage et aller à l'état 52
-    tLPAR  décalage et aller à l'état 53
-
-    expression  aller à l'état 104
-
-
-État 77
 
    35 return_stmt: tRETURN expression tSEMI .
 
     $défaut  réduction par utilisation de la règle 35 (return_stmt)
 
 
-État 78
+État 74
 
    30 function_call: tID tLPAR params_call tRPAR .
 
     $défaut  réduction par utilisation de la règle 30 (function_call)
 
 
-État 79
+État 75
 
    33 params_call: params_call tCOMMA . expression
 
@@ -996,400 +949,492 @@ Non-terminaux, suivis des règles où ils apparaissent
     tNB    décalage et aller à l'état 52
     tLPAR  décalage et aller à l'état 53
 
-    expression  aller à l'état 105
+    expression  aller à l'état 91
 
 
-État 80
+État 76
 
    28 assign_call_stmt: tID tASSIGN expression tSEMI .
 
     $défaut  réduction par utilisation de la règle 28 (assign_call_stmt)
 
 
+État 77
+
+   44 con: tLPAR . con tRPAR
+   56 expression: tLPAR . expression tRPAR
+
+    tID    décalage et aller à l'état 51
+    tNB    décalage et aller à l'état 52
+    tLPAR  décalage et aller à l'état 77
+    tNOT   décalage et aller à l'état 78
+
+    con         aller à l'état 92
+    condition   aller à l'état 80
+    expression  aller à l'état 93
+
+
+État 78
+
+   45 con: tNOT . tLPAR con tRPAR
+   49 condition: tNOT . condition
+
+    tID    décalage et aller à l'état 51
+    tNB    décalage et aller à l'état 52
+    tLPAR  décalage et aller à l'état 94
+    tNOT   décalage et aller à l'état 95
+
+    condition   aller à l'état 96
+    expression  aller à l'état 81
+
+
+État 79
+
+   42 while_stmt: tWHILE tLPAR $@2 con . $@3 tRPAR body
+   46 con: con . tOR condition
+   47    | con . tAND condition
+
+    tAND  décalage et aller à l'état 97
+    tOR   décalage et aller à l'état 98
+
+    $défaut  réduction par utilisation de la règle 41 ($@3)
+
+    $@3  aller à l'état 99
+
+
+État 80
+
+   43 con: condition .
+
+    $défaut  réduction par utilisation de la règle 43 (con)
+
+
 État 81
 
-   27 id_decl: tID tASSIGN expression .
-   49 expression: expression . tADD expression
-   50           | expression . tSUB expression
-   51           | expression . tMUL expression
-   52           | expression . tDIV expression
+   48 condition: expression . comparator expression
+   52 expression: expression . tADD expression
+   53           | expression . tSUB expression
+   54           | expression . tMUL expression
+   55           | expression . tDIV expression
 
-    tADD  décalage et aller à l'état 73
-    tSUB  décalage et aller à l'état 74
-    tMUL  décalage et aller à l'état 75
-    tDIV  décalage et aller à l'état 76
+    tADD  décalage et aller à l'état 69
+    tSUB  décalage et aller à l'état 70
+    tMUL  décalage et aller à l'état 71
+    tDIV  décalage et aller à l'état 72
+    tLT   décalage et aller à l'état 100
+    tGT   décalage et aller à l'état 101
+    tNE   décalage et aller à l'état 102
+    tEQ   décalage et aller à l'état 103
+    tGE   décalage et aller à l'état 104
+    tLE   décalage et aller à l'état 105
 
-    $défaut  réduction par utilisation de la règle 27 (id_decl)
+    comparator  aller à l'état 106
 
 
 État 82
 
-   25 id_list1: tCOMMA id_decl . id_list1
+   27 id_decl: tID tASSIGN expression .
+   52 expression: expression . tADD expression
+   53           | expression . tSUB expression
+   54           | expression . tMUL expression
+   55           | expression . tDIV expression
 
-    tCOMMA  décalage et aller à l'état 63
+    tADD  décalage et aller à l'état 69
+    tSUB  décalage et aller à l'état 70
+    tMUL  décalage et aller à l'état 71
+    tDIV  décalage et aller à l'état 72
 
-    $défaut  réduction par utilisation de la règle 24 (id_list1)
-
-    id_list1  aller à l'état 106
+    $défaut  réduction par utilisation de la règle 27 (id_decl)
 
 
 État 83
 
-   41 con: tLPAR con . tRPAR
-   43    | con . tOR condition
-   44    | con . tAND condition
+   25 id_list1: tCOMMA id_decl . id_list1
 
-    tRPAR  décalage et aller à l'état 107
-    tAND   décalage et aller à l'état 89
-    tOR    décalage et aller à l'état 90
+    tCOMMA  décalage et aller à l'état 64
+
+    $défaut  réduction par utilisation de la règle 24 (id_list1)
+
+    id_list1  aller à l'état 107
 
 
 État 84
 
-   45 condition: expression . comparator expression
-   49 expression: expression . tADD expression
-   50           | expression . tSUB expression
-   51           | expression . tMUL expression
-   52           | expression . tDIV expression
-   53           | tLPAR expression . tRPAR
+   37 if_stmt: tIF if_memo tLPAR con . tRPAR body
+   38        | tIF if_memo tLPAR con . tRPAR body tELSE body
+   39        | tIF if_memo tLPAR con . tRPAR body tELSE if_stmt
+   46 con: con . tOR condition
+   47    | con . tAND condition
 
-    tRPAR  décalage et aller à l'état 100
-    tADD   décalage et aller à l'état 73
-    tSUB   décalage et aller à l'état 74
-    tMUL   décalage et aller à l'état 75
-    tDIV   décalage et aller à l'état 76
-    tLT    décalage et aller à l'état 91
-    tGT    décalage et aller à l'état 92
-    tNE    décalage et aller à l'état 93
-    tEQ    décalage et aller à l'état 94
-    tGE    décalage et aller à l'état 95
-    tLE    décalage et aller à l'état 96
-
-    comparator  aller à l'état 97
+    tRPAR  décalage et aller à l'état 108
+    tAND   décalage et aller à l'état 97
+    tOR    décalage et aller à l'état 98
 
 
 État 85
 
-   42 con: tNOT tLPAR . con tRPAR
-   53 expression: tLPAR . expression tRPAR
+   34 print_stmt: tPRINT tLPAR expression tRPAR . tSEMI
 
-    tID    décalage et aller à l'état 51
-    tNB    décalage et aller à l'état 52
-    tLPAR  décalage et aller à l'état 65
-    tNOT   décalage et aller à l'état 66
-
-    con         aller à l'état 108
-    condition   aller à l'état 68
-    expression  aller à l'état 84
+    tSEMI  décalage et aller à l'état 109
 
 
 État 86
 
-   46 condition: tNOT . condition
+   56 expression: tLPAR expression tRPAR .
 
-    tID    décalage et aller à l'état 51
-    tNB    décalage et aller à l'état 52
-    tLPAR  décalage et aller à l'état 53
-    tNOT   décalage et aller à l'état 86
-
-    condition   aller à l'état 87
-    expression  aller à l'état 69
+    $défaut  réduction par utilisation de la règle 56 (expression)
 
 
 État 87
 
-   46 condition: tNOT condition .
-
-    $défaut  réduction par utilisation de la règle 46 (condition)
-
-
-État 88
-
-   36 if_stmt: tIF tLPAR con tRPAR . body
-   37        | tIF tLPAR con tRPAR . body tELSE body
-   38        | tIF tLPAR con tRPAR . body tELSE if_stmt
-
-    tLBRACE  décalage et aller à l'état 21
-
-    body  aller à l'état 109
-
-
-État 89
-
-   44 con: con tAND . condition
-
-    tID    décalage et aller à l'état 51
-    tNB    décalage et aller à l'état 52
-    tLPAR  décalage et aller à l'état 53
-    tNOT   décalage et aller à l'état 86
-
-    condition   aller à l'état 110
-    expression  aller à l'état 69
-
-
-État 90
-
-   43 con: con tOR . condition
-
-    tID    décalage et aller à l'état 51
-    tNB    décalage et aller à l'état 52
-    tLPAR  décalage et aller à l'état 53
-    tNOT   décalage et aller à l'état 86
-
-    condition   aller à l'état 111
-    expression  aller à l'état 69
-
-
-État 91
-
-   58 comparator: tLT .
-
-    $défaut  réduction par utilisation de la règle 58 (comparator)
-
-
-État 92
-
-   59 comparator: tGT .
-
-    $défaut  réduction par utilisation de la règle 59 (comparator)
-
-
-État 93
-
-   54 comparator: tNE .
-
-    $défaut  réduction par utilisation de la règle 54 (comparator)
-
-
-État 94
-
-   55 comparator: tEQ .
-
-    $défaut  réduction par utilisation de la règle 55 (comparator)
-
-
-État 95
-
-   56 comparator: tGE .
-
-    $défaut  réduction par utilisation de la règle 56 (comparator)
-
-
-État 96
-
-   57 comparator: tLE .
-
-    $défaut  réduction par utilisation de la règle 57 (comparator)
-
-
-État 97
-
-   45 condition: expression comparator . expression
-
-    tID    décalage et aller à l'état 51
-    tNB    décalage et aller à l'état 52
-    tLPAR  décalage et aller à l'état 53
-
-    expression  aller à l'état 112
-
-
-État 98
-
-   39 while_stmt: tWHILE tLPAR con tRPAR . body
-
-    tLBRACE  décalage et aller à l'état 21
-
-    body  aller à l'état 113
-
-
-État 99
-
-   34 print_stmt: tPRINT tLPAR expression tRPAR . tSEMI
-
-    tSEMI  décalage et aller à l'état 114
-
-
-État 100
-
-   53 expression: tLPAR expression tRPAR .
-
-    $défaut  réduction par utilisation de la règle 53 (expression)
-
-
-État 101
-
-   49 expression: expression . tADD expression
-   49           | expression tADD expression .
-   50           | expression . tSUB expression
-   51           | expression . tMUL expression
-   52           | expression . tDIV expression
-
-    tMUL  décalage et aller à l'état 75
-    tDIV  décalage et aller à l'état 76
-
-    $défaut  réduction par utilisation de la règle 49 (expression)
-
-
-État 102
-
-   49 expression: expression . tADD expression
-   50           | expression . tSUB expression
-   50           | expression tSUB expression .
-   51           | expression . tMUL expression
-   52           | expression . tDIV expression
-
-    tMUL  décalage et aller à l'état 75
-    tDIV  décalage et aller à l'état 76
-
-    $défaut  réduction par utilisation de la règle 50 (expression)
-
-
-État 103
-
-   49 expression: expression . tADD expression
-   50           | expression . tSUB expression
-   51           | expression . tMUL expression
-   51           | expression tMUL expression .
-   52           | expression . tDIV expression
-
-    $défaut  réduction par utilisation de la règle 51 (expression)
-
-
-État 104
-
-   49 expression: expression . tADD expression
-   50           | expression . tSUB expression
-   51           | expression . tMUL expression
-   52           | expression . tDIV expression
-   52           | expression tDIV expression .
+   52 expression: expression . tADD expression
+   52           | expression tADD expression .
+   53           | expression . tSUB expression
+   54           | expression . tMUL expression
+   55           | expression . tDIV expression
+
+    tMUL  décalage et aller à l'état 71
+    tDIV  décalage et aller à l'état 72
 
     $défaut  réduction par utilisation de la règle 52 (expression)
 
 
-État 105
+État 88
+
+   52 expression: expression . tADD expression
+   53           | expression . tSUB expression
+   53           | expression tSUB expression .
+   54           | expression . tMUL expression
+   55           | expression . tDIV expression
+
+    tMUL  décalage et aller à l'état 71
+    tDIV  décalage et aller à l'état 72
+
+    $défaut  réduction par utilisation de la règle 53 (expression)
+
+
+État 89
+
+   52 expression: expression . tADD expression
+   53           | expression . tSUB expression
+   54           | expression . tMUL expression
+   54           | expression tMUL expression .
+   55           | expression . tDIV expression
+
+    $défaut  réduction par utilisation de la règle 54 (expression)
+
+
+État 90
+
+   52 expression: expression . tADD expression
+   53           | expression . tSUB expression
+   54           | expression . tMUL expression
+   55           | expression . tDIV expression
+   55           | expression tDIV expression .
+
+    $défaut  réduction par utilisation de la règle 55 (expression)
+
+
+État 91
 
    33 params_call: params_call tCOMMA expression .
-   49 expression: expression . tADD expression
-   50           | expression . tSUB expression
-   51           | expression . tMUL expression
-   52           | expression . tDIV expression
+   52 expression: expression . tADD expression
+   53           | expression . tSUB expression
+   54           | expression . tMUL expression
+   55           | expression . tDIV expression
 
-    tADD  décalage et aller à l'état 73
-    tSUB  décalage et aller à l'état 74
-    tMUL  décalage et aller à l'état 75
-    tDIV  décalage et aller à l'état 76
+    tADD  décalage et aller à l'état 69
+    tSUB  décalage et aller à l'état 70
+    tMUL  décalage et aller à l'état 71
+    tDIV  décalage et aller à l'état 72
 
     $défaut  réduction par utilisation de la règle 33 (params_call)
 
 
+État 92
+
+   44 con: tLPAR con . tRPAR
+   46    | con . tOR condition
+   47    | con . tAND condition
+
+    tRPAR  décalage et aller à l'état 110
+    tAND   décalage et aller à l'état 97
+    tOR    décalage et aller à l'état 98
+
+
+État 93
+
+   48 condition: expression . comparator expression
+   52 expression: expression . tADD expression
+   53           | expression . tSUB expression
+   54           | expression . tMUL expression
+   55           | expression . tDIV expression
+   56           | tLPAR expression . tRPAR
+
+    tRPAR  décalage et aller à l'état 86
+    tADD   décalage et aller à l'état 69
+    tSUB   décalage et aller à l'état 70
+    tMUL   décalage et aller à l'état 71
+    tDIV   décalage et aller à l'état 72
+    tLT    décalage et aller à l'état 100
+    tGT    décalage et aller à l'état 101
+    tNE    décalage et aller à l'état 102
+    tEQ    décalage et aller à l'état 103
+    tGE    décalage et aller à l'état 104
+    tLE    décalage et aller à l'état 105
+
+    comparator  aller à l'état 106
+
+
+État 94
+
+   45 con: tNOT tLPAR . con tRPAR
+   56 expression: tLPAR . expression tRPAR
+
+    tID    décalage et aller à l'état 51
+    tNB    décalage et aller à l'état 52
+    tLPAR  décalage et aller à l'état 77
+    tNOT   décalage et aller à l'état 78
+
+    con         aller à l'état 111
+    condition   aller à l'état 80
+    expression  aller à l'état 93
+
+
+État 95
+
+   49 condition: tNOT . condition
+
+    tID    décalage et aller à l'état 51
+    tNB    décalage et aller à l'état 52
+    tLPAR  décalage et aller à l'état 53
+    tNOT   décalage et aller à l'état 95
+
+    condition   aller à l'état 96
+    expression  aller à l'état 81
+
+
+État 96
+
+   49 condition: tNOT condition .
+
+    $défaut  réduction par utilisation de la règle 49 (condition)
+
+
+État 97
+
+   47 con: con tAND . condition
+
+    tID    décalage et aller à l'état 51
+    tNB    décalage et aller à l'état 52
+    tLPAR  décalage et aller à l'état 53
+    tNOT   décalage et aller à l'état 95
+
+    condition   aller à l'état 112
+    expression  aller à l'état 81
+
+
+État 98
+
+   46 con: con tOR . condition
+
+    tID    décalage et aller à l'état 51
+    tNB    décalage et aller à l'état 52
+    tLPAR  décalage et aller à l'état 53
+    tNOT   décalage et aller à l'état 95
+
+    condition   aller à l'état 113
+    expression  aller à l'état 81
+
+
+État 99
+
+   42 while_stmt: tWHILE tLPAR $@2 con $@3 . tRPAR body
+
+    tRPAR  décalage et aller à l'état 114
+
+
+État 100
+
+   61 comparator: tLT .
+
+    $défaut  réduction par utilisation de la règle 61 (comparator)
+
+
+État 101
+
+   62 comparator: tGT .
+
+    $défaut  réduction par utilisation de la règle 62 (comparator)
+
+
+État 102
+
+   57 comparator: tNE .
+
+    $défaut  réduction par utilisation de la règle 57 (comparator)
+
+
+État 103
+
+   58 comparator: tEQ .
+
+    $défaut  réduction par utilisation de la règle 58 (comparator)
+
+
+État 104
+
+   59 comparator: tGE .
+
+    $défaut  réduction par utilisation de la règle 59 (comparator)
+
+
+État 105
+
+   60 comparator: tLE .
+
+    $défaut  réduction par utilisation de la règle 60 (comparator)
+
+
 État 106
+
+   48 condition: expression comparator . expression
+
+    tID    décalage et aller à l'état 51
+    tNB    décalage et aller à l'état 52
+    tLPAR  décalage et aller à l'état 53
+
+    expression  aller à l'état 115
+
+
+État 107
 
    25 id_list1: tCOMMA id_decl id_list1 .
 
     $défaut  réduction par utilisation de la règle 25 (id_list1)
 
 
-État 107
-
-   41 con: tLPAR con tRPAR .
-
-    $défaut  réduction par utilisation de la règle 41 (con)
-
-
 État 108
 
-   42 con: tNOT tLPAR con . tRPAR
-   43    | con . tOR condition
-   44    | con . tAND condition
+   37 if_stmt: tIF if_memo tLPAR con tRPAR . body
+   38        | tIF if_memo tLPAR con tRPAR . body tELSE body
+   39        | tIF if_memo tLPAR con tRPAR . body tELSE if_stmt
 
-    tRPAR  décalage et aller à l'état 115
-    tAND   décalage et aller à l'état 89
-    tOR    décalage et aller à l'état 90
+    tLBRACE  décalage et aller à l'état 21
+
+    body  aller à l'état 116
 
 
 État 109
-
-   36 if_stmt: tIF tLPAR con tRPAR body .
-   37        | tIF tLPAR con tRPAR body . tELSE body
-   38        | tIF tLPAR con tRPAR body . tELSE if_stmt
-
-    tELSE  décalage et aller à l'état 116
-
-    $défaut  réduction par utilisation de la règle 36 (if_stmt)
-
-
-État 110
-
-   44 con: con tAND condition .
-
-    $défaut  réduction par utilisation de la règle 44 (con)
-
-
-État 111
-
-   43 con: con tOR condition .
-
-    $défaut  réduction par utilisation de la règle 43 (con)
-
-
-État 112
-
-   45 condition: expression comparator expression .
-   49 expression: expression . tADD expression
-   50           | expression . tSUB expression
-   51           | expression . tMUL expression
-   52           | expression . tDIV expression
-
-    tADD  décalage et aller à l'état 73
-    tSUB  décalage et aller à l'état 74
-    tMUL  décalage et aller à l'état 75
-    tDIV  décalage et aller à l'état 76
-
-    $défaut  réduction par utilisation de la règle 45 (condition)
-
-
-État 113
-
-   39 while_stmt: tWHILE tLPAR con tRPAR body .
-
-    $défaut  réduction par utilisation de la règle 39 (while_stmt)
-
-
-État 114
 
    34 print_stmt: tPRINT tLPAR expression tRPAR tSEMI .
 
     $défaut  réduction par utilisation de la règle 34 (print_stmt)
 
 
+État 110
+
+   44 con: tLPAR con tRPAR .
+
+    $défaut  réduction par utilisation de la règle 44 (con)
+
+
+État 111
+
+   45 con: tNOT tLPAR con . tRPAR
+   46    | con . tOR condition
+   47    | con . tAND condition
+
+    tRPAR  décalage et aller à l'état 117
+    tAND   décalage et aller à l'état 97
+    tOR    décalage et aller à l'état 98
+
+
+État 112
+
+   47 con: con tAND condition .
+
+    $défaut  réduction par utilisation de la règle 47 (con)
+
+
+État 113
+
+   46 con: con tOR condition .
+
+    $défaut  réduction par utilisation de la règle 46 (con)
+
+
+État 114
+
+   42 while_stmt: tWHILE tLPAR $@2 con $@3 tRPAR . body
+
+    tLBRACE  décalage et aller à l'état 21
+
+    body  aller à l'état 118
+
+
 État 115
 
-   42 con: tNOT tLPAR con tRPAR .
+   48 condition: expression comparator expression .
+   52 expression: expression . tADD expression
+   53           | expression . tSUB expression
+   54           | expression . tMUL expression
+   55           | expression . tDIV expression
 
-    $défaut  réduction par utilisation de la règle 42 (con)
+    tADD  décalage et aller à l'état 69
+    tSUB  décalage et aller à l'état 70
+    tMUL  décalage et aller à l'état 71
+    tDIV  décalage et aller à l'état 72
+
+    $défaut  réduction par utilisation de la règle 48 (condition)
 
 
 État 116
 
-   37 if_stmt: tIF tLPAR con tRPAR body tELSE . body
-   38        | tIF tLPAR con tRPAR body tELSE . if_stmt
+   37 if_stmt: tIF if_memo tLPAR con tRPAR body .
+   38        | tIF if_memo tLPAR con tRPAR body . tELSE body
+   39        | tIF if_memo tLPAR con tRPAR body . tELSE if_stmt
 
-    tLBRACE  décalage et aller à l'état 21
-    tIF      décalage et aller à l'état 30
-
-    body     aller à l'état 117
-    if_stmt  aller à l'état 118
-
-
-État 117
-
-   37 if_stmt: tIF tLPAR con tRPAR body tELSE body .
+    tELSE  décalage et aller à l'état 119
 
     $défaut  réduction par utilisation de la règle 37 (if_stmt)
 
 
+État 117
+
+   45 con: tNOT tLPAR con tRPAR .
+
+    $défaut  réduction par utilisation de la règle 45 (con)
+
+
 État 118
 
-   38 if_stmt: tIF tLPAR con tRPAR body tELSE if_stmt .
+   42 while_stmt: tWHILE tLPAR $@2 con $@3 tRPAR body .
+
+    $défaut  réduction par utilisation de la règle 42 (while_stmt)
+
+
+État 119
+
+   38 if_stmt: tIF if_memo tLPAR con tRPAR body tELSE . body
+   39        | tIF if_memo tLPAR con tRPAR body tELSE . if_stmt
+
+    tLBRACE  décalage et aller à l'état 21
+    tIF      décalage et aller à l'état 31
+
+    body     aller à l'état 120
+    if_stmt  aller à l'état 121
+
+
+État 120
+
+   38 if_stmt: tIF if_memo tLPAR con tRPAR body tELSE body .
 
     $défaut  réduction par utilisation de la règle 38 (if_stmt)
+
+
+État 121
+
+   39 if_stmt: tIF if_memo tLPAR con tRPAR body tELSE if_stmt .
+
+    $défaut  réduction par utilisation de la règle 39 (if_stmt)

@@ -12,10 +12,10 @@
 */
 void main(int x) {
 
-    int a;
+    int a = 3;
 
-    if (a == 3) {
-		int b = 2*a - 9 + a/3;
+    while (a+8*a  == 3) {
+		a =a-1;
     }
     return a;
 }

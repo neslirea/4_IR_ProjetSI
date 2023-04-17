@@ -7,7 +7,7 @@
 
 //TabSymbolesStack* tab;
 //int depth;
-
+// note : $$ => résultat _ $1 : param à l'adresse 1 de la pile d'exec
 %}
 
 %code provides {
@@ -15,13 +15,14 @@
   void yyerror (const char *);
 }
 
-%union { char *s; int n; }
+%union { char *s; int n; struct {int n1; int n2;} while_info; struct {int n1; int n2;} if_info; }
 %token <s> tID
 %token <n> tNB
+%type <if_info> if_memo
+%token <while_info> tWHILE
 %token tVOID tINT
     tLBRACE tRBRACE tLPAR tRPAR
     tIF tELSE 
-    tWHILE 
     tPRINT tRETURN 
     tADD tSUB tMUL tDIV 
     tLT tGT tNE tEQ tGE tLE 
@@ -126,15 +127,22 @@ print_stmt:
 return_stmt:
    tRETURN expression tSEMI
    ;
+
 // If statement : if, if else, if else if...
+if_memo: %empty {$$.n1 = get_nbInstructions();} ;
+
 if_stmt:
-  tIF tLPAR con tRPAR body 
-  | tIF tLPAR con tRPAR body tELSE body
-  | tIF tLPAR con tRPAR body tELSE if_stmt
+    tIF if_memo tLPAR con tRPAR body
+  | tIF if_memo tLPAR con tRPAR body tELSE body
+  | tIF if_memo tLPAR con tRPAR body tELSE if_stmt
   ;
 // While statement : boucle while + body
 while_stmt:
-   tWHILE tLPAR con tRPAR body
+   tWHILE 
+   tLPAR {$1.n1 = get_nbInstructions();} 
+   con {$1.n2 = get_nbInstructions(); asm_add(JE, 0, INT_MAX, INT_MAX); } 
+   tRPAR 
+   body { asm_add(JMP, $1.n1, INT_MAX, INT_MAX);  printf("\n\n??%d??\n\n",$1.n2); asm_update_params($1.n2, get_nbInstructions(), INT_MAX,INT_MAX); }
    ;
 
 // Une con(dition) : une expression qui renvoie un booléen (operation sur les conditions)
@@ -150,6 +158,17 @@ condition:
   expression comparator expression 
   | tNOT condition
   ;
+// Les comparateurs des booléens
+comparator:
+    tNE
+  | tEQ
+  | tGE
+  | tLE
+  | tLT
+  | tGT
+  ;
+
+
 // Une expression : un calcul qui renvoie un entier
 expression:
   tNB {
@@ -179,15 +198,7 @@ expression:
   // TODO : à dupliquer pour sub mul et div
   | tLPAR expression tRPAR
   ;
-// Les comparateurs des booléens
-comparator:
-    tNE
-  | tEQ
-  | tGE
-  | tLE
-  | tLT
-  | tGT
-  ;
+
 
 %%
 
