@@ -87,7 +87,7 @@ extern int yydebug;
 union YYSTYPE
 {
 #line 18 "bison.y"
- char *s; int n; struct {int n1; int n2;} while_info; struct {int n1; int n2;} if_info; 
+ char *s; int n; struct {int n1; int n2;} while_info; struct {int n1; int n2;} if_info; struct {int n1; int n2;} condition_info;  
 
 #line 93 "bison.tab.h"
 

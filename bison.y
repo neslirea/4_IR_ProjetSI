@@ -15,10 +15,11 @@
   void yyerror (const char *);
 }
 
-%union { char *s; int n; struct {int n1; int n2;} while_info; struct {int n1; int n2;} if_info; }
+%union { char *s; int n; struct {int n1; int n2;} while_info; struct {int n1; int n2;} if_info; struct {int n1; int n2;} condition_info;  }
 %token <s> tID
 %token <n> tNB
 %type <if_info> if_memo
+%type <condition_info> condition_memo
 %token <while_info> tWHILE
 %token tVOID tINT
     tLBRACE tRBRACE tLPAR tRPAR
@@ -32,6 +33,8 @@
     tSEMI tCOMMA tERROR
 %left tADD tSUB
 %left tMUL tDIV
+%left tOR
+%left tAND
 %%
 // %left tADD tSUB ==> tADD et tSUB ont le meme niveau de priorité
 // %left tMUL tDIV ==> tMUL et tDIV aussi, mais ils sont + prioritaires !
@@ -101,12 +104,12 @@ id_list1:
 
 id_decl :
   tID {tabSymboles_add($1, 0);}
-  | tID tASSIGN expression {tabSymboles_remove_last(); tabSymboles_add($1, 1);}
+  | tID tASSIGN expression {tabSymboles_remove_last(); tabSymboles_add($1, 1); }
   ;
 
 // Assignment / call statement : affecte une expression à une variable ou appelle une fonction
 assign_call_stmt:
-   tID tASSIGN expression tSEMI
+   tID tASSIGN expression tSEMI {asm_add(COP, tabSymboles_get_address($1), tabSymboles_get_last_address(), INT_MAX);}
    | function_call tSEMI
    ;
 // Appel d'une fonction : id, params.
@@ -140,33 +143,72 @@ if_stmt:
 while_stmt:
    tWHILE 
    tLPAR {$1.n1 = get_nbInstructions();} 
-   con {$1.n2 = get_nbInstructions(); asm_add(JE, 0, INT_MAX, INT_MAX); } 
+   con {$1.n2 = get_nbInstructions() - 1 ; /*asm_add(JE, 0, INT_MAX, INT_MAX); */} 
    tRPAR 
-   body { asm_add(JMP, $1.n1, INT_MAX, INT_MAX);  printf("\n\n??%d??\n\n",$1.n2); asm_update_params($1.n2, get_nbInstructions(), INT_MAX,INT_MAX); }
+   body { asm_add(JMP, $1.n1, INT_MAX, INT_MAX); asm_update_params($1.n2, get_nbInstructions(), INT_MAX,INT_MAX); }
    ;
 
 // Une con(dition) : une expression qui renvoie un booléen (operation sur les conditions)
 con:
-  condition
+  condition 
   | tLPAR con tRPAR
-  | tNOT tLPAR con tRPAR
-  | con tOR condition
-  | con tAND condition
+  //| tNOT tLPAR con tRPAR
+  | con condition_memo 
+      tOR {$2.n1 = get_nbInstructions()-1;} condition { 
+      // update les jump (must jump to true if true)
+      asm_update_params($2.n1, get_nbInstructions()+1, INT_MAX,INT_MAX); 
+      asm_update_params(get_nbInstructions()-1, get_nbInstructions()+1, INT_MAX,INT_MAX); 
+      // Si on est là c'est qu'on est false, on jump fin
+      asm_add(JMP, get_nbInstructions()+2, INT_MAX, INT_MAX);
+      }
+  | con condition_memo 
+    tAND {$2.n1 = get_nbInstructions()-1;} condition { 
+      // update les jump if false
+      printf("Nb instructions actuelles : %d _ $2.n1+2 = %d\n",get_nbInstructions(), $2.n1);
+      asm_update_params($2.n1, get_nbInstructions()+1, INT_MAX,INT_MAX); 
+      asm_update_params(get_nbInstructions()-1, get_nbInstructions()+1, INT_MAX,INT_MAX); 
+      // Si on est là c'est qu'on est true, on jump déb traitement
+      asm_add(JMP, get_nbInstructions()+2, INT_MAX, INT_MAX);
+      // Jump de fin : jump false
+      asm_add(JMP, 0, INT_MAX, INT_MAX);}
   ;
+
+condition_memo: %empty {$$.n1 = get_nbInstructions();} ;
 // Une condition : une comparaison simple entre deux expressions
-condition:
+/*condition:
   expression comparator expression 
   | tNOT condition
+  ;*/
+condition:
+  condition_memo expression {$1.n1 = tabSymboles_get_last_address();} tNE expression {$1.n2 = tabSymboles_get_last_address(); asm_add(CMP, $1.n1, $1.n2, INT_MAX); asm_add(JE, 0, INT_MAX, INT_MAX);}
+  | condition_memo expression {$1.n1 = tabSymboles_get_last_address();} tEQ expression {$1.n2 = tabSymboles_get_last_address(); asm_add(CMP, $1.n1, $1.n2, INT_MAX); asm_add(JNE, 0, INT_MAX, INT_MAX);} 
+  | condition_memo expression {$1.n1 = tabSymboles_get_last_address();} tGE expression {$1.n2 = tabSymboles_get_last_address(); asm_add(CMP, $1.n1, $1.n2, INT_MAX); asm_add(JLT, 0, INT_MAX, INT_MAX);} 
+  | condition_memo expression {$1.n1 = tabSymboles_get_last_address();} tLE expression {$1.n2 = tabSymboles_get_last_address(); asm_add(CMP, $1.n1, $1.n2, INT_MAX); asm_add(JGT, 0, INT_MAX, INT_MAX);} 
+  | condition_memo expression {$1.n1 = tabSymboles_get_last_address();} tLT expression {$1.n2 = tabSymboles_get_last_address(); asm_add(CMP, $1.n1, $1.n2, INT_MAX); asm_add(JGE, 0, INT_MAX, INT_MAX);} 
+  | condition_memo expression {$1.n1 = tabSymboles_get_last_address();} tGT expression {$1.n2 = tabSymboles_get_last_address(); asm_add(CMP, $1.n1, $1.n2, INT_MAX); asm_add(JLE, 0, INT_MAX, INT_MAX);} 
+  | condition_memo tNOT condition {asm_jump_reverse(get_nbInstructions()-1);}          //TODO
+  //| tNB {//TODO} 
+  | condition_memo tID {
+    // cop 0
+    tabSymboles_add("", 1);
+    asm_add(AFC, tabSymboles_get_last_address(), 0, INT_MAX);
+    // cmp var et 0
+    asm_add(CMP, tabSymboles_get_last_address(), tabSymboles_get_address($2), INT_MAX); 
+    // JNE
+    asm_add(JNE, 0, INT_MAX, INT_MAX);
+      
+    }
+  | condition_memo tLPAR condition tRPAR 
   ;
 // Les comparateurs des booléens
-comparator:
+/*comparator:
     tNE
   | tEQ
   | tGE
   | tLE
   | tLT
   | tGT
-  ;
+  ;*/
 
 
 // Une expression : un calcul qui renvoie un entier

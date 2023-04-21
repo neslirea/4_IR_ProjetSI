@@ -17,7 +17,12 @@ const char labelsEnum[][4]={
     "AFC",
     "CMP",
     "JMP",
-    "JE"};
+    "JE",
+    "JNE",
+    "JLT",
+    "JGT",
+    "JGE",
+    "JLE"};
 
 // TODO :
 /*
@@ -47,10 +52,50 @@ void asm_update_params(int position, int a, int b, int c){
 		printf("ERREUR [update] : position>=NB_MAX_INSTRUCTIONS\n");
 		exit(-1);
 	}
+	printf("UPDATE : [%d] %s", position, labelsEnum[instructions[position][0]]);
+	printf("params : %d %d %d\n",a,b,c);
 	instructions[position][1] = a;
 	instructions[position][2] = b;
 	instructions[position][3] = c;
 }
+
+
+void asm_jump_reverse(int position){
+	int inst = instructions[position][0];
+
+	switch (inst)
+	{
+	case JE:
+		instructions[position][0] = JNE;
+		break;
+
+	case JNE:
+		instructions[position][0] = JE;
+		break;
+
+	case JLT:
+		instructions[position][0] = JGE;
+		break;
+		
+	case JGT:
+		instructions[position][0] = JLE;
+		break;
+		
+	case JGE:
+		instructions[position][0] = JLT;
+		break;
+		
+	case JLE:
+		instructions[position][0] = JGT;
+		break;
+	
+	default:
+		printf("ERROR : Instruction not JUMP\n");
+		exit(-1);
+		break;
+	}
+}
+
 
 
 int get_nbInstructions(){

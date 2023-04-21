@@ -4,18 +4,20 @@
 
 }
 */
+
 /*
 	if (a == 2) {
 		int c = 2;
 		print(a);
 	}
 */
-void main(int x) {
 
-    int a = 3;
-
-    while (a+8*a  == 3) {
-		a =a-1;
+void main(void) {
+    int a = 69;    
+    while (a){
+      a = a - 1;
     }
-    return a;
+
+    return 0;
 }
+
