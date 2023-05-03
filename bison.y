@@ -94,17 +94,17 @@ declaration_stmt:
   ;
 
 // Lise d'ID : liste d'id avec des virgules (utilisé pour la declaration multiple)
-id_list: id_decl id_list1
+id_list: id_decl id_list_item
   ;
 
-id_list1:
+id_list_item:
   %empty
-  | tCOMMA id_decl id_list1
+  | tCOMMA id_decl id_list_item
   ;
 
 id_decl :
   tID {tabSymboles_add($1, 0);}
-  | tID tASSIGN expression {tabSymboles_remove_last(); tabSymboles_add($1, 1); }
+  | tID tASSIGN expression {tabSymboles_print(); tabSymboles_remove_last();  tabSymboles_add($1, 1); }
   ;
 
 // Assignment / call statement : affecte une expression à une variable ou appelle une fonction
@@ -128,7 +128,7 @@ print_stmt:
    ;
 // Return statement
 return_stmt:
-   tRETURN expression tSEMI
+   tRETURN expression tSEMI {asm_add(COP, 0, tabSymboles_get_last_address(), INT_MAX);}
    ;
 
 // If statement : if, if else, if else if...
@@ -152,7 +152,6 @@ while_stmt:
 con:
   condition 
   | tLPAR con tRPAR
-  //| tNOT tLPAR con tRPAR
   | con condition_memo 
       tOR {$2.n1 = get_nbInstructions()-1;} condition { 
       // update les jump (must jump to true if true)
@@ -178,27 +177,27 @@ condition_memo: %empty {$$.n1 = get_nbInstructions();} ;
 /*condition:
   expression comparator expression 
   | tNOT condition
+  | expression
   ;*/
 condition:
-  condition_memo expression {$1.n1 = tabSymboles_get_last_address();} tNE expression {$1.n2 = tabSymboles_get_last_address(); asm_add(CMP, $1.n1, $1.n2, INT_MAX); asm_add(JE, 0, INT_MAX, INT_MAX);}
-  | condition_memo expression {$1.n1 = tabSymboles_get_last_address();} tEQ expression {$1.n2 = tabSymboles_get_last_address(); asm_add(CMP, $1.n1, $1.n2, INT_MAX); asm_add(JNE, 0, INT_MAX, INT_MAX);} 
-  | condition_memo expression {$1.n1 = tabSymboles_get_last_address();} tGE expression {$1.n2 = tabSymboles_get_last_address(); asm_add(CMP, $1.n1, $1.n2, INT_MAX); asm_add(JLT, 0, INT_MAX, INT_MAX);} 
-  | condition_memo expression {$1.n1 = tabSymboles_get_last_address();} tLE expression {$1.n2 = tabSymboles_get_last_address(); asm_add(CMP, $1.n1, $1.n2, INT_MAX); asm_add(JGT, 0, INT_MAX, INT_MAX);} 
-  | condition_memo expression {$1.n1 = tabSymboles_get_last_address();} tLT expression {$1.n2 = tabSymboles_get_last_address(); asm_add(CMP, $1.n1, $1.n2, INT_MAX); asm_add(JGE, 0, INT_MAX, INT_MAX);} 
-  | condition_memo expression {$1.n1 = tabSymboles_get_last_address();} tGT expression {$1.n2 = tabSymboles_get_last_address(); asm_add(CMP, $1.n1, $1.n2, INT_MAX); asm_add(JLE, 0, INT_MAX, INT_MAX);} 
-  | condition_memo tNOT condition {asm_jump_reverse(get_nbInstructions()-1);}          //TODO
-  //| tNB {//TODO} 
-  | condition_memo tID {
+ expression condition_memo {$2.n1 = tabSymboles_get_last_address();} tNE expression {$2.n2 = tabSymboles_get_last_address(); asm_add(CMP, $2.n1, $2.n2, INT_MAX); asm_add(JE, 0, INT_MAX, INT_MAX);}
+  | expression condition_memo {$2.n1 = tabSymboles_get_last_address();} tEQ expression {$2.n2 = tabSymboles_get_last_address(); asm_add(CMP, $2.n1, $2.n2, INT_MAX); asm_add(JNE, 0, INT_MAX, INT_MAX);} 
+  | expression condition_memo {$2.n1 = tabSymboles_get_last_address();} tGE expression {$2.n2 = tabSymboles_get_last_address(); asm_add(CMP, $2.n1, $2.n2, INT_MAX); asm_add(JLT, 0, INT_MAX, INT_MAX);} 
+  | expression condition_memo {$2.n1 = tabSymboles_get_last_address();} tLE expression {$2.n2 = tabSymboles_get_last_address(); asm_add(CMP, $2.n1, $2.n2, INT_MAX); asm_add(JGT, 0, INT_MAX, INT_MAX);} 
+  | expression condition_memo {$2.n1 = tabSymboles_get_last_address();} tLT expression {$2.n2 = tabSymboles_get_last_address(); asm_add(CMP, $2.n1, $2.n2, INT_MAX); asm_add(JGE, 0, INT_MAX, INT_MAX);} 
+  | expression condition_memo {$2.n1 = tabSymboles_get_last_address();} tGT expression {$2.n2 = tabSymboles_get_last_address(); asm_add(CMP, $2.n1, $2.n2, INT_MAX); asm_add(JLE, 0, INT_MAX, INT_MAX);} 
+  | tNOT condition_memo condition {asm_jump_reverse(get_nbInstructions()-1);}          //TODO
+  | expression condition_memo {
     // cop 0
     tabSymboles_add("", 1);
     asm_add(AFC, tabSymboles_get_last_address(), 0, INT_MAX);
-    // cmp var et 0
-    asm_add(CMP, tabSymboles_get_last_address(), tabSymboles_get_address($2), INT_MAX); 
+    // cmp expression et 0
+    asm_add(CMP, tabSymboles_get_last_address(), tabSymboles_get_last_address()-1, INT_MAX); 
     // JNE
     asm_add(JNE, 0, INT_MAX, INT_MAX);
       
     }
-  | condition_memo tLPAR condition tRPAR 
+  | tLPAR condition tRPAR 
   ;
 // Les comparateurs des booléens
 /*comparator:
@@ -209,6 +208,7 @@ condition:
   | tLT
   | tGT
   ;*/
+
 
 
 // Une expression : un calcul qui renvoie un entier

@@ -13,8 +13,9 @@
 */
 
 void main(void) {
-    int a = 69;    
-    while (a){
+    int a = 69;   
+    int b = 6;     
+    while (1){
       a = a - 1;
     }
 
