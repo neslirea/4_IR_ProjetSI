@@ -8,7 +8,7 @@
 //  [0]      [1]         [2]        [3]
 //   OP    param_1     param_2     param_3
 int instructions[NB_MAX_INSTRUCTIONS][4] = {{}};
-const char labelsEnum[][4]={
+const char labelsEnum[][TAILLE_MAX_INSTRUCTION]={
     "ADD", 
     "SUB", 
     "MUL", 
@@ -22,7 +22,11 @@ const char labelsEnum[][4]={
     "JLT",
     "JGT",
     "JGE",
-    "JLE"};
+    "JLE",
+    "PUSH",
+    "CALL",
+    "POP",
+	"RET"};
 
 // TODO :
 /*
@@ -111,7 +115,9 @@ void afficher_instructions(){
 		int param2 = instructions[i][2];
 		int param3 = instructions[i][3];
 		printf("[%d] # ", i);
-		if (param2==INT_MAX){
+		if (param1==INT_MAX){
+			printf("%s \n", labelsEnum[op]);
+		} else if (param2==INT_MAX){
 			printf("%s %d \n", labelsEnum[op], param1);
 		} else if (param3==INT_MAX) {
 			printf("%s %d %d\n", labelsEnum[op], param1, param2);

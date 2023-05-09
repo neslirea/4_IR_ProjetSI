@@ -24,7 +24,7 @@ TabSymbolesStack* tabSymboles_init(){
     tabS->symboles[tabS->taille-1] = symbole;
 }*/
 void tabSymboles_add(char* nom, short init){
-    tabSymboles_printDepth(depth);
+    //tabSymboles_printDepth(depth);
     //printf("Ajout Symbole %s\n", nom);
     Symbole* symbole = symbole_init(nom, init, depth);
     tabS->taille+=1;
@@ -35,7 +35,7 @@ void tabSymboles_add(char* nom, short init){
     tabS->symboles[tabS->taille-1] = symbole;
 
     //printf(" _ New table : \n");
-    tabSymboles_print();
+    //tabSymboles_print();
 }
 
 // remove (profondeur) tab symbole
@@ -60,14 +60,14 @@ void tabSymboles_print(){
     for (int i = 0; i < tabS->taille; i++)
     {
         tabSymboles_printDepth(tabS->symboles[i]->depth);
-        //printf("[%d] - %s - %d\n", i, tabS->symboles[i]->nom, tabS->symboles[i]->init);
+        printf("[%d] - %s - %d\n", i, tabS->symboles[i]->nom, tabS->symboles[i]->init);
     }
     
 }
 void tabSymboles_printDepth(int nb){
     for (int j = 0; j < nb; j++)
     {
-        //printf("\t");
+        printf("\t");
     }
 }
 
@@ -86,16 +86,16 @@ void init_ts(){
 }
 
 void incrementDepth(){
-    tabSymboles_printDepth(depth);
+    //tabSymboles_printDepth(depth);
     //printf("Incrementation depth\n");
     depth++;
 }
 void decrementDepth(){
     depth--;
-    tabSymboles_printDepth(depth);
+    //tabSymboles_printDepth(depth);
     //printf("Decrementation depth_ new table : \n");
     tabSymboles_remove(depth + 1);
-    tabSymboles_print();
+    //tabSymboles_print();
 }
 
 int tabSymboles_get_last_address(void) {

@@ -49,8 +49,28 @@ code:
 
 // La fonction peut avoir comme type de sortie INT ou VOID, avec des args et un body
 function:
-  tINT tID {tabFonctions_add($2, get_nbInstructions());} tLPAR args_declaration tRPAR body { tabSymboles_clear(); }
-  | tVOID tID {tabFonctions_add($2, get_nbInstructions());} tLPAR args_declaration tRPAR body { tabSymboles_clear(); }
+  tINT tID 
+  	{
+		
+		tabFonctions_add($2, get_nbInstructions()); 
+		tabSymboles_add("?ADR", 1); 
+		tabSymboles_add("?VAL", 1);
+	} 
+	 tLPAR args_declaration tRPAR body 
+	{
+		// ici => j'ai fait n'imp mais j'en suis a diapo 438
+		tabSymboles_clear(); 
+		tabSymboles_add("", 1);
+		asm_add(AFC, tabSymboles_get_last_address(), tabSymboles_get_last_address()+1, INT_MAX);
+	}
+  | tVOID tID 
+  	{
+		tabFonctions_add($2, get_nbInstructions()); 
+		tabSymboles_add("?ADR", 1); 
+		tabSymboles_add("?VAL", 1);
+	}
+	 tLPAR 
+	 args_declaration tRPAR body { tabSymboles_clear(); }
   ;
 
 // Les arguments dans la declaration des fonctions : soit void, soit rien, soit un ensemble de tINT+tId avec des virgules
@@ -105,7 +125,7 @@ id_list_item:
 
 id_decl :
   tID {tabSymboles_add($1, 0);}
-  | tID tASSIGN expression {tabSymboles_print(); tabSymboles_remove_last();  tabSymboles_add($1, 1); }
+  | tID tASSIGN expression {/*tabSymboles_print();*/ tabSymboles_remove_last();  tabSymboles_add($1, 1); }
   ;
 
 // Assignment / call statement : affecte une expression à une variable ou appelle une fonction
@@ -116,6 +136,19 @@ assign_call_stmt:
 // Appel d'une fonction : id, params.
 function_call:
   tID tLPAR params_call tRPAR
+  {
+    asm_add(PUSH, tabSymboles_get_last_address(), INT_MAX, INT_MAX);
+	asm_add(CALL, tabFonctions_get_address($1), INT_MAX, INT_MAX);
+	asm_add(POP, tabSymboles_get_last_address(), INT_MAX, INT_MAX);
+	tabSymboles_print();
+  }
+  /* on va appeler une fonction
+  donc, il faut se rappeler des symboles qu'on a dans la fonction actuelle
+  pour cela, on push de la taille de la table des symboles
+  ensuite on call la fonction
+  ensuite on pop de la taille de la meme valeur
+  il faut ensuite copier ?Val dans une nouvelle variable temporaire 
+  */
   ;
 // Paramètres d'appel d'une fonction : ensemble d'expressions avec des virgules
 params_call:
@@ -129,7 +162,7 @@ print_stmt:
    ;
 // Return statement
 return_stmt:
-   tRETURN expression tSEMI {asm_add(COP, 0, tabSymboles_get_last_address(), INT_MAX);}
+   tRETURN expression tSEMI {asm_add(COP, 1, tabSymboles_get_last_address(), INT_MAX); asm_add(RET, INT_MAX, INT_MAX, INT_MAX);}
    ;
 
 // If statement : if, if else, if else if...
@@ -243,8 +276,7 @@ expression:
     tabSymboles_remove_last();
   }
   | tLPAR expression tRPAR
-  | function_call
-  ;
+  | function_call;
 
 
 %%

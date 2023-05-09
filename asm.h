@@ -2,6 +2,7 @@
 #define ASM_H_INCLUDED
 
 #define NB_MAX_INSTRUCTIONS 1024
+#define TAILLE_MAX_INSTRUCTION 8
 
 enum{
     ADD,
@@ -17,7 +18,11 @@ enum{
     JLT,
     JGT,
     JGE,
-    JLE};
+    JLE,
+    PUSH,
+    CALL,
+    POP,
+    RET};
 
 void asm_add(int op, int a, int b, int c);
 int get_nbInstructions();

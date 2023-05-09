@@ -550,16 +550,16 @@ static const yytype_int8 yytranslate[] =
 
 #if YYDEBUG
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
-static const yytype_uint8 yyrline[] =
+static const yytype_int16 yyrline[] =
 {
-       0,    46,    46,    47,    52,    52,    53,    53,    58,    59,
-      60,    64,    65,    69,    74,    75,    75,    80,    81,    85,
-      86,    87,    88,    89,    90,    94,    98,   102,   103,   107,
-     108,   113,   114,   118,   122,   123,   124,   128,   132,   136,
-     139,   140,   140,   150,   151,   149,   158,   159,   161,   160,
-     169,   168,   180,   188,   188,   189,   189,   190,   190,   191,
-     191,   192,   192,   193,   193,   194,   195,   205,   221,   225,
-     229,   233,   237,   241,   245,   246
+       0,    46,    46,    47,    53,    52,    66,    65,    77,    78,
+      79,    83,    84,    88,    93,    94,    94,    99,   100,   104,
+     105,   106,   107,   108,   109,   113,   117,   121,   122,   126,
+     127,   132,   133,   137,   154,   155,   156,   160,   164,   168,
+     171,   172,   172,   182,   183,   181,   190,   191,   193,   192,
+     201,   200,   212,   220,   220,   221,   221,   222,   222,   223,
+     223,   224,   224,   225,   225,   226,   227,   237,   253,   257,
+     261,   265,   269,   273,   277,   278
 };
 #endif
 
@@ -1443,121 +1443,145 @@ yyreduce:
   switch (yyn)
     {
   case 4:
-#line 52 "bison.y"
-           {tabFonctions_add((yyvsp[0].s), get_nbInstructions());}
-#line 1449 "bison.tab.c"
+#line 53 "bison.y"
+        {
+		
+		tabFonctions_add((yyvsp[0].s), get_nbInstructions()); 
+		tabSymboles_add("?ADR", 1); 
+		tabSymboles_add("?VAL", 1);
+	}
+#line 1454 "bison.tab.c"
     break;
 
   case 5:
-#line 52 "bison.y"
-                                                                                           { tabSymboles_clear(); }
-#line 1455 "bison.tab.c"
+#line 60 "bison.y"
+        {
+		tabSymboles_clear(); 
+		tabSymboles_add("", 1);
+		asm_add(AFC, tabSymboles_get_last_address(), tabSymboles_get_last_address()+1, INT_MAX);
+	}
+#line 1464 "bison.tab.c"
     break;
 
   case 6:
-#line 53 "bison.y"
-              {tabFonctions_add((yyvsp[0].s), get_nbInstructions());}
-#line 1461 "bison.tab.c"
+#line 66 "bison.y"
+        {
+		tabFonctions_add((yyvsp[0].s), get_nbInstructions()); 
+		tabSymboles_add("?ADR", 1); 
+		tabSymboles_add("?VAL", 1);
+	}
+#line 1474 "bison.tab.c"
     break;
 
   case 7:
-#line 53 "bison.y"
-                                                                                              { tabSymboles_clear(); }
-#line 1467 "bison.tab.c"
+#line 72 "bison.y"
+                                     { tabSymboles_clear(); }
+#line 1480 "bison.tab.c"
     break;
 
   case 13:
-#line 69 "bison.y"
+#line 88 "bison.y"
            {tabSymboles_add((yyvsp[0].s), 1);}
-#line 1473 "bison.tab.c"
+#line 1486 "bison.tab.c"
     break;
 
   case 15:
-#line 75 "bison.y"
+#line 94 "bison.y"
               {incrementDepth();}
-#line 1479 "bison.tab.c"
+#line 1492 "bison.tab.c"
     break;
 
   case 16:
-#line 75 "bison.y"
+#line 94 "bison.y"
                                                 {decrementDepth();}
-#line 1485 "bison.tab.c"
+#line 1498 "bison.tab.c"
     break;
 
   case 29:
-#line 107 "bison.y"
+#line 126 "bison.y"
       {tabSymboles_add((yyvsp[0].s), 0);}
-#line 1491 "bison.tab.c"
+#line 1504 "bison.tab.c"
     break;
 
   case 30:
-#line 108 "bison.y"
-                           {tabSymboles_print(); tabSymboles_remove_last();  tabSymboles_add((yyvsp[-2].s), 1); }
-#line 1497 "bison.tab.c"
+#line 127 "bison.y"
+                           {/*tabSymboles_print();*/ tabSymboles_remove_last();  tabSymboles_add((yyvsp[-2].s), 1); }
+#line 1510 "bison.tab.c"
     break;
 
   case 31:
-#line 113 "bison.y"
-                                {asm_add(COP, tabSymboles_get_address((yyvsp[-3].s)), tabSymboles_get_last_address(), INT_MAX);}
-#line 1503 "bison.tab.c"
-    break;
-
-  case 38:
 #line 132 "bison.y"
-                            {asm_add(COP, 0, tabSymboles_get_last_address(), INT_MAX);}
-#line 1509 "bison.tab.c"
+                                {asm_add(COP, tabSymboles_get_address((yyvsp[-3].s)), tabSymboles_get_last_address(), INT_MAX);}
+#line 1516 "bison.tab.c"
     break;
 
-  case 39:
-#line 136 "bison.y"
-                {(yyval.if_info).n1 = get_nbInstructions();}
-#line 1515 "bison.tab.c"
-    break;
-
-  case 40:
-#line 139 "bison.y"
-                                     {asm_update_params((yyvsp[-2].if_info).n1-1, get_nbInstructions(), INT_MAX,INT_MAX);}
-#line 1521 "bison.tab.c"
-    break;
-
-  case 41:
-#line 140 "bison.y"
-                                     {asm_update_params((yyvsp[-2].if_info).n1-1, get_nbInstructions()+1, INT_MAX,INT_MAX); asm_add(JMP, 6, 9, INT_MAX); (yyvsp[-2].if_info).n1 = get_nbInstructions();}
+  case 33:
+#line 138 "bison.y"
+  {
+    asm_add(PUSH, tabSymboles_get_last_address(), INT_MAX, INT_MAX);
+	asm_add(CALL, tabFonctions_get_address((yyvsp[-3].s)), INT_MAX, INT_MAX);
+	asm_add(POP, tabSymboles_get_last_address(), INT_MAX, INT_MAX);
+	tabSymboles_print();
+  }
 #line 1527 "bison.tab.c"
     break;
 
-  case 42:
-#line 140 "bison.y"
-                                                                                                                                                                                  {asm_update_params((yyvsp[-5].if_info).n1-1, get_nbInstructions(), INT_MAX,INT_MAX);}
+  case 38:
+#line 164 "bison.y"
+                            {asm_add(COP, 1, tabSymboles_get_last_address(), INT_MAX); asm_add(RET, INT_MAX, INT_MAX, INT_MAX);}
 #line 1533 "bison.tab.c"
     break;
 
-  case 43:
-#line 150 "bison.y"
-         {(yyvsp[-1].while_info).n1 = get_nbInstructions();}
+  case 39:
+#line 168 "bison.y"
+                {(yyval.if_info).n1 = get_nbInstructions();}
 #line 1539 "bison.tab.c"
     break;
 
-  case 44:
-#line 151 "bison.y"
-       {(yyvsp[-3].while_info).n2 = get_nbInstructions() - 1 ; /*asm_add(JE, 0, INT_MAX, INT_MAX); */}
+  case 40:
+#line 171 "bison.y"
+                                     {asm_update_params((yyvsp[-2].if_info).n1-1, get_nbInstructions(), INT_MAX,INT_MAX);}
 #line 1545 "bison.tab.c"
     break;
 
-  case 45:
-#line 153 "bison.y"
-        { asm_add(JMP, (yyvsp[-6].while_info).n1, INT_MAX, INT_MAX); asm_update_params((yyvsp[-6].while_info).n2, get_nbInstructions(), INT_MAX,INT_MAX); }
+  case 41:
+#line 172 "bison.y"
+                                     {asm_update_params((yyvsp[-2].if_info).n1-1, get_nbInstructions()+1, INT_MAX,INT_MAX); asm_add(JMP, 6, 9, INT_MAX); (yyvsp[-2].if_info).n1 = get_nbInstructions();}
 #line 1551 "bison.tab.c"
     break;
 
-  case 48:
-#line 161 "bison.y"
-          {(yyvsp[-1].condition_info).n1 = get_nbInstructions()-1;}
+  case 42:
+#line 172 "bison.y"
+                                                                                                                                                                                  {asm_update_params((yyvsp[-5].if_info).n1-1, get_nbInstructions(), INT_MAX,INT_MAX);}
 #line 1557 "bison.tab.c"
     break;
 
+  case 43:
+#line 182 "bison.y"
+         {(yyvsp[-1].while_info).n1 = get_nbInstructions();}
+#line 1563 "bison.tab.c"
+    break;
+
+  case 44:
+#line 183 "bison.y"
+       {(yyvsp[-3].while_info).n2 = get_nbInstructions() - 1 ; /*asm_add(JE, 0, INT_MAX, INT_MAX); */}
+#line 1569 "bison.tab.c"
+    break;
+
+  case 45:
+#line 185 "bison.y"
+        { asm_add(JMP, (yyvsp[-6].while_info).n1, INT_MAX, INT_MAX); asm_update_params((yyvsp[-6].while_info).n2, get_nbInstructions(), INT_MAX,INT_MAX); }
+#line 1575 "bison.tab.c"
+    break;
+
+  case 48:
+#line 193 "bison.y"
+          {(yyvsp[-1].condition_info).n1 = get_nbInstructions()-1;}
+#line 1581 "bison.tab.c"
+    break;
+
   case 49:
-#line 161 "bison.y"
+#line 193 "bison.y"
                                                       { 
       // update les jump (must jump to true if true)
       asm_update_params((yyvsp[-3].condition_info).n1, get_nbInstructions()+1, INT_MAX,INT_MAX); 
@@ -1565,17 +1589,17 @@ yyreduce:
       // Si on est là c'est qu'on est false, on jump fin
       asm_add(JMP, get_nbInstructions()+2, INT_MAX, INT_MAX);
       }
-#line 1569 "bison.tab.c"
+#line 1593 "bison.tab.c"
     break;
 
   case 50:
-#line 169 "bison.y"
+#line 201 "bison.y"
          {(yyvsp[-1].condition_info).n1 = get_nbInstructions()-1;}
-#line 1575 "bison.tab.c"
+#line 1599 "bison.tab.c"
     break;
 
   case 51:
-#line 169 "bison.y"
+#line 201 "bison.y"
                                                      { 
       // update les jump if false
       printf("Nb instructions actuelles : %d _ $2.n1+2 = %d\n",get_nbInstructions(), (yyvsp[-3].condition_info).n1);
@@ -1585,95 +1609,95 @@ yyreduce:
       asm_add(JMP, get_nbInstructions()+2, INT_MAX, INT_MAX);
       // Jump de fin : jump false
       asm_add(JMP, 0, INT_MAX, INT_MAX);}
-#line 1589 "bison.tab.c"
-    break;
-
-  case 52:
-#line 180 "bison.y"
-                       {(yyval.condition_info).n1 = get_nbInstructions();}
-#line 1595 "bison.tab.c"
-    break;
-
-  case 53:
-#line 188 "bison.y"
-                           {(yyvsp[0].condition_info).n1 = tabSymboles_get_last_address();}
-#line 1601 "bison.tab.c"
-    break;
-
-  case 54:
-#line 188 "bison.y"
-                                                                                    {(yyvsp[-3].condition_info).n2 = tabSymboles_get_last_address(); asm_add(CMP, (yyvsp[-3].condition_info).n1, (yyvsp[-3].condition_info).n2, INT_MAX); asm_add(JE, 0, INT_MAX, INT_MAX);}
-#line 1607 "bison.tab.c"
-    break;
-
-  case 55:
-#line 189 "bison.y"
-                              {(yyvsp[0].condition_info).n1 = tabSymboles_get_last_address();}
 #line 1613 "bison.tab.c"
     break;
 
-  case 56:
-#line 189 "bison.y"
-                                                                                       {(yyvsp[-3].condition_info).n2 = tabSymboles_get_last_address(); asm_add(CMP, (yyvsp[-3].condition_info).n1, (yyvsp[-3].condition_info).n2, INT_MAX); asm_add(JNE, 0, INT_MAX, INT_MAX);}
+  case 52:
+#line 212 "bison.y"
+                       {(yyval.condition_info).n1 = get_nbInstructions();}
 #line 1619 "bison.tab.c"
     break;
 
-  case 57:
-#line 190 "bison.y"
-                              {(yyvsp[0].condition_info).n1 = tabSymboles_get_last_address();}
+  case 53:
+#line 220 "bison.y"
+                           {(yyvsp[0].condition_info).n1 = tabSymboles_get_last_address();}
 #line 1625 "bison.tab.c"
     break;
 
-  case 58:
-#line 190 "bison.y"
-                                                                                       {(yyvsp[-3].condition_info).n2 = tabSymboles_get_last_address(); asm_add(CMP, (yyvsp[-3].condition_info).n1, (yyvsp[-3].condition_info).n2, INT_MAX); asm_add(JLT, 0, INT_MAX, INT_MAX);}
+  case 54:
+#line 220 "bison.y"
+                                                                                    {(yyvsp[-3].condition_info).n2 = tabSymboles_get_last_address(); asm_add(CMP, (yyvsp[-3].condition_info).n1, (yyvsp[-3].condition_info).n2, INT_MAX); asm_add(JE, 0, INT_MAX, INT_MAX);}
 #line 1631 "bison.tab.c"
     break;
 
-  case 59:
-#line 191 "bison.y"
+  case 55:
+#line 221 "bison.y"
                               {(yyvsp[0].condition_info).n1 = tabSymboles_get_last_address();}
 #line 1637 "bison.tab.c"
     break;
 
-  case 60:
-#line 191 "bison.y"
-                                                                                       {(yyvsp[-3].condition_info).n2 = tabSymboles_get_last_address(); asm_add(CMP, (yyvsp[-3].condition_info).n1, (yyvsp[-3].condition_info).n2, INT_MAX); asm_add(JGT, 0, INT_MAX, INT_MAX);}
+  case 56:
+#line 221 "bison.y"
+                                                                                       {(yyvsp[-3].condition_info).n2 = tabSymboles_get_last_address(); asm_add(CMP, (yyvsp[-3].condition_info).n1, (yyvsp[-3].condition_info).n2, INT_MAX); asm_add(JNE, 0, INT_MAX, INT_MAX);}
 #line 1643 "bison.tab.c"
     break;
 
-  case 61:
-#line 192 "bison.y"
+  case 57:
+#line 222 "bison.y"
                               {(yyvsp[0].condition_info).n1 = tabSymboles_get_last_address();}
 #line 1649 "bison.tab.c"
     break;
 
-  case 62:
-#line 192 "bison.y"
-                                                                                       {(yyvsp[-3].condition_info).n2 = tabSymboles_get_last_address(); asm_add(CMP, (yyvsp[-3].condition_info).n1, (yyvsp[-3].condition_info).n2, INT_MAX); asm_add(JGE, 0, INT_MAX, INT_MAX);}
+  case 58:
+#line 222 "bison.y"
+                                                                                       {(yyvsp[-3].condition_info).n2 = tabSymboles_get_last_address(); asm_add(CMP, (yyvsp[-3].condition_info).n1, (yyvsp[-3].condition_info).n2, INT_MAX); asm_add(JLT, 0, INT_MAX, INT_MAX);}
 #line 1655 "bison.tab.c"
     break;
 
-  case 63:
-#line 193 "bison.y"
+  case 59:
+#line 223 "bison.y"
                               {(yyvsp[0].condition_info).n1 = tabSymboles_get_last_address();}
 #line 1661 "bison.tab.c"
     break;
 
-  case 64:
-#line 193 "bison.y"
-                                                                                       {(yyvsp[-3].condition_info).n2 = tabSymboles_get_last_address(); asm_add(CMP, (yyvsp[-3].condition_info).n1, (yyvsp[-3].condition_info).n2, INT_MAX); asm_add(JLE, 0, INT_MAX, INT_MAX);}
+  case 60:
+#line 223 "bison.y"
+                                                                                       {(yyvsp[-3].condition_info).n2 = tabSymboles_get_last_address(); asm_add(CMP, (yyvsp[-3].condition_info).n1, (yyvsp[-3].condition_info).n2, INT_MAX); asm_add(JGT, 0, INT_MAX, INT_MAX);}
 #line 1667 "bison.tab.c"
     break;
 
-  case 65:
-#line 194 "bison.y"
-                                  {asm_jump_reverse(get_nbInstructions()-1);}
+  case 61:
+#line 224 "bison.y"
+                              {(yyvsp[0].condition_info).n1 = tabSymboles_get_last_address();}
 #line 1673 "bison.tab.c"
     break;
 
+  case 62:
+#line 224 "bison.y"
+                                                                                       {(yyvsp[-3].condition_info).n2 = tabSymboles_get_last_address(); asm_add(CMP, (yyvsp[-3].condition_info).n1, (yyvsp[-3].condition_info).n2, INT_MAX); asm_add(JGE, 0, INT_MAX, INT_MAX);}
+#line 1679 "bison.tab.c"
+    break;
+
+  case 63:
+#line 225 "bison.y"
+                              {(yyvsp[0].condition_info).n1 = tabSymboles_get_last_address();}
+#line 1685 "bison.tab.c"
+    break;
+
+  case 64:
+#line 225 "bison.y"
+                                                                                       {(yyvsp[-3].condition_info).n2 = tabSymboles_get_last_address(); asm_add(CMP, (yyvsp[-3].condition_info).n1, (yyvsp[-3].condition_info).n2, INT_MAX); asm_add(JLE, 0, INT_MAX, INT_MAX);}
+#line 1691 "bison.tab.c"
+    break;
+
+  case 65:
+#line 226 "bison.y"
+                                  {asm_jump_reverse(get_nbInstructions()-1);}
+#line 1697 "bison.tab.c"
+    break;
+
   case 66:
-#line 195 "bison.y"
+#line 227 "bison.y"
                               {
     // cop 0
     tabSymboles_add("", 1);
@@ -1684,65 +1708,65 @@ yyreduce:
     asm_add(JNE, 0, INT_MAX, INT_MAX);
       
     }
-#line 1688 "bison.tab.c"
+#line 1712 "bison.tab.c"
     break;
 
   case 68:
-#line 221 "bison.y"
+#line 253 "bison.y"
       {
     tabSymboles_add("", 1);
     asm_add(AFC, tabSymboles_get_last_address(), (yyvsp[0].n), INT_MAX);
   }
-#line 1697 "bison.tab.c"
+#line 1721 "bison.tab.c"
     break;
 
   case 69:
-#line 225 "bison.y"
+#line 257 "bison.y"
         {
     tabSymboles_add("", 1);
     asm_add(COP, tabSymboles_get_last_address(), tabSymboles_get_address((yyvsp[0].s)), INT_MAX);
   }
-#line 1706 "bison.tab.c"
+#line 1730 "bison.tab.c"
     break;
 
   case 70:
-#line 229 "bison.y"
+#line 261 "bison.y"
                                {
     asm_add(ADD, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address());
     tabSymboles_remove_last();
   }
-#line 1715 "bison.tab.c"
+#line 1739 "bison.tab.c"
     break;
 
   case 71:
-#line 233 "bison.y"
+#line 265 "bison.y"
                                {
     asm_add(SUB, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address());
     tabSymboles_remove_last();
   }
-#line 1724 "bison.tab.c"
+#line 1748 "bison.tab.c"
     break;
 
   case 72:
-#line 237 "bison.y"
+#line 269 "bison.y"
                                {
     asm_add(MUL, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address());
     tabSymboles_remove_last();
   }
-#line 1733 "bison.tab.c"
+#line 1757 "bison.tab.c"
     break;
 
   case 73:
-#line 241 "bison.y"
+#line 273 "bison.y"
                                {
     asm_add(DIV, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address());
     tabSymboles_remove_last();
   }
-#line 1742 "bison.tab.c"
+#line 1766 "bison.tab.c"
     break;
 
 
-#line 1746 "bison.tab.c"
+#line 1770 "bison.tab.c"
 
       default: break;
     }
@@ -1974,7 +1998,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 250 "bison.y"
+#line 281 "bison.y"
 
 
 void yyerror(const char *msg) {
