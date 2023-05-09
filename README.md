@@ -5,10 +5,8 @@
 
 # A faire
 - Conditions ? Conflits sur les parenthèses
-- not : autoriser not sur des conditions complexes (and / or)
-- Print
 - Fonctions
-
+- not : autoriser not sur des conditions complexes (and / or)
 
 # Fini
 - Return
@@ -17,3 +15,8 @@
 - Assertions
 - If / Else
 - While
+
+
+# Abandonné
+- Else if (mdr)
+- Print (mdr²)

@@ -135,10 +135,14 @@ return_stmt:
 if_memo: %empty {$$.n1 = get_nbInstructions();} ;
 
 if_stmt:
-    tIF if_memo tLPAR con tRPAR body
-  | tIF if_memo tLPAR con tRPAR body tELSE body
-  | tIF if_memo tLPAR con tRPAR body tELSE if_stmt
+    tIF tLPAR con if_memo tRPAR body {asm_update_params($4.n1-1, get_nbInstructions(), INT_MAX,INT_MAX);}
+  | tIF tLPAR con if_memo tRPAR body {asm_update_params($4.n1-1, get_nbInstructions()+1, INT_MAX,INT_MAX); asm_add(JMP, 6, 9, INT_MAX); $4.n1 = get_nbInstructions();} tELSE body {asm_update_params($4.n1-1, get_nbInstructions(), INT_MAX,INT_MAX);}
   ;
+/*
+else_or_elsif:
+  tELSE body
+  | tELSE if_stmt
+*/
 // While statement : boucle while + body
 while_stmt:
    tWHILE 
