@@ -86,7 +86,7 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 18 "bison.y"
+#line 19 "bison.y"
  char *s; int n; struct {int n1; int n2;} while_info; struct {int n1; int n2;} if_info; struct {int n1; int n2;} condition_info;  
 
 #line 93 "bison.tab.h"
@@ -102,7 +102,7 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 /* "%code provides" blocks.  */
-#line 13 "bison.y"
+#line 14 "bison.y"
 
   int yylex (void);
   void yyerror (const char *);

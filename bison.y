@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "tabSymboles.h"
+#include "tabFonctions.h"
 #include "asm.h"
 #include <limits.h>
 
@@ -48,8 +49,8 @@ code:
 
 // La fonction peut avoir comme type de sortie INT ou VOID, avec des args et un body
 function:
-  tINT tID tLPAR args_declaration tRPAR body { tabSymboles_clear(); }
-  | tVOID tID tLPAR args_declaration tRPAR body { tabSymboles_clear(); }
+  tINT tID {tabFonctions_add($2, get_nbInstructions());} tLPAR args_declaration tRPAR body { tabSymboles_clear(); }
+  | tVOID tID {tabFonctions_add($2, get_nbInstructions());} tLPAR args_declaration tRPAR body { tabSymboles_clear(); }
   ;
 
 // Les arguments dans la declaration des fonctions : soit void, soit rien, soit un ensemble de tINT+tId avec des virgules
@@ -241,8 +242,8 @@ expression:
     asm_add(DIV, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address() - 1, tabSymboles_get_last_address());
     tabSymboles_remove_last();
   }
-  // TODO : à dupliquer pour sub mul et div
   | tLPAR expression tRPAR
+  | function_call
   ;
 
 
@@ -255,6 +256,10 @@ void yyerror(const char *msg) {
 
 int main(void) {
   init_ts();
+  init_tf();
+  asm_add(JMP, 0, INT_MAX, INT_MAX);
   yyparse();
+  asm_update_params(0, tabFonctions_get_address("main"), INT_MAX,INT_MAX);
   afficher_instructions();
+  tabFonctions_print();
 }

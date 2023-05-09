@@ -8,31 +8,31 @@ void tabSymboles_printDepth(int nb);
 
 // init tab symbole
 TabSymbolesStack* tabSymboles_init(){
-    TabSymbolesStack *tab = (TabSymbolesStack*) malloc(sizeof(TabSymbolesStack));
-    tab->symboles = (Symbole**) malloc(sizeof(Symbole*) * TAILLE_INIT_TABSYMBOLES);
-    tab->taille_allouee = TAILLE_INIT_TABSYMBOLES;
-    tab->taille = 0;
-    return tab;
+    TabSymbolesStack *tabTmp = (TabSymbolesStack*) malloc(sizeof(TabSymbolesStack));
+    tabTmp->symboles = (Symbole**) malloc(sizeof(Symbole*) * TAILLE_INIT_TABSYMBOLES);
+    tabTmp->taille_allouee = TAILLE_INIT_TABSYMBOLES;
+    tabTmp->taille = 0;
+    return tabTmp;
 }
 
 // add tab symbole
 /*void tabSymboles_add(Symbole* symbole){
-    tab->taille+=1;
-    if (tab->taille>=tab->taille_allouee){
-        tab->symboles = (Symbole**) realloc(tab->symboles,sizeof(Symbole*)*tab->taille_allouee*2);
+    tabS->taille+=1;
+    if (tabS->taille>=tabS->taille_allouee){
+        tabS->symboles = (Symbole**) realloc(tabS->symboles,sizeof(Symbole*)*tabS->taille_allouee*2);
     }
-    tab->symboles[tab->taille-1] = symbole;
+    tabS->symboles[tabS->taille-1] = symbole;
 }*/
 void tabSymboles_add(char* nom, short init){
     tabSymboles_printDepth(depth);
     //printf("Ajout Symbole %s\n", nom);
     Symbole* symbole = symbole_init(nom, init, depth);
-    tab->taille+=1;
-    if (tab->taille>=tab->taille_allouee){
-        tab->taille_allouee*=2;
-        tab->symboles = (Symbole**) realloc(tab->symboles,sizeof(Symbole*)*tab->taille_allouee);
+    tabS->taille+=1;
+    if (tabS->taille>=tabS->taille_allouee){
+        tabS->taille_allouee*=2;
+        tabS->symboles = (Symbole**) realloc(tabS->symboles,sizeof(Symbole*)*tabS->taille_allouee);
     }
-    tab->symboles[tab->taille-1] = symbole;
+    tabS->symboles[tabS->taille-1] = symbole;
 
     //printf(" _ New table : \n");
     tabSymboles_print();
@@ -40,27 +40,27 @@ void tabSymboles_add(char* nom, short init){
 
 // remove (profondeur) tab symbole
 void tabSymboles_remove(int depth_rem){
-    while ( tab->taille - 1 >= 0 &&   // le pt existe
-            tab->symboles[tab->taille - 1]->depth >= depth_rem)   // la profondeur est a delete
+    while ( tabS->taille - 1 >= 0 &&   // le pt existe
+            tabS->symboles[tabS->taille - 1]->depth >= depth_rem)   // la profondeur est a delete
     {
-        free(tab->symboles[tab->taille - 1]); 
-        tab->taille--;
+        free(tabS->symboles[tabS->taille - 1]); 
+        tabS->taille--;
     }
 }
 
 // clear tab symbole
 void tabSymboles_clear(){
-    for(int i = tab->taille-1; i>=0; i--){
-        free(tab->symboles[i]); 
-        tab->taille--;
+    for(int i = tabS->taille-1; i>=0; i--){
+        free(tabS->symboles[i]); 
+        tabS->taille--;
     }
 }
 
 void tabSymboles_print(){
-    for (int i = 0; i < tab->taille; i++)
+    for (int i = 0; i < tabS->taille; i++)
     {
-        tabSymboles_printDepth(tab->symboles[i]->depth);
-        //printf("[%d] - %s - %d\n", i, tab->symboles[i]->nom, tab->symboles[i]->init);
+        tabSymboles_printDepth(tabS->symboles[i]->depth);
+        //printf("[%d] - %s - %d\n", i, tabS->symboles[i]->nom, tabS->symboles[i]->init);
     }
     
 }
@@ -82,7 +82,7 @@ Symbole* symbole_init(char* nom, short init, int depth){
 }
 void init_ts(){
     depth = 0;
-    tab = tabSymboles_init();
+    tabS = tabSymboles_init();
 }
 
 void incrementDepth(){
@@ -99,18 +99,18 @@ void decrementDepth(){
 }
 
 int tabSymboles_get_last_address(void) {
-    return tab->taille - 1;
+    return tabS->taille - 1;
 }
 
 int tabSymboles_remove_last(void) {
-    free(tab->symboles[tab->taille - 1]); 
-    tab->taille--;
+    free(tabS->symboles[tabS->taille - 1]); 
+    tabS->taille--;
 }
 
 int tabSymboles_get_address(char *n) {
-    for (int i = tab->taille - 1; i >= 0; i--)
+    for (int i = tabS->taille - 1; i >= 0; i--)
     {
-        if (strcmp(tab->symboles[i]->nom, n) == 0)
+        if (strcmp(tabS->symboles[i]->nom, n) == 0)
             return i;
     }
     // TODO: erreur (non decl)

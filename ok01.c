@@ -1,9 +1,7 @@
-/*int compute(int a, int d) {
-
-    return a;
-
+int compute(int a) {
+  return a+1;
 }
-*/
+
 
 /*
 	if (a == 2) {
@@ -26,8 +24,8 @@ void main(void) {
     int a = 1;
     if (a){
       a = 1;
-    }else{
-      a=3;
+    } else {
+      a = compute(a);
     }
 
     return 0;

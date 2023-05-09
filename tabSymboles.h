@@ -63,7 +63,7 @@ struct Symbole
 
 
 int depth;
-TabSymbolesStack* tab;
+TabSymbolesStack* tabS;
 
 
 

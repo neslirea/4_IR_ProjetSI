@@ -8,8 +8,8 @@ bison.tab.c bison.tab.h:	bison.y
 lex.yy.c: lex.l bison.tab.h
 	flex lex.l 
 
-comp: lex.yy.c bison.tab.c bison.tab.h tabSymboles.c asm.c
-	gcc -g -o comp bison.tab.c lex.yy.c tabSymboles.c asm.c
+comp: lex.yy.c bison.tab.c bison.tab.h tabSymboles.c tabFonctions.c asm.c
+	gcc -g -o comp bison.tab.c lex.yy.c tabSymboles.c tabFonctions.c asm.c
 
 clean:
 	rm comp bison.tab.c lex.yy.c bison.tab.h bison.output
