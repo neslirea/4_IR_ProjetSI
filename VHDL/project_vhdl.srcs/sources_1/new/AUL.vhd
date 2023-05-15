@@ -60,7 +60,6 @@ begin
         Auxiliaire <= A-B;
    elsif (Ctrl_Alu="010") then  -- multiplication *
         var <= A*B;
-        Auxiliaire <= var(7 downto 0);
         Auxiliaire <= "00000001";
         --if(var(15 downto 8)/="00000000") then
         --O <= '1';

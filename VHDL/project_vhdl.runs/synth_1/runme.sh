@@ -20,7 +20,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/project_vhdl.runs/synth_1'
+HD_PWD='/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
