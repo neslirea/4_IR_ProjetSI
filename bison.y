@@ -57,7 +57,11 @@ function:
 	} 
 	 tLPAR args_declaration tRPAR body 
 	{
-		tabSymboles_clear(); 
+		tabSymboles_clear();
+    // retour par défaut
+    
+      printf("-------------------------");
+      asm_add(RET, INT_MAX, INT_MAX, INT_MAX);
 	}
   | tVOID tID 
   {
@@ -66,7 +70,12 @@ function:
 		tabSymboles_add("?VAL", 1);
 	}
 	 tLPAR 
-	 args_declaration tRPAR body { tabSymboles_clear(); }
+	 args_declaration tRPAR body 
+    { 
+      tabSymboles_clear(); 
+      printf("-------------------------");
+      asm_add(RET, INT_MAX, INT_MAX, INT_MAX);
+    }
   ;
 
 
@@ -143,10 +152,6 @@ function_call:
     asm_add(CALL, tabFonctions_get_address($1), INT_MAX, INT_MAX);
     asm_add(POP, tabSymboles_get_last_address()-2, INT_MAX, INT_MAX);
 
-		printf("DEBUT DE FONCTION\n");
-    tabSymboles_print();
-		printf("----------------\n");
-    // 
     asm_add(COP, tabSymboles_get_last_address(), tabSymboles_get_last_address()+1, INT_MAX);
 
     //tabSymboles_print();
@@ -171,7 +176,11 @@ print_stmt:
    ;
 // Return statement
 return_stmt:
-   tRETURN expression tSEMI {asm_add(COP, 1, tabSymboles_get_last_address(), INT_MAX); asm_add(RET, INT_MAX, INT_MAX, INT_MAX);}
+   tRETURN expression tSEMI 
+    {
+      asm_add(COP, 1, tabSymboles_get_last_address(), INT_MAX);
+      asm_add(RET, INT_MAX, INT_MAX, INT_MAX);
+    }
    ;
 
 // If statement : if, if else, if else if...
