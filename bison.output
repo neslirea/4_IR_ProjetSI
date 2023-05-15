@@ -3,8 +3,8 @@ Terminals unused in grammar
     tERROR
 
 
+State 87 conflicts: 1 shift/reduce
 State 88 conflicts: 1 shift/reduce
-State 89 conflicts: 1 shift/reduce
 
 
 Grammar
@@ -60,113 +60,115 @@ Grammar
    30 assign_call_stmt: tID tASSIGN expression tSEMI
    31                 | function_call tSEMI
 
-   32 function_call: tID tLPAR params_call tRPAR
+   32 $@4: %empty
 
-   33 params_call: %empty
-   34            | expression
-   35            | params_call tCOMMA expression
+   33 function_call: tID tLPAR $@4 params_call tRPAR
 
-   36 print_stmt: tPRINT tLPAR expression tRPAR tSEMI
+   34 params_call: %empty
+   35            | expression
+   36            | params_call tCOMMA expression
 
-   37 return_stmt: tRETURN expression tSEMI
+   37 print_stmt: tPRINT tLPAR expression tRPAR tSEMI
 
-   38 if_memo: %empty
+   38 return_stmt: tRETURN expression tSEMI
 
-   39 if_stmt: tIF tLPAR con if_memo tRPAR body
+   39 if_memo: %empty
 
-   40 $@4: %empty
+   40 if_stmt: tIF tLPAR con if_memo tRPAR body
 
-   41 if_stmt: tIF tLPAR con if_memo tRPAR body $@4 tELSE body
+   41 $@5: %empty
 
-   42 $@5: %empty
+   42 if_stmt: tIF tLPAR con if_memo tRPAR body $@5 tELSE body
 
    43 $@6: %empty
 
-   44 while_stmt: tWHILE tLPAR $@5 con $@6 tRPAR body
+   44 $@7: %empty
 
-   45 con: condition
-   46    | tLPAR con tRPAR
+   45 while_stmt: tWHILE tLPAR $@6 con $@7 tRPAR body
 
-   47 $@7: %empty
+   46 con: condition
+   47    | tLPAR con tRPAR
 
-   48 con: con condition_memo tOR $@7 condition
+   48 $@8: %empty
 
-   49 $@8: %empty
+   49 con: con condition_memo tOR $@8 condition
 
-   50 con: con condition_memo tAND $@8 condition
+   50 $@9: %empty
 
-   51 condition_memo: %empty
+   51 con: con condition_memo tAND $@9 condition
 
-   52 $@9: %empty
+   52 condition_memo: %empty
 
-   53 condition: expression condition_memo $@9 tNE expression
+   53 $@10: %empty
 
-   54 $@10: %empty
+   54 condition: expression condition_memo $@10 tNE expression
 
-   55 condition: expression condition_memo $@10 tEQ expression
+   55 $@11: %empty
 
-   56 $@11: %empty
+   56 condition: expression condition_memo $@11 tEQ expression
 
-   57 condition: expression condition_memo $@11 tGE expression
+   57 $@12: %empty
 
-   58 $@12: %empty
+   58 condition: expression condition_memo $@12 tGE expression
 
-   59 condition: expression condition_memo $@12 tLE expression
+   59 $@13: %empty
 
-   60 $@13: %empty
+   60 condition: expression condition_memo $@13 tLE expression
 
-   61 condition: expression condition_memo $@13 tLT expression
+   61 $@14: %empty
 
-   62 $@14: %empty
+   62 condition: expression condition_memo $@14 tLT expression
 
-   63 condition: expression condition_memo $@14 tGT expression
-   64          | tNOT condition_memo condition
-   65          | expression condition_memo
-   66          | tLPAR condition tRPAR
+   63 $@15: %empty
 
-   67 expression: tNB
-   68           | tID
-   69           | expression tADD expression
-   70           | expression tSUB expression
-   71           | expression tMUL expression
-   72           | expression tDIV expression
-   73           | tLPAR expression tRPAR
-   74           | function_call
+   64 condition: expression condition_memo $@15 tGT expression
+   65          | tNOT condition_memo condition
+   66          | expression condition_memo
+   67          | tLPAR condition tRPAR
+
+   68 expression: tNB
+   69           | tID
+   70           | expression tADD expression
+   71           | expression tSUB expression
+   72           | expression tMUL expression
+   73           | expression tDIV expression
+   74           | tLPAR expression tRPAR
+   75           | function_call
 
 
 Terminals, with rules where they appear
 
     $end (0) 0
     error (256)
-    tID <s> (258) 4 6 12 28 29 30 32 68
-    tNB <n> (259) 67
-    tWHILE <while_info> (260) 44
+    tID <s> (258) 4 6 12 28 29 30 33 69
+    tNB <n> (259) 68
+    tWHILE <while_info> (260) 45
     tVOID (261) 6 8
     tINT (262) 4 12 24
     tLBRACE (263) 13 15
     tRBRACE (264) 13 15
-    tLPAR (265) 4 6 32 36 39 41 44 46 66 73
-    tRPAR (266) 4 6 32 36 39 41 44 46 66 73
-    tIF (267) 39 41
-    tELSE (268) 41
-    tPRINT (269) 36
-    tRETURN (270) 37
-    tADD (271) 69
-    tSUB (272) 70
-    tMUL (273) 71
-    tDIV (274) 72
-    tLT (275) 61
-    tGT (276) 63
-    tNE (277) 53
-    tEQ (278) 55
-    tGE (279) 57
-    tLE (280) 59
+    tLPAR (265) 4 6 33 37 40 42 45 47 67 74
+    tRPAR (266) 4 6 33 37 40 42 45 47 67 74
+    tIF (267) 40 42
+    tELSE (268) 42
+    tPRINT (269) 37
+    tRETURN (270) 38
+    tADD (271) 70
+    tSUB (272) 71
+    tMUL (273) 72
+    tDIV (274) 73
+    tLT (275) 62
+    tGT (276) 64
+    tNE (277) 54
+    tEQ (278) 56
+    tGE (279) 58
+    tLE (280) 60
     tASSIGN (281) 29 30
-    tAND (282) 50
-    tOR (283) 48
-    tNOT (284) 64
-    tSEMI (285) 24 30 31 36 37
-    tCOMMA (286) 11 27 35
+    tAND (282) 51
+    tOR (283) 49
+    tNOT (284) 65
+    tSEMI (285) 24 30 31 37 38
+    tCOMMA (286) 11 27 36
     tERROR (287)
 
 
@@ -197,7 +199,7 @@ Nonterminals, with rules where they appear
         on right: 9 11
     body (41)
         on left: 13 15
-        on right: 4 6 39 41 44
+        on right: 4 6 40 42 45
     $@3 (42)
         on left: 14
         on right: 15
@@ -223,71 +225,74 @@ Nonterminals, with rules where they appear
         on left: 30 31
         on right: 19
     function_call (50)
+        on left: 33
+        on right: 31 75
+    $@4 (51)
         on left: 32
-        on right: 31 74
-    params_call (51)
-        on left: 33 34 35
-        on right: 32 35
-    print_stmt (52)
-        on left: 36
-        on right: 20
-    return_stmt (53)
+        on right: 33
+    params_call (52)
+        on left: 34 35 36
+        on right: 33 36
+    print_stmt (53)
         on left: 37
-        on right: 21
-    if_memo <if_info> (54)
+        on right: 20
+    return_stmt (54)
         on left: 38
-        on right: 39 41
-    if_stmt (55)
-        on left: 39 41
+        on right: 21
+    if_memo <if_info> (55)
+        on left: 39
+        on right: 40 42
+    if_stmt (56)
+        on left: 40 42
         on right: 22
-    $@4 (56)
-        on left: 40
-        on right: 41
-    while_stmt (57)
-        on left: 44
+    $@5 (57)
+        on left: 41
+        on right: 42
+    while_stmt (58)
+        on left: 45
         on right: 23
-    $@5 (58)
-        on left: 42
-        on right: 44
     $@6 (59)
         on left: 43
-        on right: 44
-    con (60)
-        on left: 45 46 48 50
-        on right: 39 41 44 46 48 50
-    $@7 (61)
-        on left: 47
-        on right: 48
+        on right: 45
+    $@7 (60)
+        on left: 44
+        on right: 45
+    con (61)
+        on left: 46 47 49 51
+        on right: 40 42 45 47 49 51
     $@8 (62)
-        on left: 49
-        on right: 50
-    condition_memo <condition_info> (63)
-        on left: 51
-        on right: 48 50 53 55 57 59 61 63 64 65
-    condition (64)
-        on left: 53 55 57 59 61 63 64 65 66
-        on right: 45 48 50 64 66
-    $@9 (65)
+        on left: 48
+        on right: 49
+    $@9 (63)
+        on left: 50
+        on right: 51
+    condition_memo <condition_info> (64)
         on left: 52
-        on right: 53
+        on right: 49 51 54 56 58 60 62 64 65 66
+    condition (65)
+        on left: 54 56 58 60 62 64 65 66 67
+        on right: 46 49 51 65 67
     $@10 (66)
-        on left: 54
-        on right: 55
+        on left: 53
+        on right: 54
     $@11 (67)
-        on left: 56
-        on right: 57
+        on left: 55
+        on right: 56
     $@12 (68)
-        on left: 58
-        on right: 59
+        on left: 57
+        on right: 58
     $@13 (69)
-        on left: 60
-        on right: 61
+        on left: 59
+        on right: 60
     $@14 (70)
-        on left: 62
-        on right: 63
-    expression (71)
-        on left: 67 68 69 70 71 72 73 74
-        on right: 29 30 34 35 36 37 53 55 57 59 61 63 65 69 70 71 72 73
+        on left: 61
+        on right: 62
+    $@15 (71)
+        on left: 63
+        on right: 64
+    expression (72)
+        on left: 68 69 70 71 72 73 74 75
+        on right: 29 30 35 36 37 38 54 56 58 60 62 64 66 70 71 72 73 74
 
 
 State 0
@@ -562,7 +567,7 @@ State 29
 State 30
 
    30 assign_call_stmt: tID . tASSIGN expression tSEMI
-   32 function_call: tID . tLPAR params_call tRPAR
+   33 function_call: tID . tLPAR $@4 params_call tRPAR
 
     tLPAR    shift, and go to state 45
     tASSIGN  shift, and go to state 46
@@ -570,7 +575,7 @@ State 30
 
 State 31
 
-   44 while_stmt: tWHILE . tLPAR $@5 con $@6 tRPAR body
+   45 while_stmt: tWHILE . tLPAR $@6 con $@7 tRPAR body
 
     tLPAR  shift, and go to state 47
 
@@ -587,22 +592,22 @@ State 32
 
 State 33
 
-   39 if_stmt: tIF . tLPAR con if_memo tRPAR body
-   41        | tIF . tLPAR con if_memo tRPAR body $@4 tELSE body
+   40 if_stmt: tIF . tLPAR con if_memo tRPAR body
+   42        | tIF . tLPAR con if_memo tRPAR body $@5 tELSE body
 
     tLPAR  shift, and go to state 51
 
 
 State 34
 
-   36 print_stmt: tPRINT . tLPAR expression tRPAR tSEMI
+   37 print_stmt: tPRINT . tLPAR expression tRPAR tSEMI
 
     tLPAR  shift, and go to state 52
 
 
 State 35
 
-   37 return_stmt: tRETURN . expression tSEMI
+   38 return_stmt: tRETURN . expression tSEMI
 
     tID    shift, and go to state 53
     tNB    shift, and go to state 54
@@ -693,17 +698,11 @@ State 44
 
 State 45
 
-   32 function_call: tID tLPAR . params_call tRPAR
+   33 function_call: tID tLPAR . $@4 params_call tRPAR
 
-    tID    shift, and go to state 53
-    tNB    shift, and go to state 54
-    tLPAR  shift, and go to state 55
+    $default  reduce using rule 32 ($@4)
 
-    $default  reduce using rule 33 (params_call)
-
-    function_call  go to state 56
-    params_call    go to state 61
-    expression     go to state 62
+    $@4  go to state 61
 
 
 State 46
@@ -715,16 +714,16 @@ State 46
     tLPAR  shift, and go to state 55
 
     function_call  go to state 56
-    expression     go to state 63
+    expression     go to state 62
 
 
 State 47
 
-   44 while_stmt: tWHILE tLPAR . $@5 con $@6 tRPAR body
+   45 while_stmt: tWHILE tLPAR . $@6 con $@7 tRPAR body
 
-    $default  reduce using rule 42 ($@5)
+    $default  reduce using rule 43 ($@6)
 
-    $@5  go to state 64
+    $@6  go to state 63
 
 
 State 48
@@ -732,7 +731,7 @@ State 48
    28 id_decl: tID .
    29        | tID . tASSIGN expression
 
-    tASSIGN  shift, and go to state 65
+    tASSIGN  shift, and go to state 64
 
     $default  reduce using rule 28 (id_decl)
 
@@ -741,39 +740,68 @@ State 49
 
    24 declaration_stmt: tINT id_list . tSEMI
 
-    tSEMI  shift, and go to state 66
+    tSEMI  shift, and go to state 65
 
 
 State 50
 
    25 id_list: id_decl . id_list_item
 
-    tCOMMA  shift, and go to state 67
+    tCOMMA  shift, and go to state 66
 
     $default  reduce using rule 26 (id_list_item)
 
-    id_list_item  go to state 68
+    id_list_item  go to state 67
 
 
 State 51
 
-   39 if_stmt: tIF tLPAR . con if_memo tRPAR body
-   41        | tIF tLPAR . con if_memo tRPAR body $@4 tELSE body
+   40 if_stmt: tIF tLPAR . con if_memo tRPAR body
+   42        | tIF tLPAR . con if_memo tRPAR body $@5 tELSE body
 
     tID    shift, and go to state 53
     tNB    shift, and go to state 54
-    tLPAR  shift, and go to state 69
-    tNOT   shift, and go to state 70
+    tLPAR  shift, and go to state 68
+    tNOT   shift, and go to state 69
 
     function_call  go to state 56
-    con            go to state 71
-    condition      go to state 72
-    expression     go to state 73
+    con            go to state 70
+    condition      go to state 71
+    expression     go to state 72
 
 
 State 52
 
-   36 print_stmt: tPRINT tLPAR . expression tRPAR tSEMI
+   37 print_stmt: tPRINT tLPAR . expression tRPAR tSEMI
+
+    tID    shift, and go to state 53
+    tNB    shift, and go to state 54
+    tLPAR  shift, and go to state 55
+
+    function_call  go to state 56
+    expression     go to state 73
+
+
+State 53
+
+   33 function_call: tID . tLPAR $@4 params_call tRPAR
+   69 expression: tID .
+
+    tLPAR  shift, and go to state 45
+
+    $default  reduce using rule 69 (expression)
+
+
+State 54
+
+   68 expression: tNB .
+
+    $default  reduce using rule 68 (expression)
+
+
+State 55
+
+   74 expression: tLPAR . expression tRPAR
 
     tID    shift, and go to state 53
     tNB    shift, and go to state 54
@@ -783,55 +811,26 @@ State 52
     expression     go to state 74
 
 
-State 53
-
-   32 function_call: tID . tLPAR params_call tRPAR
-   68 expression: tID .
-
-    tLPAR  shift, and go to state 45
-
-    $default  reduce using rule 68 (expression)
-
-
-State 54
-
-   67 expression: tNB .
-
-    $default  reduce using rule 67 (expression)
-
-
-State 55
-
-   73 expression: tLPAR . expression tRPAR
-
-    tID    shift, and go to state 53
-    tNB    shift, and go to state 54
-    tLPAR  shift, and go to state 55
-
-    function_call  go to state 56
-    expression     go to state 75
-
-
 State 56
 
-   74 expression: function_call .
+   75 expression: function_call .
 
-    $default  reduce using rule 74 (expression)
+    $default  reduce using rule 75 (expression)
 
 
 State 57
 
-   37 return_stmt: tRETURN expression . tSEMI
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
+   38 return_stmt: tRETURN expression . tSEMI
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
 
-    tADD   shift, and go to state 76
-    tSUB   shift, and go to state 77
-    tMUL   shift, and go to state 78
-    tDIV   shift, and go to state 79
-    tSEMI  shift, and go to state 80
+    tADD   shift, and go to state 75
+    tSUB   shift, and go to state 76
+    tMUL   shift, and go to state 77
+    tDIV   shift, and go to state 78
+    tSEMI  shift, and go to state 79
 
 
 State 58
@@ -857,60 +856,50 @@ State 60
 
 State 61
 
-   32 function_call: tID tLPAR params_call . tRPAR
-   35 params_call: params_call . tCOMMA expression
+   33 function_call: tID tLPAR $@4 . params_call tRPAR
 
-    tRPAR   shift, and go to state 81
-    tCOMMA  shift, and go to state 82
+    tID    shift, and go to state 53
+    tNB    shift, and go to state 54
+    tLPAR  shift, and go to state 55
+
+    $default  reduce using rule 34 (params_call)
+
+    function_call  go to state 56
+    params_call    go to state 80
+    expression     go to state 81
 
 
 State 62
 
-   34 params_call: expression .
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
+   30 assign_call_stmt: tID tASSIGN expression . tSEMI
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
 
-    tADD  shift, and go to state 76
-    tSUB  shift, and go to state 77
-    tMUL  shift, and go to state 78
-    tDIV  shift, and go to state 79
-
-    $default  reduce using rule 34 (params_call)
+    tADD   shift, and go to state 75
+    tSUB   shift, and go to state 76
+    tMUL   shift, and go to state 77
+    tDIV   shift, and go to state 78
+    tSEMI  shift, and go to state 82
 
 
 State 63
 
-   30 assign_call_stmt: tID tASSIGN expression . tSEMI
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
-
-    tADD   shift, and go to state 76
-    tSUB   shift, and go to state 77
-    tMUL   shift, and go to state 78
-    tDIV   shift, and go to state 79
-    tSEMI  shift, and go to state 83
-
-
-State 64
-
-   44 while_stmt: tWHILE tLPAR $@5 . con $@6 tRPAR body
+   45 while_stmt: tWHILE tLPAR $@6 . con $@7 tRPAR body
 
     tID    shift, and go to state 53
     tNB    shift, and go to state 54
-    tLPAR  shift, and go to state 69
-    tNOT   shift, and go to state 70
+    tLPAR  shift, and go to state 68
+    tNOT   shift, and go to state 69
 
     function_call  go to state 56
-    con            go to state 84
-    condition      go to state 72
-    expression     go to state 73
+    con            go to state 83
+    condition      go to state 71
+    expression     go to state 72
 
 
-State 65
+State 64
 
    29 id_decl: tID tASSIGN . expression
 
@@ -919,136 +908,148 @@ State 65
     tLPAR  shift, and go to state 55
 
     function_call  go to state 56
-    expression     go to state 85
+    expression     go to state 84
 
 
-State 66
+State 65
 
    24 declaration_stmt: tINT id_list tSEMI .
 
     $default  reduce using rule 24 (declaration_stmt)
 
 
-State 67
+State 66
 
    27 id_list_item: tCOMMA . id_decl id_list_item
 
     tID  shift, and go to state 48
 
-    id_decl  go to state 86
+    id_decl  go to state 85
 
 
-State 68
+State 67
 
    25 id_list: id_decl id_list_item .
 
     $default  reduce using rule 25 (id_list)
 
 
-State 69
+State 68
 
-   46 con: tLPAR . con tRPAR
-   66 condition: tLPAR . condition tRPAR
-   73 expression: tLPAR . expression tRPAR
+   47 con: tLPAR . con tRPAR
+   67 condition: tLPAR . condition tRPAR
+   74 expression: tLPAR . expression tRPAR
 
     tID    shift, and go to state 53
     tNB    shift, and go to state 54
-    tLPAR  shift, and go to state 69
-    tNOT   shift, and go to state 70
+    tLPAR  shift, and go to state 68
+    tNOT   shift, and go to state 69
 
     function_call  go to state 56
-    con            go to state 87
-    condition      go to state 88
-    expression     go to state 89
+    con            go to state 86
+    condition      go to state 87
+    expression     go to state 88
+
+
+State 69
+
+   65 condition: tNOT . condition_memo condition
+
+    $default  reduce using rule 52 (condition_memo)
+
+    condition_memo  go to state 89
 
 
 State 70
 
-   64 condition: tNOT . condition_memo condition
+   40 if_stmt: tIF tLPAR con . if_memo tRPAR body
+   42        | tIF tLPAR con . if_memo tRPAR body $@5 tELSE body
+   49 con: con . condition_memo tOR $@8 condition
+   51    | con . condition_memo tAND $@9 condition
 
-    $default  reduce using rule 51 (condition_memo)
+    tRPAR     reduce using rule 39 (if_memo)
+    $default  reduce using rule 52 (condition_memo)
 
-    condition_memo  go to state 90
+    if_memo         go to state 90
+    condition_memo  go to state 91
 
 
 State 71
 
-   39 if_stmt: tIF tLPAR con . if_memo tRPAR body
-   41        | tIF tLPAR con . if_memo tRPAR body $@4 tELSE body
-   48 con: con . condition_memo tOR $@7 condition
-   50    | con . condition_memo tAND $@8 condition
+   46 con: condition .
 
-    tRPAR     reduce using rule 38 (if_memo)
-    $default  reduce using rule 51 (condition_memo)
-
-    if_memo         go to state 91
-    condition_memo  go to state 92
+    $default  reduce using rule 46 (con)
 
 
 State 72
 
-   45 con: condition .
+   54 condition: expression . condition_memo $@10 tNE expression
+   56          | expression . condition_memo $@11 tEQ expression
+   58          | expression . condition_memo $@12 tGE expression
+   60          | expression . condition_memo $@13 tLE expression
+   62          | expression . condition_memo $@14 tLT expression
+   64          | expression . condition_memo $@15 tGT expression
+   66          | expression . condition_memo
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
 
-    $default  reduce using rule 45 (con)
+    tADD  shift, and go to state 75
+    tSUB  shift, and go to state 76
+    tMUL  shift, and go to state 77
+    tDIV  shift, and go to state 78
+
+    $default  reduce using rule 52 (condition_memo)
+
+    condition_memo  go to state 92
 
 
 State 73
 
-   53 condition: expression . condition_memo $@9 tNE expression
-   55          | expression . condition_memo $@10 tEQ expression
-   57          | expression . condition_memo $@11 tGE expression
-   59          | expression . condition_memo $@12 tLE expression
-   61          | expression . condition_memo $@13 tLT expression
-   63          | expression . condition_memo $@14 tGT expression
-   65          | expression . condition_memo
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
+   37 print_stmt: tPRINT tLPAR expression . tRPAR tSEMI
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
 
-    tADD  shift, and go to state 76
-    tSUB  shift, and go to state 77
-    tMUL  shift, and go to state 78
-    tDIV  shift, and go to state 79
-
-    $default  reduce using rule 51 (condition_memo)
-
-    condition_memo  go to state 93
+    tRPAR  shift, and go to state 93
+    tADD   shift, and go to state 75
+    tSUB   shift, and go to state 76
+    tMUL   shift, and go to state 77
+    tDIV   shift, and go to state 78
 
 
 State 74
 
-   36 print_stmt: tPRINT tLPAR expression . tRPAR tSEMI
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
+   74           | tLPAR expression . tRPAR
 
     tRPAR  shift, and go to state 94
-    tADD   shift, and go to state 76
-    tSUB   shift, and go to state 77
-    tMUL   shift, and go to state 78
-    tDIV   shift, and go to state 79
+    tADD   shift, and go to state 75
+    tSUB   shift, and go to state 76
+    tMUL   shift, and go to state 77
+    tDIV   shift, and go to state 78
 
 
 State 75
 
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
-   73           | tLPAR expression . tRPAR
+   70 expression: expression tADD . expression
 
-    tRPAR  shift, and go to state 95
-    tADD   shift, and go to state 76
-    tSUB   shift, and go to state 77
-    tMUL   shift, and go to state 78
-    tDIV   shift, and go to state 79
+    tID    shift, and go to state 53
+    tNB    shift, and go to state 54
+    tLPAR  shift, and go to state 55
+
+    function_call  go to state 56
+    expression     go to state 95
 
 
 State 76
 
-   69 expression: expression tADD . expression
+   71 expression: expression tSUB . expression
 
     tID    shift, and go to state 53
     tNB    shift, and go to state 54
@@ -1060,7 +1061,7 @@ State 76
 
 State 77
 
-   70 expression: expression tSUB . expression
+   72 expression: expression tMUL . expression
 
     tID    shift, and go to state 53
     tNB    shift, and go to state 54
@@ -1072,7 +1073,7 @@ State 77
 
 State 78
 
-   71 expression: expression tMUL . expression
+   73 expression: expression tDIV . expression
 
     tID    shift, and go to state 53
     tNB    shift, and go to state 54
@@ -1084,282 +1085,279 @@ State 78
 
 State 79
 
-   72 expression: expression tDIV . expression
+   38 return_stmt: tRETURN expression tSEMI .
 
-    tID    shift, and go to state 53
-    tNB    shift, and go to state 54
-    tLPAR  shift, and go to state 55
-
-    function_call  go to state 56
-    expression     go to state 99
+    $default  reduce using rule 38 (return_stmt)
 
 
 State 80
 
-   37 return_stmt: tRETURN expression tSEMI .
+   33 function_call: tID tLPAR $@4 params_call . tRPAR
+   36 params_call: params_call . tCOMMA expression
 
-    $default  reduce using rule 37 (return_stmt)
+    tRPAR   shift, and go to state 99
+    tCOMMA  shift, and go to state 100
 
 
 State 81
 
-   32 function_call: tID tLPAR params_call tRPAR .
+   35 params_call: expression .
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
 
-    $default  reduce using rule 32 (function_call)
+    tADD  shift, and go to state 75
+    tSUB  shift, and go to state 76
+    tMUL  shift, and go to state 77
+    tDIV  shift, and go to state 78
+
+    $default  reduce using rule 35 (params_call)
 
 
 State 82
-
-   35 params_call: params_call tCOMMA . expression
-
-    tID    shift, and go to state 53
-    tNB    shift, and go to state 54
-    tLPAR  shift, and go to state 55
-
-    function_call  go to state 56
-    expression     go to state 100
-
-
-State 83
 
    30 assign_call_stmt: tID tASSIGN expression tSEMI .
 
     $default  reduce using rule 30 (assign_call_stmt)
 
 
+State 83
+
+   45 while_stmt: tWHILE tLPAR $@6 con . $@7 tRPAR body
+   49 con: con . condition_memo tOR $@8 condition
+   51    | con . condition_memo tAND $@9 condition
+
+    tRPAR     reduce using rule 44 ($@7)
+    $default  reduce using rule 52 (condition_memo)
+
+    $@7             go to state 101
+    condition_memo  go to state 91
+
+
 State 84
 
-   44 while_stmt: tWHILE tLPAR $@5 con . $@6 tRPAR body
-   48 con: con . condition_memo tOR $@7 condition
-   50    | con . condition_memo tAND $@8 condition
-
-    tRPAR     reduce using rule 43 ($@6)
-    $default  reduce using rule 51 (condition_memo)
-
-    $@6             go to state 101
-    condition_memo  go to state 92
-
-
-State 85
-
    29 id_decl: tID tASSIGN expression .
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
 
-    tADD  shift, and go to state 76
-    tSUB  shift, and go to state 77
-    tMUL  shift, and go to state 78
-    tDIV  shift, and go to state 79
+    tADD  shift, and go to state 75
+    tSUB  shift, and go to state 76
+    tMUL  shift, and go to state 77
+    tDIV  shift, and go to state 78
 
     $default  reduce using rule 29 (id_decl)
 
 
-State 86
+State 85
 
    27 id_list_item: tCOMMA id_decl . id_list_item
 
-    tCOMMA  shift, and go to state 67
+    tCOMMA  shift, and go to state 66
 
     $default  reduce using rule 26 (id_list_item)
 
     id_list_item  go to state 102
 
 
-State 87
+State 86
 
-   46 con: tLPAR con . tRPAR
-   48    | con . condition_memo tOR $@7 condition
-   50    | con . condition_memo tAND $@8 condition
+   47 con: tLPAR con . tRPAR
+   49    | con . condition_memo tOR $@8 condition
+   51    | con . condition_memo tAND $@9 condition
 
     tRPAR  shift, and go to state 103
 
-    $default  reduce using rule 51 (condition_memo)
+    $default  reduce using rule 52 (condition_memo)
 
-    condition_memo  go to state 92
+    condition_memo  go to state 91
+
+
+State 87
+
+   46 con: condition .
+   67 condition: tLPAR condition . tRPAR
+
+    tRPAR  shift, and go to state 104
+
+    tRPAR     [reduce using rule 46 (con)]
+    $default  reduce using rule 46 (con)
 
 
 State 88
 
-   45 con: condition .
-   66 condition: tLPAR condition . tRPAR
+   54 condition: expression . condition_memo $@10 tNE expression
+   56          | expression . condition_memo $@11 tEQ expression
+   58          | expression . condition_memo $@12 tGE expression
+   60          | expression . condition_memo $@13 tLE expression
+   62          | expression . condition_memo $@14 tLT expression
+   64          | expression . condition_memo $@15 tGT expression
+   66          | expression . condition_memo
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
+   74           | tLPAR expression . tRPAR
 
-    tRPAR  shift, and go to state 104
+    tRPAR  shift, and go to state 94
+    tADD   shift, and go to state 75
+    tSUB   shift, and go to state 76
+    tMUL   shift, and go to state 77
+    tDIV   shift, and go to state 78
 
-    tRPAR     [reduce using rule 45 (con)]
-    $default  reduce using rule 45 (con)
+    tRPAR     [reduce using rule 52 (condition_memo)]
+    $default  reduce using rule 52 (condition_memo)
+
+    condition_memo  go to state 92
 
 
 State 89
 
-   53 condition: expression . condition_memo $@9 tNE expression
-   55          | expression . condition_memo $@10 tEQ expression
-   57          | expression . condition_memo $@11 tGE expression
-   59          | expression . condition_memo $@12 tLE expression
-   61          | expression . condition_memo $@13 tLT expression
-   63          | expression . condition_memo $@14 tGT expression
-   65          | expression . condition_memo
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
-   73           | tLPAR expression . tRPAR
-
-    tRPAR  shift, and go to state 95
-    tADD   shift, and go to state 76
-    tSUB   shift, and go to state 77
-    tMUL   shift, and go to state 78
-    tDIV   shift, and go to state 79
-
-    tRPAR     [reduce using rule 51 (condition_memo)]
-    $default  reduce using rule 51 (condition_memo)
-
-    condition_memo  go to state 93
-
-
-State 90
-
-   64 condition: tNOT condition_memo . condition
+   65 condition: tNOT condition_memo . condition
 
     tID    shift, and go to state 53
     tNB    shift, and go to state 54
     tLPAR  shift, and go to state 105
-    tNOT   shift, and go to state 70
+    tNOT   shift, and go to state 69
 
     function_call  go to state 56
     condition      go to state 106
-    expression     go to state 73
+    expression     go to state 72
 
 
-State 91
+State 90
 
-   39 if_stmt: tIF tLPAR con if_memo . tRPAR body
-   41        | tIF tLPAR con if_memo . tRPAR body $@4 tELSE body
+   40 if_stmt: tIF tLPAR con if_memo . tRPAR body
+   42        | tIF tLPAR con if_memo . tRPAR body $@5 tELSE body
 
     tRPAR  shift, and go to state 107
 
 
-State 92
+State 91
 
-   48 con: con condition_memo . tOR $@7 condition
-   50    | con condition_memo . tAND $@8 condition
+   49 con: con condition_memo . tOR $@8 condition
+   51    | con condition_memo . tAND $@9 condition
 
     tAND  shift, and go to state 108
     tOR   shift, and go to state 109
 
 
+State 92
+
+   54 condition: expression condition_memo . $@10 tNE expression
+   56          | expression condition_memo . $@11 tEQ expression
+   58          | expression condition_memo . $@12 tGE expression
+   60          | expression condition_memo . $@13 tLE expression
+   62          | expression condition_memo . $@14 tLT expression
+   64          | expression condition_memo . $@15 tGT expression
+   66          | expression condition_memo .
+
+    tLT       reduce using rule 61 ($@14)
+    tGT       reduce using rule 63 ($@15)
+    tNE       reduce using rule 53 ($@10)
+    tEQ       reduce using rule 55 ($@11)
+    tGE       reduce using rule 57 ($@12)
+    tLE       reduce using rule 59 ($@13)
+    $default  reduce using rule 66 (condition)
+
+    $@10  go to state 110
+    $@11  go to state 111
+    $@12  go to state 112
+    $@13  go to state 113
+    $@14  go to state 114
+    $@15  go to state 115
+
+
 State 93
 
-   53 condition: expression condition_memo . $@9 tNE expression
-   55          | expression condition_memo . $@10 tEQ expression
-   57          | expression condition_memo . $@11 tGE expression
-   59          | expression condition_memo . $@12 tLE expression
-   61          | expression condition_memo . $@13 tLT expression
-   63          | expression condition_memo . $@14 tGT expression
-   65          | expression condition_memo .
-
-    tLT       reduce using rule 60 ($@13)
-    tGT       reduce using rule 62 ($@14)
-    tNE       reduce using rule 52 ($@9)
-    tEQ       reduce using rule 54 ($@10)
-    tGE       reduce using rule 56 ($@11)
-    tLE       reduce using rule 58 ($@12)
-    $default  reduce using rule 65 (condition)
-
-    $@9   go to state 110
-    $@10  go to state 111
-    $@11  go to state 112
-    $@12  go to state 113
-    $@13  go to state 114
-    $@14  go to state 115
-
-
-State 94
-
-   36 print_stmt: tPRINT tLPAR expression tRPAR . tSEMI
+   37 print_stmt: tPRINT tLPAR expression tRPAR . tSEMI
 
     tSEMI  shift, and go to state 116
 
 
+State 94
+
+   74 expression: tLPAR expression tRPAR .
+
+    $default  reduce using rule 74 (expression)
+
+
 State 95
 
-   73 expression: tLPAR expression tRPAR .
+   70 expression: expression . tADD expression
+   70           | expression tADD expression .
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
 
-    $default  reduce using rule 73 (expression)
-
-
-State 96
-
-   69 expression: expression . tADD expression
-   69           | expression tADD expression .
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
-
-    tMUL  shift, and go to state 78
-    tDIV  shift, and go to state 79
-
-    $default  reduce using rule 69 (expression)
-
-
-State 97
-
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   70           | expression tSUB expression .
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
-
-    tMUL  shift, and go to state 78
-    tDIV  shift, and go to state 79
+    tMUL  shift, and go to state 77
+    tDIV  shift, and go to state 78
 
     $default  reduce using rule 70 (expression)
 
 
-State 98
+State 96
 
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   71           | expression tMUL expression .
-   72           | expression . tDIV expression
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   71           | expression tSUB expression .
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
+
+    tMUL  shift, and go to state 77
+    tDIV  shift, and go to state 78
 
     $default  reduce using rule 71 (expression)
 
 
-State 99
+State 97
 
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
-   72           | expression tDIV expression .
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   72           | expression tMUL expression .
+   73           | expression . tDIV expression
 
     $default  reduce using rule 72 (expression)
 
 
+State 98
+
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
+   73           | expression tDIV expression .
+
+    $default  reduce using rule 73 (expression)
+
+
+State 99
+
+   33 function_call: tID tLPAR $@4 params_call tRPAR .
+
+    $default  reduce using rule 33 (function_call)
+
+
 State 100
 
-   35 params_call: params_call tCOMMA expression .
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
+   36 params_call: params_call tCOMMA . expression
 
-    tADD  shift, and go to state 76
-    tSUB  shift, and go to state 77
-    tMUL  shift, and go to state 78
-    tDIV  shift, and go to state 79
+    tID    shift, and go to state 53
+    tNB    shift, and go to state 54
+    tLPAR  shift, and go to state 55
 
-    $default  reduce using rule 35 (params_call)
+    function_call  go to state 56
+    expression     go to state 117
 
 
 State 101
 
-   44 while_stmt: tWHILE tLPAR $@5 con $@6 . tRPAR body
+   45 while_stmt: tWHILE tLPAR $@6 con $@7 . tRPAR body
 
-    tRPAR  shift, and go to state 117
+    tRPAR  shift, and go to state 118
 
 
 State 102
@@ -1371,187 +1369,191 @@ State 102
 
 State 103
 
-   46 con: tLPAR con tRPAR .
+   47 con: tLPAR con tRPAR .
 
-    $default  reduce using rule 46 (con)
+    $default  reduce using rule 47 (con)
 
 
 State 104
 
-   66 condition: tLPAR condition tRPAR .
+   67 condition: tLPAR condition tRPAR .
 
-    $default  reduce using rule 66 (condition)
+    $default  reduce using rule 67 (condition)
 
 
 State 105
 
-   66 condition: tLPAR . condition tRPAR
-   73 expression: tLPAR . expression tRPAR
+   67 condition: tLPAR . condition tRPAR
+   74 expression: tLPAR . expression tRPAR
 
     tID    shift, and go to state 53
     tNB    shift, and go to state 54
     tLPAR  shift, and go to state 105
-    tNOT   shift, and go to state 70
+    tNOT   shift, and go to state 69
 
     function_call  go to state 56
-    condition      go to state 118
-    expression     go to state 89
+    condition      go to state 119
+    expression     go to state 88
 
 
 State 106
 
-   64 condition: tNOT condition_memo condition .
+   65 condition: tNOT condition_memo condition .
 
-    $default  reduce using rule 64 (condition)
+    $default  reduce using rule 65 (condition)
 
 
 State 107
 
-   39 if_stmt: tIF tLPAR con if_memo tRPAR . body
-   41        | tIF tLPAR con if_memo tRPAR . body $@4 tELSE body
+   40 if_stmt: tIF tLPAR con if_memo tRPAR . body
+   42        | tIF tLPAR con if_memo tRPAR . body $@5 tELSE body
 
     tLBRACE  shift, and go to state 23
 
-    body  go to state 119
+    body  go to state 120
 
 
 State 108
 
-   50 con: con condition_memo tAND . $@8 condition
+   51 con: con condition_memo tAND . $@9 condition
 
-    $default  reduce using rule 49 ($@8)
+    $default  reduce using rule 50 ($@9)
 
-    $@8  go to state 120
+    $@9  go to state 121
 
 
 State 109
 
-   48 con: con condition_memo tOR . $@7 condition
+   49 con: con condition_memo tOR . $@8 condition
 
-    $default  reduce using rule 47 ($@7)
+    $default  reduce using rule 48 ($@8)
 
-    $@7  go to state 121
+    $@8  go to state 122
 
 
 State 110
 
-   53 condition: expression condition_memo $@9 . tNE expression
+   54 condition: expression condition_memo $@10 . tNE expression
 
-    tNE  shift, and go to state 122
+    tNE  shift, and go to state 123
 
 
 State 111
 
-   55 condition: expression condition_memo $@10 . tEQ expression
+   56 condition: expression condition_memo $@11 . tEQ expression
 
-    tEQ  shift, and go to state 123
+    tEQ  shift, and go to state 124
 
 
 State 112
 
-   57 condition: expression condition_memo $@11 . tGE expression
+   58 condition: expression condition_memo $@12 . tGE expression
 
-    tGE  shift, and go to state 124
+    tGE  shift, and go to state 125
 
 
 State 113
 
-   59 condition: expression condition_memo $@12 . tLE expression
+   60 condition: expression condition_memo $@13 . tLE expression
 
-    tLE  shift, and go to state 125
+    tLE  shift, and go to state 126
 
 
 State 114
 
-   61 condition: expression condition_memo $@13 . tLT expression
+   62 condition: expression condition_memo $@14 . tLT expression
 
-    tLT  shift, and go to state 126
+    tLT  shift, and go to state 127
 
 
 State 115
 
-   63 condition: expression condition_memo $@14 . tGT expression
+   64 condition: expression condition_memo $@15 . tGT expression
 
-    tGT  shift, and go to state 127
+    tGT  shift, and go to state 128
 
 
 State 116
 
-   36 print_stmt: tPRINT tLPAR expression tRPAR tSEMI .
+   37 print_stmt: tPRINT tLPAR expression tRPAR tSEMI .
 
-    $default  reduce using rule 36 (print_stmt)
+    $default  reduce using rule 37 (print_stmt)
 
 
 State 117
 
-   44 while_stmt: tWHILE tLPAR $@5 con $@6 tRPAR . body
+   36 params_call: params_call tCOMMA expression .
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
 
-    tLBRACE  shift, and go to state 23
+    tADD  shift, and go to state 75
+    tSUB  shift, and go to state 76
+    tMUL  shift, and go to state 77
+    tDIV  shift, and go to state 78
 
-    body  go to state 128
+    $default  reduce using rule 36 (params_call)
 
 
 State 118
 
-   66 condition: tLPAR condition . tRPAR
+   45 while_stmt: tWHILE tLPAR $@6 con $@7 tRPAR . body
 
-    tRPAR  shift, and go to state 104
+    tLBRACE  shift, and go to state 23
+
+    body  go to state 129
 
 
 State 119
 
-   39 if_stmt: tIF tLPAR con if_memo tRPAR body .
-   41        | tIF tLPAR con if_memo tRPAR body . $@4 tELSE body
+   67 condition: tLPAR condition . tRPAR
 
-    tELSE     reduce using rule 40 ($@4)
-    $default  reduce using rule 39 (if_stmt)
-
-    $@4  go to state 129
+    tRPAR  shift, and go to state 104
 
 
 State 120
 
-   50 con: con condition_memo tAND $@8 . condition
+   40 if_stmt: tIF tLPAR con if_memo tRPAR body .
+   42        | tIF tLPAR con if_memo tRPAR body . $@5 tELSE body
 
-    tID    shift, and go to state 53
-    tNB    shift, and go to state 54
-    tLPAR  shift, and go to state 105
-    tNOT   shift, and go to state 70
+    tELSE     reduce using rule 41 ($@5)
+    $default  reduce using rule 40 (if_stmt)
 
-    function_call  go to state 56
-    condition      go to state 130
-    expression     go to state 73
+    $@5  go to state 130
 
 
 State 121
 
-   48 con: con condition_memo tOR $@7 . condition
+   51 con: con condition_memo tAND $@9 . condition
 
     tID    shift, and go to state 53
     tNB    shift, and go to state 54
     tLPAR  shift, and go to state 105
-    tNOT   shift, and go to state 70
+    tNOT   shift, and go to state 69
 
     function_call  go to state 56
     condition      go to state 131
-    expression     go to state 73
+    expression     go to state 72
 
 
 State 122
 
-   53 condition: expression condition_memo $@9 tNE . expression
+   49 con: con condition_memo tOR $@8 . condition
 
     tID    shift, and go to state 53
     tNB    shift, and go to state 54
-    tLPAR  shift, and go to state 55
+    tLPAR  shift, and go to state 105
+    tNOT   shift, and go to state 69
 
     function_call  go to state 56
-    expression     go to state 132
+    condition      go to state 132
+    expression     go to state 72
 
 
 State 123
 
-   55 condition: expression condition_memo $@10 tEQ . expression
+   54 condition: expression condition_memo $@10 tNE . expression
 
     tID    shift, and go to state 53
     tNB    shift, and go to state 54
@@ -1563,7 +1565,7 @@ State 123
 
 State 124
 
-   57 condition: expression condition_memo $@11 tGE . expression
+   56 condition: expression condition_memo $@11 tEQ . expression
 
     tID    shift, and go to state 53
     tNB    shift, and go to state 54
@@ -1575,7 +1577,7 @@ State 124
 
 State 125
 
-   59 condition: expression condition_memo $@12 tLE . expression
+   58 condition: expression condition_memo $@12 tGE . expression
 
     tID    shift, and go to state 53
     tNB    shift, and go to state 54
@@ -1587,7 +1589,7 @@ State 125
 
 State 126
 
-   61 condition: expression condition_memo $@13 tLT . expression
+   60 condition: expression condition_memo $@13 tLE . expression
 
     tID    shift, and go to state 53
     tNB    shift, and go to state 54
@@ -1599,7 +1601,7 @@ State 126
 
 State 127
 
-   63 condition: expression condition_memo $@14 tGT . expression
+   62 condition: expression condition_memo $@14 tLT . expression
 
     tID    shift, and go to state 53
     tNB    shift, and go to state 54
@@ -1611,139 +1613,151 @@ State 127
 
 State 128
 
-   44 while_stmt: tWHILE tLPAR $@5 con $@6 tRPAR body .
+   64 condition: expression condition_memo $@15 tGT . expression
 
-    $default  reduce using rule 44 (while_stmt)
+    tID    shift, and go to state 53
+    tNB    shift, and go to state 54
+    tLPAR  shift, and go to state 55
+
+    function_call  go to state 56
+    expression     go to state 138
 
 
 State 129
 
-   41 if_stmt: tIF tLPAR con if_memo tRPAR body $@4 . tELSE body
+   45 while_stmt: tWHILE tLPAR $@6 con $@7 tRPAR body .
 
-    tELSE  shift, and go to state 138
+    $default  reduce using rule 45 (while_stmt)
 
 
 State 130
 
-   50 con: con condition_memo tAND $@8 condition .
+   42 if_stmt: tIF tLPAR con if_memo tRPAR body $@5 . tELSE body
 
-    $default  reduce using rule 50 (con)
+    tELSE  shift, and go to state 139
 
 
 State 131
 
-   48 con: con condition_memo tOR $@7 condition .
+   51 con: con condition_memo tAND $@9 condition .
 
-    $default  reduce using rule 48 (con)
+    $default  reduce using rule 51 (con)
 
 
 State 132
 
-   53 condition: expression condition_memo $@9 tNE expression .
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
+   49 con: con condition_memo tOR $@8 condition .
 
-    tADD  shift, and go to state 76
-    tSUB  shift, and go to state 77
-    tMUL  shift, and go to state 78
-    tDIV  shift, and go to state 79
-
-    $default  reduce using rule 53 (condition)
+    $default  reduce using rule 49 (con)
 
 
 State 133
 
-   55 condition: expression condition_memo $@10 tEQ expression .
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
+   54 condition: expression condition_memo $@10 tNE expression .
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
 
-    tADD  shift, and go to state 76
-    tSUB  shift, and go to state 77
-    tMUL  shift, and go to state 78
-    tDIV  shift, and go to state 79
+    tADD  shift, and go to state 75
+    tSUB  shift, and go to state 76
+    tMUL  shift, and go to state 77
+    tDIV  shift, and go to state 78
 
-    $default  reduce using rule 55 (condition)
+    $default  reduce using rule 54 (condition)
 
 
 State 134
 
-   57 condition: expression condition_memo $@11 tGE expression .
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
+   56 condition: expression condition_memo $@11 tEQ expression .
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
 
-    tADD  shift, and go to state 76
-    tSUB  shift, and go to state 77
-    tMUL  shift, and go to state 78
-    tDIV  shift, and go to state 79
+    tADD  shift, and go to state 75
+    tSUB  shift, and go to state 76
+    tMUL  shift, and go to state 77
+    tDIV  shift, and go to state 78
 
-    $default  reduce using rule 57 (condition)
+    $default  reduce using rule 56 (condition)
 
 
 State 135
 
-   59 condition: expression condition_memo $@12 tLE expression .
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
+   58 condition: expression condition_memo $@12 tGE expression .
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
 
-    tADD  shift, and go to state 76
-    tSUB  shift, and go to state 77
-    tMUL  shift, and go to state 78
-    tDIV  shift, and go to state 79
+    tADD  shift, and go to state 75
+    tSUB  shift, and go to state 76
+    tMUL  shift, and go to state 77
+    tDIV  shift, and go to state 78
 
-    $default  reduce using rule 59 (condition)
+    $default  reduce using rule 58 (condition)
 
 
 State 136
 
-   61 condition: expression condition_memo $@13 tLT expression .
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
+   60 condition: expression condition_memo $@13 tLE expression .
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
 
-    tADD  shift, and go to state 76
-    tSUB  shift, and go to state 77
-    tMUL  shift, and go to state 78
-    tDIV  shift, and go to state 79
+    tADD  shift, and go to state 75
+    tSUB  shift, and go to state 76
+    tMUL  shift, and go to state 77
+    tDIV  shift, and go to state 78
 
-    $default  reduce using rule 61 (condition)
+    $default  reduce using rule 60 (condition)
 
 
 State 137
 
-   63 condition: expression condition_memo $@14 tGT expression .
-   69 expression: expression . tADD expression
-   70           | expression . tSUB expression
-   71           | expression . tMUL expression
-   72           | expression . tDIV expression
+   62 condition: expression condition_memo $@14 tLT expression .
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
 
-    tADD  shift, and go to state 76
-    tSUB  shift, and go to state 77
-    tMUL  shift, and go to state 78
-    tDIV  shift, and go to state 79
+    tADD  shift, and go to state 75
+    tSUB  shift, and go to state 76
+    tMUL  shift, and go to state 77
+    tDIV  shift, and go to state 78
 
-    $default  reduce using rule 63 (condition)
+    $default  reduce using rule 62 (condition)
 
 
 State 138
 
-   41 if_stmt: tIF tLPAR con if_memo tRPAR body $@4 tELSE . body
+   64 condition: expression condition_memo $@15 tGT expression .
+   70 expression: expression . tADD expression
+   71           | expression . tSUB expression
+   72           | expression . tMUL expression
+   73           | expression . tDIV expression
 
-    tLBRACE  shift, and go to state 23
+    tADD  shift, and go to state 75
+    tSUB  shift, and go to state 76
+    tMUL  shift, and go to state 77
+    tDIV  shift, and go to state 78
 
-    body  go to state 139
+    $default  reduce using rule 64 (condition)
 
 
 State 139
 
-   41 if_stmt: tIF tLPAR con if_memo tRPAR body $@4 tELSE body .
+   42 if_stmt: tIF tLPAR con if_memo tRPAR body $@5 tELSE . body
 
-    $default  reduce using rule 41 (if_stmt)
+    tLBRACE  shift, and go to state 23
+
+    body  go to state 140
+
+
+State 140
+
+   42 if_stmt: tIF tLPAR con if_memo tRPAR body $@5 tELSE body .
+
+    $default  reduce using rule 42 (if_stmt)

@@ -50,21 +50,17 @@ code:
 // La fonction peut avoir comme type de sortie INT ou VOID, avec des args et un body
 function:
   tINT tID 
-  	{
-		
+  {
 		tabFonctions_add($2, get_nbInstructions()); 
 		tabSymboles_add("?ADR", 1); 
 		tabSymboles_add("?VAL", 1);
 	} 
 	 tLPAR args_declaration tRPAR body 
 	{
-		// ici => j'ai fait n'imp mais j'en suis a diapo 438
 		tabSymboles_clear(); 
-		tabSymboles_add("", 1);
-		asm_add(AFC, tabSymboles_get_last_address(), tabSymboles_get_last_address()+1, INT_MAX);
 	}
   | tVOID tID 
-  	{
+  {
 		tabFonctions_add($2, get_nbInstructions()); 
 		tabSymboles_add("?ADR", 1); 
 		tabSymboles_add("?VAL", 1);
@@ -72,6 +68,7 @@ function:
 	 tLPAR 
 	 args_declaration tRPAR body { tabSymboles_clear(); }
   ;
+
 
 // Les arguments dans la declaration des fonctions : soit void, soit rien, soit un ensemble de tINT+tId avec des virgules
 args_declaration:
@@ -135,12 +132,24 @@ assign_call_stmt:
    ;
 // Appel d'une fonction : id, params.
 function_call:
-  tID tLPAR params_call tRPAR
+  tID tLPAR
   {
-    asm_add(PUSH, tabSymboles_get_last_address(), INT_MAX, INT_MAX);
-	asm_add(CALL, tabFonctions_get_address($1), INT_MAX, INT_MAX);
-	asm_add(POP, tabSymboles_get_last_address(), INT_MAX, INT_MAX);
-	tabSymboles_print();
+    tabSymboles_add("!ADR", 1); 
+		tabSymboles_add("!VAL", 1);
+  }
+  params_call tRPAR
+  {
+    asm_add(PUSH, tabSymboles_get_last_address()-2, INT_MAX, INT_MAX);
+    asm_add(CALL, tabFonctions_get_address($1), INT_MAX, INT_MAX);
+    asm_add(POP, tabSymboles_get_last_address()-2, INT_MAX, INT_MAX);
+
+		printf("DEBUT DE FONCTION\n");
+    tabSymboles_print();
+		printf("----------------\n");
+    // 
+    asm_add(COP, tabSymboles_get_last_address(), tabSymboles_get_last_address()+1, INT_MAX);
+
+    //tabSymboles_print();
   }
   /* on va appeler une fonction
   donc, il faut se rappeler des symboles qu'on a dans la fonction actuelle
