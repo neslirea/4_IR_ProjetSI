@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Mon May 15 09:35:07 2023
+| Date         : Mon May 15 09:44:32 2023
 | Host         : insa-11287 running 64-bit Ubuntu 20.04.6 LTS
 | Command      : report_control_sets -verbose -file AUL_control_sets_placed.rpt
 | Design       : AUL
@@ -23,7 +23,7 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |     1 |
+| Number of unique control sets                            |     2 |
 | Unused register locations in slices containing registers |     0 |
 +----------------------------------------------------------+-------+
 
@@ -34,7 +34,7 @@ Table of Contents
 +--------+--------------+
 | Fanout | Control Sets |
 +--------+--------------+
-|    16+ |            1 |
+|    16+ |            2 |
 +--------+--------------+
 
 
@@ -44,7 +44,7 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              16 |            2 |
+| No           | No                    | No                     |              32 |            6 |
 | No           | No                    | Yes                    |               0 |            0 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
@@ -59,6 +59,7 @@ Table of Contents
 +----------------------------+---------------+------------------+------------------+----------------+
 |        Clock Signal        | Enable Signal | Set/Reset Signal | Slice Load Count | Bel Load Count |
 +----------------------------+---------------+------------------+------------------+----------------+
+|  var_reg[7]_i_2_n_0        |               |                  |                4 |             16 |
 |  Auxiliaire_reg[7]_i_2_n_0 |               |                  |                2 |             16 |
 +----------------------------+---------------+------------------+------------------+----------------+
 

@@ -69,11 +69,11 @@ set rc [catch {
   set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/project_vhdl.cache/wt [current_project]
-  set_property parent.project_path /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/project_vhdl.xpr [current_project]
-  set_property ip_output_repo /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/project_vhdl.cache/ip [current_project]
+  set_property webtalk.parent_dir /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.cache/wt [current_project]
+  set_property parent.project_path /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.xpr [current_project]
+  set_property ip_output_repo /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/project_vhdl.runs/synth_1/AUL.dcp
+  add_files -quiet /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.runs/synth_1/AUL.dcp
   link_design -top AUL -part xc7a35tcpg236-1
   close_msg_db -file init_design.pb
 } RESULT]

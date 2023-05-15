@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Mon May 15 09:35:19 2023
+| Date         : Mon May 15 09:44:45 2023
 | Host         : insa-11287 running 64-bit Ubuntu 20.04.6 LTS
 | Command      : report_methodology -file AUL_methodology_drc_routed.rpt -pb AUL_methodology_drc_routed.pb -rpx AUL_methodology_drc_routed.rpx
 | Design       : AUL
@@ -23,11 +23,11 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 8
+             Violations found: 16
 +-----------+----------+-------------------+------------+
 | Rule      | Severity | Description       | Violations |
 +-----------+----------+-------------------+------------+
-| TIMING-20 | Warning  | Non-clocked latch | 8          |
+| TIMING-20 | Warning  | Non-clocked latch | 16         |
 +-----------+----------+-------------------+------------+
 
 2. REPORT DETAILS
@@ -70,6 +70,46 @@ Related violations: <none>
 TIMING-20#8 Warning
 Non-clocked latch  
 The latch Auxiliaire_reg[7] cannot be properly analyzed as its control pin Auxiliaire_reg[7]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#9 Warning
+Non-clocked latch  
+The latch var_reg[0] cannot be properly analyzed as its control pin var_reg[0]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#10 Warning
+Non-clocked latch  
+The latch var_reg[1] cannot be properly analyzed as its control pin var_reg[1]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#11 Warning
+Non-clocked latch  
+The latch var_reg[2] cannot be properly analyzed as its control pin var_reg[2]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#12 Warning
+Non-clocked latch  
+The latch var_reg[3] cannot be properly analyzed as its control pin var_reg[3]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#13 Warning
+Non-clocked latch  
+The latch var_reg[4] cannot be properly analyzed as its control pin var_reg[4]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#14 Warning
+Non-clocked latch  
+The latch var_reg[5] cannot be properly analyzed as its control pin var_reg[5]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#15 Warning
+Non-clocked latch  
+The latch var_reg[6] cannot be properly analyzed as its control pin var_reg[6]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#16 Warning
+Non-clocked latch  
+The latch var_reg[7] cannot be properly analyzed as its control pin var_reg[7]/G is not reached by a timing clock
 Related violations: <none>
 
 

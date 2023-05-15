@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-| Date         : Mon May 15 09:35:18 2023
+| Date         : Mon May 15 09:44:43 2023
 | Host         : insa-11287 running 64-bit Ubuntu 20.04.6 LTS
 | Command      : report_drc -file AUL_drc_routed.rpt -pb AUL_drc_routed.pb -rpx AUL_drc_routed.rpx
 | Design       : AUL
@@ -24,14 +24,14 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 4
+             Violations found: 5
 +----------+------------------+-----------------------------------------------------+------------+
 | Rule     | Severity         | Description                                         | Violations |
 +----------+------------------+-----------------------------------------------------+------------+
 | NSTD-1   | Critical Warning | Unspecified I/O Standard                            | 1          |
 | UCIO-1   | Critical Warning | Unconstrained Logical Port                          | 1          |
 | CFGBVS-1 | Warning          | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1          |
-| PDRC-153 | Warning          | Gated clock check                                   | 1          |
+| PDRC-153 | Warning          | Gated clock check                                   | 2          |
 +----------+------------------+-----------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -62,6 +62,11 @@ Related violations: <none>
 PDRC-153#1 Warning
 Gated clock check  
 Net Auxiliaire_reg[7]_i_2_n_0 is a gated clock net sourced by a combinational pin Auxiliaire_reg[7]_i_2/O, cell Auxiliaire_reg[7]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#2 Warning
+Gated clock check  
+Net var_reg[7]_i_2_n_0 is a gated clock net sourced by a combinational pin var_reg[7]_i_2/O, cell var_reg[7]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 
