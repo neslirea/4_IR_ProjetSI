@@ -1,0 +1,3 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/project_vhdl.sim/sim_1/synth/func/xsim/test_aul_func_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AUL
+INFO: [VRFC 10-311] analyzing module glbl
