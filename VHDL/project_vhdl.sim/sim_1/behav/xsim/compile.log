@@ -41,3 +41,150 @@ INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_P
 INFO: [VRFC 10-307] analyzing entity test_aul
 INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/project_vhdl.srcs/sources_1/new/AUL.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity AUL
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancRegistres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sim_1/new/test_banregistres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity test_banregistres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sim_1/new/test_banregistres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity test_banregistres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancRegistres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancRegistres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancRegistres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancRegistres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancRegistres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancRegistres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sim_1/new/test_banregistres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity test_banregistres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sim_1/new/test_banregistres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity test_banregistres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sim_1/new/test_banregistres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity test_banregistres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancRegistres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sim_1/new/test_bancMemoire_donnees.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity test_bancMemoire_donnees
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancRegistres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sim_1/new/Test_Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Test_Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sim_1/new/Test_Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Test_Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+ERROR: [VRFC 10-1412] syntax error near . [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:116]
+ERROR: [VRFC 10-1504] unit behavioral ignored due to previous errors [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:42]
+INFO: [VRFC 10-240] VHDL file /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd ignored due to errors
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancRegistres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancRegistres
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/AUL.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity AUL
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/AUL.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity AUL
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sim_1/new/test_aul.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity test_aul
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sim_1/new/test_aul.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity test_aul
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/AUL.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity AUL
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sim_1/new/test_aul.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity test_aul
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity Proc
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions

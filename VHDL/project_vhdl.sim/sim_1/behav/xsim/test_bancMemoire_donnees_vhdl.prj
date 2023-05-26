@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../project_vhdl.srcs/sources_1/new/BancMemoire_donnees.vhd" \
+"../../../../project_vhdl.srcs/sim_1/new/test_bancMemoire_donnees.vhd" \
+
+# Do not sort compile order
+nosort

@@ -47,30 +47,21 @@ architecture Behavioral of AUL is
     signal var: STD_LOGIC_VECTOR (15 downto 0) := (others => '0');
 
 begin
-process
-begin
-   --N <= '0';
-   --O <= '0';
-   --Z <= '0';
-   --C <= '0';
-   if (Ctrl_Alu="000") then -- addition +
-        Auxiliaire <= A+B;
-        --C <= A(7) and B(7);
-   elsif (Ctrl_Alu="001") then  -- soustraction -
-        Auxiliaire <= A-B;
-   elsif (Ctrl_Alu="010") then  -- multiplication *
-        var <= A*B;
-        Auxiliaire <= var(7 downto 0);
-        --if(var(15 downto 8)/="00000000") then
-        --O <= '1';
-        --end if;
-   end if;
-   --if(Auxiliaire="00000000") then
-        --Z <= '1';
-   --end if;
+    --N <= '0';
+    --O <= '0';
+    --Z <= '0';
+    --C <= '0';
+    var <= A*B;
+    Auxiliaire <= A+B when Ctrl_Alu="000" else
+                A-B when Ctrl_Alu="001" else
+                var(7 downto 0) when Ctrl_Alu="010";
+    --if(var(15 downto 8)/="00000000") then
+    --O <= '1';
+    --end if;
+    --if(Auxiliaire="00000000") then
+    --Z <= '1';
+    --end if;
 
-end process;
-
-S <= Auxiliaire;
+    S <= Auxiliaire;
 
 end Behavioral;

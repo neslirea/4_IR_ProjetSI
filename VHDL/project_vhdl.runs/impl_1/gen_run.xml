@@ -1,74 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1684136596">
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1684852370">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="BG-DRC" Name="AUL.drc"/>
-  <File Type="BG-BGN" Name="AUL.bgn"/>
-  <File Type="BITSTR-SYSDEF" Name="AUL.sysdef"/>
+  <File Type="BG-DRC" Name="Proc.drc"/>
+  <File Type="BG-BGN" Name="Proc.bgn"/>
+  <File Type="BITSTR-SYSDEF" Name="Proc.sysdef"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="AUL.ltx"/>
-  <File Type="BITSTR-MMI" Name="AUL.mmi"/>
-  <File Type="BITSTR-BMM" Name="AUL_bd.bmm"/>
-  <File Type="BITSTR-NKY" Name="AUL.nky"/>
-  <File Type="BITSTR-RBT" Name="AUL.rbt"/>
-  <File Type="BITSTR-MSK" Name="AUL.msk"/>
-  <File Type="BG-BIN" Name="AUL.bin"/>
-  <File Type="BG-BIT" Name="AUL.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="AUL_bus_skew_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="AUL_bus_skew_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="AUL_bus_skew_postroute_physopted.rpt"/>
-  <File Type="RDI-RDI" Name="AUL.vdi"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="AUL_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="AUL_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="AUL_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="AUL_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="AUL_postroute_physopt.dcp"/>
-  <File Type="ROUTE-BUS-SKEW" Name="AUL_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="AUL_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-SIMILARITY" Name="AUL_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-TIMING-RPX" Name="AUL_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-TIMING-PB" Name="AUL_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="AUL_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="AUL_route_status.pb"/>
-  <File Type="ROUTE-STATUS" Name="AUL_route_status.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="AUL_power_routed.rpx"/>
-  <File Type="ROUTE-PWR-SUM" Name="AUL_power_summary_routed.pb"/>
-  <File Type="ROUTE-PWR" Name="AUL_power_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="AUL_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="AUL_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="AUL_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-RPX" Name="AUL_drc_routed.rpx"/>
-  <File Type="ROUTE-DRC-PB" Name="AUL_drc_routed.pb"/>
-  <File Type="ROUTE-DRC" Name="AUL_drc_routed.rpt"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="AUL_routed_bb.dcp"/>
-  <File Type="ROUTE-DCP" Name="AUL_routed.dcp"/>
-  <File Type="ROUTE-ERROR-DCP" Name="AUL_routed_error.dcp"/>
-  <File Type="PHYSOPT-TIMING" Name="AUL_timing_summary_physopted.rpt"/>
-  <File Type="PHYSOPT-DRC" Name="AUL_drc_physopted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="AUL_physopt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="AUL_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="AUL_postplace_pwropt.dcp"/>
-  <File Type="PLACE-TIMING" Name="AUL_timing_summary_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="AUL_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="AUL_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-CTRL" Name="AUL_control_sets_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="AUL_utilization_placed.pb"/>
-  <File Type="PLACE-UTIL" Name="AUL_utilization_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="AUL_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-IO" Name="AUL_io_placed.rpt"/>
-  <File Type="PLACE-DCP" Name="AUL_placed.dcp"/>
-  <File Type="PWROPT-TIMING" Name="AUL_timing_summary_pwropted.rpt"/>
-  <File Type="PWROPT-DRC" Name="AUL_drc_pwropted.rpt"/>
-  <File Type="PWROPT-DCP" Name="AUL_pwropt.dcp"/>
-  <File Type="OPT-TIMING" Name="AUL_timing_summary_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="AUL.hwdef"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="AUL_methodology_drc_opted.rpt"/>
-  <File Type="OPT-DRC" Name="AUL_drc_opted.rpt"/>
-  <File Type="OPT-DCP" Name="AUL_opt.dcp"/>
-  <File Type="INIT-TIMING" Name="AUL_timing_summary_init.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="AUL_bus_skew_routed.rpx"/>
-  <File Type="REPORTS-TCL" Name="AUL_reports.tcl"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="AUL_bus_skew_routed.pb"/>
-  <File Type="PA-TCL" Name="AUL.tcl"/>
+  <File Type="BITSTR-LTX" Name="Proc.ltx"/>
+  <File Type="BITSTR-MMI" Name="Proc.mmi"/>
+  <File Type="BITSTR-BMM" Name="Proc_bd.bmm"/>
+  <File Type="BITSTR-NKY" Name="Proc.nky"/>
+  <File Type="BITSTR-RBT" Name="Proc.rbt"/>
+  <File Type="BITSTR-MSK" Name="Proc.msk"/>
+  <File Type="BG-BIN" Name="Proc.bin"/>
+  <File Type="BG-BIT" Name="Proc.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="Proc_bus_skew_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="Proc_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="Proc_bus_skew_postroute_physopted.rpt"/>
+  <File Type="RDI-RDI" Name="Proc.vdi"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="Proc_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="Proc_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="Proc_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="Proc_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="Proc_postroute_physopt.dcp"/>
+  <File Type="ROUTE-BUS-SKEW" Name="Proc_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="Proc_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-SIMILARITY" Name="Proc_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-TIMING-RPX" Name="Proc_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-TIMING-PB" Name="Proc_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="Proc_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="Proc_route_status.pb"/>
+  <File Type="ROUTE-STATUS" Name="Proc_route_status.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="Proc_power_routed.rpx"/>
+  <File Type="ROUTE-PWR-SUM" Name="Proc_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="Proc_power_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="Proc_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="Proc_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="Proc_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="Proc_drc_routed.rpx"/>
+  <File Type="ROUTE-DRC-PB" Name="Proc_drc_routed.pb"/>
+  <File Type="ROUTE-DRC" Name="Proc_drc_routed.rpt"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="Proc_routed_bb.dcp"/>
+  <File Type="ROUTE-DCP" Name="Proc_routed.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="Proc_routed_error.dcp"/>
+  <File Type="PHYSOPT-TIMING" Name="Proc_timing_summary_physopted.rpt"/>
+  <File Type="PHYSOPT-DRC" Name="Proc_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="Proc_physopt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="Proc_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="Proc_postplace_pwropt.dcp"/>
+  <File Type="PLACE-TIMING" Name="Proc_timing_summary_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="Proc_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="Proc_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-CTRL" Name="Proc_control_sets_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="Proc_utilization_placed.pb"/>
+  <File Type="PLACE-UTIL" Name="Proc_utilization_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="Proc_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-IO" Name="Proc_io_placed.rpt"/>
+  <File Type="PLACE-DCP" Name="Proc_placed.dcp"/>
+  <File Type="PWROPT-TIMING" Name="Proc_timing_summary_pwropted.rpt"/>
+  <File Type="PWROPT-DRC" Name="Proc_drc_pwropted.rpt"/>
+  <File Type="PWROPT-DCP" Name="Proc_pwropt.dcp"/>
+  <File Type="OPT-TIMING" Name="Proc_timing_summary_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="Proc.hwdef"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="Proc_methodology_drc_opted.rpt"/>
+  <File Type="OPT-DRC" Name="Proc_drc_opted.rpt"/>
+  <File Type="OPT-DCP" Name="Proc_opt.dcp"/>
+  <File Type="INIT-TIMING" Name="Proc_timing_summary_init.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="Proc_bus_skew_routed.rpx"/>
+  <File Type="REPORTS-TCL" Name="Proc_reports.tcl"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="Proc_bus_skew_routed.pb"/>
+  <File Type="PA-TCL" Name="Proc.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/AUL.vhd">
@@ -79,10 +79,34 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/BancMemoire_instructions.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/BancRegistres.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Proc.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/BancMemoire_donnees.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="AUL"/>
-      <Option Name="TopAutoSet" Val="TRUE"/>
+      <Option Name="TopModule" Val="Proc"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">

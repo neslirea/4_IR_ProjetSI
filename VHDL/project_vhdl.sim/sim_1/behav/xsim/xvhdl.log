@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/project_vhdl.srcs/sources_1/new/AUL.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity AUL
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity BancMemoire_instructions

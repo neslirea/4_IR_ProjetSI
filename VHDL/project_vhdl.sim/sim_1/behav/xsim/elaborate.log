@@ -1,6 +1,6 @@
 Vivado Simulator 2018.2
 Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: /usr/local/insa/Xilinx.VIVADO/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto cc15dc9b45be4374968784ff217928a0 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot test_aul_behav xil_defaultlib.test_aul -log elaborate.log 
+Running: /usr/local/insa/Xilinx.VIVADO/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto 1ed95571d3a64ca39523b4342b953745 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot Test_Proc_behav xil_defaultlib.Test_Proc -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -12,6 +12,9 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.std_logic_arith
 Compiling package ieee.std_logic_unsigned
+Compiling architecture behavioral of entity xil_defaultlib.BancMemoire_instructions [bancmemoire_instructions_default]
+Compiling architecture behavioral of entity xil_defaultlib.BancRegistres [bancregistres_default]
 Compiling architecture behavioral of entity xil_defaultlib.AUL [aul_default]
-Compiling architecture behavioral of entity xil_defaultlib.test_aul
-Built simulation snapshot test_aul_behav
+Compiling architecture behavioral of entity xil_defaultlib.Proc [proc_default]
+Compiling architecture behavioral of entity xil_defaultlib.test_proc
+Built simulation snapshot Test_Proc_behav
