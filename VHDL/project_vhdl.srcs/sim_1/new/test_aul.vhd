@@ -50,8 +50,8 @@ PORT  (
        S : out STD_LOGIC_VECTOR (7 downto 0)); -- sortie;
 END COMPONENT;
 --Inputs
-signal Signal_A : std_logic_vector(7 downto 0) := x"05";
-signal Signal_B : std_logic_vector(7 downto 0) := x"04";
+signal Signal_A : std_logic_vector(7 downto 0) := x"02";
+signal Signal_B : std_logic_vector(7 downto 0) := x"40";
 signal Signal_Ctrl : std_logic_vector(2 downto 0) := "010";
 --Outputs
 --signal Signal_N : std_logic;

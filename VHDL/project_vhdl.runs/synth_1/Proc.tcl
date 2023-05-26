@@ -30,6 +30,8 @@ set_property board_part digilentinc.com:basys3:part0:1.1 [current_project]
 set_property ip_output_repo /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
+  /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/AUL.vhd
+  /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_donnees.vhd
   /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd
   /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd
   /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd

@@ -53,7 +53,7 @@ begin
     --C <= '0';
     var <= A*B;
     Auxiliaire <= A+B when Ctrl_Alu="000" else
-                A-B when Ctrl_Alu="001" else
+                (A)-(B) when Ctrl_Alu="001" else
                 var(7 downto 0) when Ctrl_Alu="010";
     --if(var(15 downto 8)/="00000000") then
     --O <= '1';

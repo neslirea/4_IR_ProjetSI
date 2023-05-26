@@ -15,6 +15,7 @@ Compiling package ieee.std_logic_unsigned
 Compiling architecture behavioral of entity xil_defaultlib.BancMemoire_instructions [bancmemoire_instructions_default]
 Compiling architecture behavioral of entity xil_defaultlib.BancRegistres [bancregistres_default]
 Compiling architecture behavioral of entity xil_defaultlib.AUL [aul_default]
+Compiling architecture behavioral of entity xil_defaultlib.BancMemoire_donnees [bancmemoire_donnees_default]
 Compiling architecture behavioral of entity xil_defaultlib.Proc [proc_default]
 Compiling architecture behavioral of entity xil_defaultlib.test_proc
 Built simulation snapshot Test_Proc_behav

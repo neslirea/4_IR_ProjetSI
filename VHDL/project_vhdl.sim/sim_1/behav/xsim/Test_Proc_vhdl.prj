@@ -1,6 +1,7 @@
 # compile vhdl design source files
 vhdl xil_defaultlib  \
 "../../../../project_vhdl.srcs/sources_1/new/AUL.vhd" \
+"../../../../project_vhdl.srcs/sources_1/new/BancMemoire_donnees.vhd" \
 "../../../../project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" \
 "../../../../project_vhdl.srcs/sources_1/new/BancRegistres.vhd" \
 "../../../../project_vhdl.srcs/sources_1/new/Proc.vhd" \

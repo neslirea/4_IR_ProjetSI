@@ -14,25 +14,27 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 109882 
+INFO: Helper process launched with PID 60009 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1255.273 ; gain = 83.828 ; free physical = 7734 ; free virtual = 19892
+Starting Synthesize : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 1255.273 ; gain = 83.828 ; free physical = 7317 ; free virtual = 19881
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'Proc' [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:42]
-INFO: [Synth 8-3491] module 'BancMemoire_instructions' declared at '/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd:35' bound to instance 'bancInstructions' of component 'BancMemoire_instructions' [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:97]
+INFO: [Synth 8-638] synthesizing module 'Proc' [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:56]
+INFO: [Synth 8-3491] module 'BancMemoire_instructions' declared at '/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd:35' bound to instance 'bancInstructions' of component 'BancMemoire_instructions' [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:139]
 INFO: [Synth 8-638] synthesizing module 'BancMemoire_instructions' [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd:41]
 INFO: [Synth 8-256] done synthesizing module 'BancMemoire_instructions' (1#1) [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd:41]
-INFO: [Synth 8-3491] module 'BancRegistres' declared at '/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd:36' bound to instance 'bancReg' of component 'BancRegistres' [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:104]
+INFO: [Synth 8-3491] module 'BancRegistres' declared at '/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd:36' bound to instance 'bancReg' of component 'BancRegistres' [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:146]
 INFO: [Synth 8-638] synthesizing module 'BancRegistres' [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd:49]
 INFO: [Synth 8-256] done synthesizing module 'BancRegistres' (2#1) [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd:49]
-WARNING: [Synth 8-6014] Unused sequential element li_c_reg was removed.  [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:139]
-WARNING: [Synth 8-6014] Unused sequential element di_c_reg was removed.  [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:149]
-WARNING: [Synth 8-3936] Found unconnected internal register 'mem_a_reg' and it is trimmed from '8' to '4' bits. [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:107]
-WARNING: [Synth 8-3936] Found unconnected internal register 'ex_a_reg' and it is trimmed from '8' to '4' bits. [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:155]
-WARNING: [Synth 8-3936] Found unconnected internal register 'di_a_reg' and it is trimmed from '8' to '4' bits. [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:142]
-WARNING: [Synth 8-3936] Found unconnected internal register 'li_a_reg' and it is trimmed from '8' to '4' bits. [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:137]
-WARNING: [Synth 8-3848] Net VAL in module/entity Proc does not have driver. [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:39]
-INFO: [Synth 8-256] done synthesizing module 'Proc' (3#1) [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:42]
+INFO: [Synth 8-3491] module 'AUL' declared at '/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/AUL.vhd:33' bound to instance 'ALU' of component 'AUL' [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:158]
+INFO: [Synth 8-638] synthesizing module 'AUL' [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/AUL.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'AUL' (3#1) [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/AUL.vhd:45]
+INFO: [Synth 8-3491] module 'BancMemoire_donnees' declared at '/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_donnees.vhd:36' bound to instance 'bancMem' of component 'BancMemoire_donnees' [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:166]
+INFO: [Synth 8-638] synthesizing module 'BancMemoire_donnees' [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_donnees.vhd:46]
+INFO: [Synth 8-256] done synthesizing module 'BancMemoire_donnees' (4#1) [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancMemoire_donnees.vhd:46]
+WARNING: [Synth 8-3936] Found unconnected internal register 'li_c_reg' and it is trimmed from '8' to '4' bits. [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:148]
+WARNING: [Synth 8-3936] Found unconnected internal register 'mem_a_reg' and it is trimmed from '8' to '4' bits. [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:149]
+WARNING: [Synth 8-3848] Net VAL in module/entity Proc does not have driver. [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:49]
+INFO: [Synth 8-256] done synthesizing module 'Proc' (5#1) [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:56]
 WARNING: [Synth 8-3331] design BancMemoire_instructions has unconnected port CLK
 WARNING: [Synth 8-3331] design Proc has unconnected port VAL[7]
 WARNING: [Synth 8-3331] design Proc has unconnected port VAL[6]
@@ -43,10 +45,10 @@ WARNING: [Synth 8-3331] design Proc has unconnected port VAL[2]
 WARNING: [Synth 8-3331] design Proc has unconnected port VAL[1]
 WARNING: [Synth 8-3331] design Proc has unconnected port VAL[0]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1299.898 ; gain = 128.453 ; free physical = 7745 ; free virtual = 19902
+Finished Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1311.898 ; gain = 140.453 ; free physical = 7317 ; free virtual = 19881
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1299.898 ; gain = 128.453 ; free physical = 7746 ; free virtual = 19903
+Finished Constraint Validation : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1311.898 ; gain = 140.453 ; free physical = 7318 ; free virtual = 19882
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
@@ -54,7 +56,7 @@ Start Loading Part and Timing Information
 Loading part: xc7a35tcpg236-1
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1307.902 ; gain = 136.457 ; free physical = 7745 ; free virtual = 19903
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1319.902 ; gain = 148.457 ; free physical = 7318 ; free virtual = 19882
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "Mem" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5544] ROM "Mem_reg[0]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
@@ -65,8 +67,109 @@ INFO: [Synth 8-5544] ROM "Mem_reg[4]" won't be mapped to Block RAM because addre
 INFO: [Synth 8-5544] ROM "Mem_reg[5]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "Mem_reg[6]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "Mem_reg[7]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "Mem_reg[0]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[2]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[3]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[4]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[5]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[7]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[8]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[9]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[10]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[11]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[12]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[13]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[14]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[15]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[16]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[17]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[18]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[19]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[20]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[21]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[22]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[23]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[24]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[25]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[26]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[27]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[28]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[29]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[30]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[31]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[32]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[33]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[34]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[35]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[36]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[37]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[38]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[39]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[40]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[41]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[42]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[43]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[44]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[45]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[46]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[47]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[48]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[49]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[50]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[51]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[52]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[53]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[54]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[55]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[56]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[57]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[58]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[59]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[60]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[61]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[62]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[63]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[64]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[65]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[66]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[67]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[68]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[69]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[70]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[71]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[72]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[73]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[74]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[75]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[76]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[77]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[78]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[79]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[80]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[81]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[82]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[83]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[84]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[85]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[86]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[87]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[88]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[89]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[90]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[91]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[92]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[93]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[94]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[95]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[96]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[97]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Mem_reg[98]" won't be mapped to RAM because it is too sparse
+INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-327] inferring latch for variable 'Auxiliaire_reg' [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/AUL.vhd:55]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1323.918 ; gain = 152.473 ; free physical = 7738 ; free virtual = 19896
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1335.918 ; gain = 164.473 ; free physical = 7252 ; free virtual = 19816
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -80,14 +183,16 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
+	   3 Input      8 Bit       Adders := 1     
 	   2 Input      8 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
 +---Registers : 
-	                8 Bit    Registers := 19    
-	                4 Bit    Registers := 4     
+	                8 Bit    Registers := 278   
+	                4 Bit    Registers := 2     
 +---Muxes : 
 	 257 Input     32 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 4     
-	   2 Input      1 Bit        Muxes := 8     
+	   2 Input      8 Bit        Muxes := 7     
+	   2 Input      1 Bit        Muxes := 267   
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -99,11 +204,12 @@ Module Proc
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input      8 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
 +---Registers : 
-	                8 Bit    Registers := 9     
-	                4 Bit    Registers := 4     
+	                8 Bit    Registers := 13    
+	                4 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input      8 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 4     
 Module BancMemoire_instructions 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -111,10 +217,23 @@ Detailed RTL Component Info :
 Module BancRegistres 
 Detailed RTL Component Info : 
 +---Registers : 
-	                8 Bit    Registers := 10    
+	                8 Bit    Registers := 8     
 +---Muxes : 
 	   2 Input      8 Bit        Muxes := 2     
 	   2 Input      1 Bit        Muxes := 8     
+Module AUL 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input      8 Bit       Adders := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module BancMemoire_donnees 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 257   
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 257   
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -132,20 +251,6 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-WARNING: [Synth 8-6014] Unused sequential element bancReg/Mem_reg[0] was removed.  [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd:62]
-WARNING: [Synth 8-6014] Unused sequential element bancReg/Mem_reg[1] was removed.  [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd:62]
-WARNING: [Synth 8-6014] Unused sequential element bancReg/Mem_reg[2] was removed.  [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd:62]
-WARNING: [Synth 8-6014] Unused sequential element bancReg/Mem_reg[3] was removed.  [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd:62]
-WARNING: [Synth 8-6014] Unused sequential element bancReg/Mem_reg[4] was removed.  [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd:62]
-WARNING: [Synth 8-6014] Unused sequential element bancReg/Mem_reg[5] was removed.  [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd:62]
-WARNING: [Synth 8-6014] Unused sequential element bancReg/Mem_reg[6] was removed.  [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd:62]
-WARNING: [Synth 8-6014] Unused sequential element bancReg/Mem_reg[7] was removed.  [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd:62]
-WARNING: [Synth 8-6014] Unused sequential element bancReg/QA_reg was removed.  [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd:70]
-WARNING: [Synth 8-6014] Unused sequential element bancReg/QB_reg was removed.  [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/BancRegistres.vhd:75]
-WARNING: [Synth 8-6014] Unused sequential element li_b_reg was removed.  [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:138]
-WARNING: [Synth 8-6014] Unused sequential element di_b_reg was removed.  [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:145]
-WARNING: [Synth 8-6014] Unused sequential element ex_b_reg was removed.  [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:156]
-WARNING: [Synth 8-6014] Unused sequential element mem_b_reg was removed.  [/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.srcs/sources_1/new/Proc.vhd:109]
 WARNING: [Synth 8-3331] design Proc has unconnected port VAL[7]
 WARNING: [Synth 8-3331] design Proc has unconnected port VAL[6]
 WARNING: [Synth 8-3331] design Proc has unconnected port VAL[5]
@@ -154,28 +259,69 @@ WARNING: [Synth 8-3331] design Proc has unconnected port VAL[3]
 WARNING: [Synth 8-3331] design Proc has unconnected port VAL[2]
 WARNING: [Synth 8-3331] design Proc has unconnected port VAL[1]
 WARNING: [Synth 8-3331] design Proc has unconnected port VAL[0]
-WARNING: [Synth 8-3332] Sequential element (li_a_reg[0]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (di_a_reg[0]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (ex_a_reg[0]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (mem_a_reg[0]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (ip_reg[7]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (ip_reg[6]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (ip_reg[5]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (ip_reg[4]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (ip_reg[3]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (ip_reg[2]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (ip_reg[1]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (ip_reg[0]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (li_op_reg[1]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (li_op_reg[0]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (di_op_reg[1]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (di_op_reg[0]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (ex_op_reg[1]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (ex_op_reg[0]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (mem_op_reg[1]) is unused and will be removed from module Proc.
-WARNING: [Synth 8-3332] Sequential element (mem_op_reg[0]) is unused and will be removed from module Proc.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\li_c_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\li_c_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\li_c_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\li_c_reg[2] )
+INFO: [Synth 8-3886] merging instance 'li_a_reg[1]' (FD) to 'li_b_reg[1]'
+INFO: [Synth 8-3886] merging instance 'li_op_reg[1]' (FD) to 'li_op_reg[2]'
+INFO: [Synth 8-3886] merging instance 'di_op_reg[1]' (FD) to 'di_op_reg[2]'
+INFO: [Synth 8-3886] merging instance 'ex_op_reg[1]' (FD) to 'ex_op_reg[2]'
+INFO: [Synth 8-3886] merging instance 'mem_op_reg[2]' (FD) to 'mem_op_reg[1]'
+WARNING: [Synth 8-3332] Sequential element (li_c_reg[3]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (li_c_reg[2]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (li_c_reg[1]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (li_c_reg[0]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[7]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[7]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[7]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[7]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[7]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[7]  is always disabled
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:16 . Memory (MB): peak = 1405.988 ; gain = 234.543 ; free physical = 7596 ; free virtual = 19755
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:22 . Memory (MB): peak = 1543.598 ; gain = 372.152 ; free physical = 7133 ; free virtual = 19702
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -187,8 +333,40 @@ No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[7]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[7]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[7]  is always disabled
+WARNING: [Synth 8-264] enable of latch \ALU/Auxiliaire_reg[7]  is always disabled
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:07 ; elapsed = 00:00:16 . Memory (MB): peak = 1405.988 ; gain = 234.543 ; free physical = 7596 ; free virtual = 19755
+Finished Timing Optimization : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1543.598 ; gain = 372.152 ; free physical = 7131 ; free virtual = 19699
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -199,8 +377,105 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (ALU/Auxiliaire_reg[7]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (ALU/Auxiliaire_reg[6]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (ALU/Auxiliaire_reg[5]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (ALU/Auxiliaire_reg[4]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (ALU/Auxiliaire_reg[3]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (ALU/Auxiliaire_reg[2]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (ALU/Auxiliaire_reg[1]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (ALU/Auxiliaire_reg[0]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[0][7]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[0][6]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[0][5]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[0][4]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[0][3]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[1][7]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[1][6]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[1][5]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[1][4]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[1][3]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[2][7]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[2][6]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[2][5]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[2][4]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[2][3]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[3][7]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[3][6]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[3][5]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[3][4]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[3][3]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[4][7]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[4][6]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[4][5]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[4][4]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[4][3]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[5][7]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[5][6]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[5][5]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[5][4]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[5][3]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[6][7]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[6][6]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[6][5]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[6][4]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[6][3]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[7][7]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[7][6]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[7][5]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[7][4]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[7][3]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[8][7]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[8][6]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[8][5]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[8][4]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[8][3]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[8][2]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[8][1]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[8][0]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[9][7]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[9][6]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[9][5]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[9][4]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[9][3]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[9][2]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[9][1]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[9][0]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[10][7]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[10][6]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[10][5]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[10][4]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[10][3]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[10][2]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[10][1]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[10][0]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[11][7]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[11][6]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[11][5]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[11][4]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[11][3]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[11][2]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[11][1]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[11][0]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[12][7]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[12][6]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[12][5]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[12][4]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[12][3]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[12][2]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[12][1]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[12][0]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[13][7]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[13][6]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[13][5]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[13][4]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[13][3]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[13][2]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[13][1]) is unused and will be removed from module Proc.
+WARNING: [Synth 8-3332] Sequential element (bancMem/Mem_reg[13][0]) is unused and will be removed from module Proc.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:07 ; elapsed = 00:00:16 . Memory (MB): peak = 1405.988 ; gain = 234.543 ; free physical = 7596 ; free virtual = 19755
+Finished Technology Mapping : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1543.598 ; gain = 372.152 ; free physical = 7130 ; free virtual = 19699
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -224,7 +499,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1405.988 ; gain = 234.543 ; free physical = 7588 ; free virtual = 19747
+Finished IO Insertion : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1543.598 ; gain = 372.152 ; free physical = 7130 ; free virtual = 19699
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -237,7 +512,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1405.988 ; gain = 234.543 ; free physical = 7588 ; free virtual = 19747
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1543.598 ; gain = 372.152 ; free physical = 7130 ; free virtual = 19699
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -249,25 +524,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1405.988 ; gain = 234.543 ; free physical = 7588 ; free virtual = 19747
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1543.598 ; gain = 372.152 ; free physical = 7130 ; free virtual = 19699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1405.988 ; gain = 234.543 ; free physical = 7588 ; free virtual = 19747
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1543.598 ; gain = 372.152 ; free physical = 7130 ; free virtual = 19699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1405.988 ; gain = 234.543 ; free physical = 7588 ; free virtual = 19747
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1543.598 ; gain = 372.152 ; free physical = 7130 ; free virtual = 19699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1405.988 ; gain = 234.543 ; free physical = 7588 ; free virtual = 19747
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1543.598 ; gain = 372.152 ; free physical = 7130 ; free virtual = 19699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -283,33 +558,48 @@ Report Cell Usage:
 +------+------+------+
 |      |Cell  |Count |
 +------+------+------+
-|1     |OBUFT |     8|
+|1     |BUFG  |     1|
+|2     |LUT1  |     2|
+|3     |LUT2  |     3|
+|4     |LUT3  |     6|
+|5     |LUT4  |     5|
+|6     |LUT5  |    17|
+|7     |LUT6  |    64|
+|8     |MUXF7 |     2|
+|9     |FDRE  |    94|
+|10    |IBUF  |     2|
+|11    |OBUF  |    17|
+|12    |OBUFT |     8|
 +------+------+------+
 
 Report Instance Areas: 
-+------+---------+-------+------+
-|      |Instance |Module |Cells |
-+------+---------+-------+------+
-|1     |top      |       |     8|
-+------+---------+-------+------+
++------+----------+--------------------+------+
+|      |Instance  |Module              |Cells |
++------+----------+--------------------+------+
+|1     |top       |                    |   221|
+|2     |  bancMem |BancMemoire_donnees |    67|
+|3     |  bancReg |BancRegistres       |    61|
++------+----------+--------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1405.988 ; gain = 234.543 ; free physical = 7588 ; free virtual = 19747
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1543.598 ; gain = 372.152 ; free physical = 7130 ; free virtual = 19699
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 58 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1405.988 ; gain = 234.543 ; free physical = 7588 ; free virtual = 19747
-Synthesis Optimization Complete : Time (s): cpu = 00:00:07 ; elapsed = 00:00:17 . Memory (MB): peak = 1405.996 ; gain = 234.543 ; free physical = 7596 ; free virtual = 19755
+Synthesis finished with 0 errors, 0 critical warnings and 2205 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1543.598 ; gain = 372.152 ; free physical = 7137 ; free virtual = 19706
+Synthesis Optimization Complete : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1543.605 ; gain = 372.152 ; free physical = 7145 ; free virtual = 19713
 INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-24 Infos, 58 Warnings, 0 Critical Warnings and 0 Errors encountered.
+142 Infos, 201 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:18 . Memory (MB): peak = 1498.059 ; gain = 338.238 ; free physical = 7565 ; free virtual = 19724
+synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:25 . Memory (MB): peak = 1599.625 ; gain = 439.805 ; free physical = 7118 ; free virtual = 19687
 WARNING: [Constraints 18-5210] No constraint will be written out.
 INFO: [Common 17-1381] The checkpoint '/home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.runs/synth_1/Proc.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file Proc_utilization_synth.rpt -pb Proc_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.11 . Memory (MB): peak = 1522.070 ; gain = 0.000 ; free physical = 7561 ; free virtual = 19720
-INFO: [Common 17-206] Exiting Vivado at Tue May 23 15:53:13 2023...
+report_utilization: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.10 . Memory (MB): peak = 1623.637 ; gain = 0.000 ; free physical = 7116 ; free virtual = 19685
+INFO: [Common 17-206] Exiting Vivado at Fri May 26 18:20:23 2023...

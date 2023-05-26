@@ -39,7 +39,8 @@ entity BancMemoire_donnees is
            RW : in STD_LOGIC;   -- 1 pour lecture, 0 pour ecriture
            RST : in STD_LOGIC;
            CLK : in STD_LOGIC;
-           OUTPUT : out STD_LOGIC_VECTOR (7 downto 0));
+           OUTPUT : out STD_LOGIC_VECTOR (7 downto 0)
+           );
 end BancMemoire_donnees;
 
 architecture Behavioral of BancMemoire_donnees is

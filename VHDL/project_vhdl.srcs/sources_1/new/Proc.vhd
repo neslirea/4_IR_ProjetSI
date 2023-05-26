@@ -18,6 +18,16 @@
 -- 
 ----------------------------------------------------------------------------------
 
+-- 00 - NOP
+-- 01 - AFC
+-- 02 - COP
+-- 03 - ADD
+-- 04 - SUB
+-- 05 - MUL
+-- 06 - DIV
+-- 07 - LOAD
+-- 08 - STORE
+
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -36,7 +46,11 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity Proc is
     Port ( CLK : in STD_LOGIC;
            RST : in STD_LOGIC;
-           VAL : out STD_LOGIC_VECTOR (7 downto 0));
+           VAL : out STD_LOGIC_VECTOR (7 downto 0);
+           RW : out STD_LOGIC;
+           MEMIN : out STD_LOGIC_VECTOR (7 downto 0);
+           MEMADDR : out STD_LOGIC_VECTOR (7 downto 0)
+           );
 end Proc;
 
 architecture Behavioral of Proc is
@@ -62,6 +76,7 @@ architecture Behavioral of Proc is
        QB : out STD_LOGIC_VECTOR (7 downto 0));
     END COMPONENT;
     
+    
     COMPONENT AUL
     PORT  ( 
            A : in STD_LOGIC_VECTOR (7 downto 0); --nb1
@@ -73,6 +88,15 @@ architecture Behavioral of Proc is
            --C : out STD_LOGIC; -- carry
            S : out STD_LOGIC_VECTOR (7 downto 0)); -- sortie;
     END COMPONENT;
+    
+    COMPONENT BancMemoire_donnees is
+        Port ( Addr : in STD_LOGIC_VECTOR (7 downto 0);
+               INPUT : in STD_LOGIC_VECTOR (7 downto 0);
+               RW : in STD_LOGIC;   -- 1 pour lecture, 0 pour ecriture
+               RST : in STD_LOGIC;
+               CLK : in STD_LOGIC;
+               OUTPUT : out STD_LOGIC_VECTOR (7 downto 0));
+    end COMPONENT;
     
     signal ip : STD_LOGIC_VECTOR(7 downto 0);
     signal ins: STD_LOGIC_VECTOR (31 downto 0);
@@ -101,6 +125,10 @@ architecture Behavioral of Proc is
     
     signal alu_ctrl : std_logic_vector(2 downto 0);
     signal alu_s : std_logic_vector(7 downto 0);
+    
+    signal bancMem_addrIn : std_logic_vector(7 downto 0);
+    signal bancMem_out : std_logic_vector(7 downto 0);
+    signal bancMem_w : STD_LOGIC;
     
     
     signal bancReg_w : std_logic;
@@ -134,15 +162,29 @@ begin
         S => alu_s
     );
     
-    alu_ctrl <= di_op(2 downto 0)-3;
-    bancReg_w <= '1' when mem_op >= x"01" and mem_op <= x"07" 
-                    else '0'; -- AFC
-
+        
+    bancMem: BancMemoire_donnees 
+        Port map ( Addr => bancMem_addrIn,
+               INPUT  => ex_b,
+               RW => bancMem_w,  -- 1 pour lecture, 0 pour ecriture
+               RST  =>RST,
+               CLK  => CLK,
+               OUTPUT  =>bancMem_out);
     
+    -- LC ctrl ALU
+    alu_ctrl <= di_op(2 downto 0)-3;
+    
+    -- LC mem OP
+    bancReg_w <= '1' when (mem_op >= x"01" and mem_op <= x"07") 
+                    else '0'; -- AFC
+     --!!! LC  banc mem -> WRITE SI STORE (08)
+    bancMem_w <= '0' when ex_op = x"08" else '1';  
+    ---     
 
     process
     begin
         wait until CLK'Event and CLK='1';
+
         if RST = '0' then
             ip <= x"00";
         else
@@ -161,28 +203,49 @@ begin
                     
         di_op <= li_op;
         di_a <= li_a;
-        --di_b <= li_b;
-        --if li_op = x"02" then
-        --    bancReg_AddrA <= ;
-        --end if; 
-        if li_op >= x"02" and li_op <= x"07" then
+        -- MUX di_b !!!condition
+        if (li_op >= x"02" and li_op <= x"06") or li_op = x"08" then
             di_b <= bancReg_a;
         else
             di_b <= li_b;
         end if;
-        di_c <= bancReg_b;
-                           
-        ex_op <= di_op;
-        ex_a <= di_a;
-        if (di_op > x"00" and di_op <= x"02" ) or di_op >= x"07"  then
+        di_c <= bancReg_b;        
+        
+         -- MUX ex_b
+            if (di_op > x"00" and di_op <= x"02" ) or di_op >= x"07"  then
                 ex_b <= di_b;
         else
                 ex_b <= alu_s;        
+        end if;                   
+        ex_op <= di_op;
+        ex_a <= di_a;
+        -- MUX bancMem_addrIn mem données
+        if (ex_op=x"08") then
+            bancMem_addrIn <= ex_a;
+        else
+            bancMem_addrIn <= ex_b;
         end if;
-                                
-        mem_op <= ex_op;
+        --
+        -- MUX mem_b
+        if ex_op=x"07" then 
+            mem_b <= bancMem_out;
+        else 
+            mem_b <= ex_b;
+        end if;      
+        --   
+
+        --   
+        mem_op <= ex_op;        
         mem_a <= ex_a;
-        mem_b <= ex_b;
+        
+
     end process;
-    
+    process
+    begin
+        wait until CLK'Event and CLK='1';              
+    -- TEST POUR SORTIR W
+    rw <= bancMem_w;
+    MEMIN <= bancMem_addrIn;
+    MEMADDR <= ex_b;
+     end process;
 end Behavioral;

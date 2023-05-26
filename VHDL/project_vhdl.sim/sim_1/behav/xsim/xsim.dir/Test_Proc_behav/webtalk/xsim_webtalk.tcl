@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.sim/sim_1/behav/xsim/xsim.dir/Test_Proc_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Tue May 23 17:01:01 2023" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Fri May 26 18:57:52 2023" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2018.2 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2258646" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "LIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "c00e3bb5-575d-40d9-a73b-aa06e489241b" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "1ed95571d3a64ca39523b4342b953745" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "85" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "397" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Ubuntu" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "Ubuntu 20.04.6 LTS" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz" -context "user_environment"
@@ -26,7 +26,7 @@ webtalk_add_data -client xsim -key Command -value "xsim" -context "xsim\\command
 webtalk_add_data -client xsim -key trace_waveform -value "true" -context "xsim\\usage"
 webtalk_add_data -client xsim -key runtime -value "1 us" -context "xsim\\usage"
 webtalk_add_data -client xsim -key iteration -value "3" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Time -value "0.03_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Memory -value "122624_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 3697066244 -regid "" -xml /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.sim/sim_1/behav/xsim/xsim.dir/Test_Proc_behav/webtalk/usage_statistics_ext_xsim.xml -html /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.sim/sim_1/behav/xsim/xsim.dir/Test_Proc_behav/webtalk/usage_statistics_ext_xsim.html -wdm /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.sim/sim_1/behav/xsim/xsim.dir/Test_Proc_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key Simulation_Time -value "0.02_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Simulation_Memory -value "122640_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 1225065908 -regid "" -xml /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.sim/sim_1/behav/xsim/xsim.dir/Test_Proc_behav/webtalk/usage_statistics_ext_xsim.xml -html /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.sim/sim_1/behav/xsim/xsim.dir/Test_Proc_behav/webtalk/usage_statistics_ext_xsim.html -wdm /home/aubery/Documents/Projet_SI/4_IR_ProjetSI/VHDL/project_vhdl.sim/sim_1/behav/xsim/xsim.dir/Test_Proc_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate
