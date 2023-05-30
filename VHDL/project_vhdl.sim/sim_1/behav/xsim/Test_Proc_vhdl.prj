@@ -5,6 +5,7 @@ vhdl xil_defaultlib  \
 "../../../../project_vhdl.srcs/sources_1/new/BancMemoire_instructions.vhd" \
 "../../../../project_vhdl.srcs/sources_1/new/BancRegistres.vhd" \
 "../../../../project_vhdl.srcs/sources_1/new/Proc.vhd" \
+"../../../../project_vhdl.srcs/sources_1/new/alea_detection.vhd" \
 "../../../../project_vhdl.srcs/sim_1/new/Test_Proc.vhd" \
 
 # Do not sort compile order

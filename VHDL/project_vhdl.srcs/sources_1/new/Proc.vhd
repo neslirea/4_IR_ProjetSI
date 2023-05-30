@@ -82,10 +82,6 @@ architecture Behavioral of Proc is
            A : in STD_LOGIC_VECTOR (7 downto 0); --nb1
            B : in STD_LOGIC_VECTOR (7 downto 0); --nb2
            Ctrl_Alu : in STD_LOGIC_VECTOR (2 downto 0); -- controle du calcul : +,-,*
-           --N : out STD_LOGIC; -- valeur négative en sortie
-           --O : out STD_LOGIC; -- overflow
-           --Z : out STD_LOGIC; -- sortie nulle
-           --C : out STD_LOGIC; -- carry
            S : out STD_LOGIC_VECTOR (7 downto 0)); -- sortie;
     END COMPONENT;
     
@@ -97,6 +93,30 @@ architecture Behavioral of Proc is
                CLK : in STD_LOGIC;
                OUTPUT : out STD_LOGIC_VECTOR (7 downto 0));
     end COMPONENT;
+    
+    COMPONENT alea_detection is
+        Port ( 
+           new_op : in STD_LOGIC_VECTOR(7 downto 0);
+           new_a : in STD_LOGIC_VECTOR(7 downto 0);
+           new_b : in STD_LOGIC_VECTOR(7 downto 0);
+           new_c : in STD_LOGIC_VECTOR(7 downto 0); 
+           li_op : in STD_LOGIC_VECTOR(7 downto 0);
+           li_a : in STD_LOGIC_VECTOR(7 downto 0);
+           li_b : in STD_LOGIC_VECTOR(7 downto 0);
+           li_c : in STD_LOGIC_VECTOR(7 downto 0);
+           di_op : in STD_LOGIC_VECTOR(7 downto 0);
+           di_a : in STD_LOGIC_VECTOR(7 downto 0);
+           di_b : in STD_LOGIC_VECTOR(7 downto 0);
+           di_c : in STD_LOGIC_VECTOR(7 downto 0);
+           ex_op : in STD_LOGIC_VECTOR(7 downto 0);
+           ex_a : in STD_LOGIC_VECTOR(7 downto 0);
+           ex_b : in STD_LOGIC_VECTOR(7 downto 0);
+           mem_op : in STD_LOGIC_VECTOR(7 downto 0);
+           mem_a : in STD_LOGIC_VECTOR(7 downto 0);
+           mem_b : in STD_LOGIC_VECTOR(7 downto 0);
+           is_alea_detected : out STD_LOGIC);
+    end COMPONENT;
+
     
     signal ip : STD_LOGIC_VECTOR(7 downto 0);
     signal ins: STD_LOGIC_VECTOR (31 downto 0);
@@ -131,7 +151,8 @@ architecture Behavioral of Proc is
     signal bancMem_w : STD_LOGIC;
     
     
-    signal bancReg_w : std_logic;
+    signal bancReg_w : std_logic;   
+    signal is_alea_detected : std_logic; -- 1 if detected
 
 begin
 
@@ -162,6 +183,27 @@ begin
         S => alu_s
     );
     
+    alea_detect : alea_detection PORT MAP (
+           new_op => ins(31 downto 24) ,
+           new_a => ins(23 downto 16) ,
+           new_b => ins(15 downto 8) ,
+           new_c => ins(7 downto 0) ,
+           li_op => li_op ,
+           li_a => li_a ,
+           li_b => li_b,
+           li_c => li_c ,
+           di_op => di_op ,
+           di_a => di_a ,
+           di_b => di_b ,
+           di_c => di_c ,
+           ex_op => ex_op ,
+           ex_a => ex_a ,
+           ex_b => ex_b ,
+           mem_op => mem_op ,
+           mem_a => mem_a ,
+           mem_b => mem_b ,
+           is_alea_detected => is_alea_detected
+    );
         
     bancMem: BancMemoire_donnees 
         Port map ( Addr => bancMem_addrIn,
@@ -177,7 +219,7 @@ begin
     -- LC mem OP
     bancReg_w <= '1' when (mem_op >= x"01" and mem_op <= x"07") 
                     else '0'; -- AFC
-     --!!! LC  banc mem -> WRITE SI STORE (08)
+     -- LC  banc mem -> WRITE SI STORE (08)
     bancMem_w <= '0' when ex_op = x"08" else '1';  
     ---     
             -- MUX bancMem_addrIn mem données
@@ -190,22 +232,31 @@ begin
         if RST = '0' then
             ip <= x"00";
         else
-            ip <= ip + x"01";
+            if is_alea_detected='0' then -- si pas d'alea, on passe à la suivante
+                    ip <= ip + x"01";
+            end if;
         end if;
     end process;
 
     process
     begin
         wait until CLK'Event and CLK='1';
+        if is_alea_detected='0' then -- si pas d'alea, on lit la suivante
+            li_op <= ins(31 downto 24);
+            li_a <= ins(23 downto 16);
+            li_b <= ins(15 downto 8);
+            li_c <= ins(7 downto 0);
+        else -- sinon, NOP
+            li_op <= "00000000";
+            li_a <= "00000000";
+            li_b <= "00000000";
+            li_c <= "00000000";
+        end if;
 
-        li_op <= ins(31 downto 24);
-        li_a <= ins(23 downto 16);
-        li_b <= ins(15 downto 8);
-        li_c <= ins(7 downto 0);
                     
         di_op <= li_op;
         di_a <= li_a;
-        -- MUX di_b !!!condition
+        -- MUX di_b condition
         if (li_op >= x"02" and li_op <= x"06") or li_op = x"08" then
             di_b <= bancReg_a;
         else
@@ -241,7 +292,7 @@ begin
     end process;
 
              -- TEST POUR SORTIR W
-     rw <= bancMem_w;
-     MEMADDR <= bancMem_addrIn;
-     MEMIN <= ex_b;
+     rw <= is_alea_detected;
+     MEMADDR <= ins(15 downto 8);
+     MEMIN <= di_a;
 end Behavioral;

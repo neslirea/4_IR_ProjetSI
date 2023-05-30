@@ -61,7 +61,7 @@ architecture Behavioral of Test_Proc is
 begin
 
     
-    -- Instantiate the AUL hahahahahahahahahaha
+    -- Instantiate the Proc 
     test: Proc PORT MAP (
         RST => SRST,
         CLK => SCLK,
