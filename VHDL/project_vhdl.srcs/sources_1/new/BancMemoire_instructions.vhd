@@ -53,7 +53,7 @@ architecture Behavioral of BancMemoire_instructions is
     type TAB is array (0 to 255) of STD_LOGIC_VECTOR (31 downto 0);
 
 
-    signal Mem : TAB := (x"01010100", x"08010100", x"07000100", x"08020100", others => x"00000000");
+    signal Mem : TAB := (x"01000100", x"01010200", others => x"00000000");
 begin
 
     OUTPUT <= Mem(conv_integer(Addr));

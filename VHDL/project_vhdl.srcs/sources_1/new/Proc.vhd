@@ -46,10 +46,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity Proc is
     Port ( CLK : in STD_LOGIC;
            RST : in STD_LOGIC;
-           VAL : out STD_LOGIC_VECTOR (7 downto 0);
-           RW : out STD_LOGIC;
-           MEMIN : out STD_LOGIC_VECTOR (7 downto 0);
-           MEMADDR : out STD_LOGIC_VECTOR (7 downto 0)
+           VAL : out STD_LOGIC_VECTOR (7 downto 0)
            );
 end Proc;
 
@@ -156,14 +153,14 @@ architecture Behavioral of Proc is
 
 begin
 
-    -- Instantiate the AUL hahahaha
+    -- Instantiate the bancInstructions 
     bancInstructions: BancMemoire_instructions PORT MAP (
         Addr => ip,
         CLK => CLK,
         OUTPUT => ins
     );
             
-    -- Instantiate the AUL haha
+    -- Instantiate the bancReg 
     bancReg: BancRegistres PORT MAP (
         AddrA => li_b(3 downto 0),
         AddrB => li_c(3 downto 0),
@@ -176,13 +173,14 @@ begin
         QB => bancReg_b
     );
     
+    -- Instantiate the ALU
     ALU: AUL PORT MAP (
         A => di_b,
         B => di_c,
         Ctrl_Alu => alu_ctrl,
         S => alu_s
     );
-    
+    -- Instantiate the alea_detect
     alea_detect : alea_detection PORT MAP (
            new_op => ins(31 downto 24) ,
            new_a => ins(23 downto 16) ,
@@ -204,7 +202,7 @@ begin
            mem_b => mem_b ,
            is_alea_detected => is_alea_detected
     );
-        
+    -- Instantiate the bancMem     
     bancMem: BancMemoire_donnees 
         Port map ( Addr => bancMem_addrIn,
                INPUT  => ex_b,
@@ -221,8 +219,8 @@ begin
                     else '0'; -- AFC
      -- LC  banc mem -> WRITE SI STORE (08)
     bancMem_w <= '0' when ex_op = x"08" else '1';  
-    ---     
-            -- MUX bancMem_addrIn mem données
+      
+    -- MUX bancMem_addrIn mem données
     bancMem_addrIn <= ex_a when (ex_op=x"08")else ex_b;
 
     process
@@ -291,8 +289,4 @@ begin
 
     end process;
 
-             -- TEST POUR SORTIR W
-     rw <= is_alea_detected;
-     MEMADDR <= ins(15 downto 8);
-     MEMIN <= di_a;
 end Behavioral;

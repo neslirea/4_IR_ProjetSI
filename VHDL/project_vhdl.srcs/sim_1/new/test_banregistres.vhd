@@ -68,7 +68,7 @@ architecture Behavioral of test_banregistres is
 
 begin
     
-    -- Instantiate the AUL haha
+    -- Instantiate the BancRegistres
     test: BancRegistres PORT MAP (
         AddrA => SAddrA,
         AddrB => SAddrB,

@@ -55,7 +55,7 @@ architecture Behavioral of test_bancMemoire_donnees is
 begin
 
     
-    -- Instantiate the AUL hahahaha
+    -- Instantiate the BancMemoire_donnees
     test: BancMemoire_donnees PORT MAP (
         Addr => SAddr,
         INPUT => SINPUT,

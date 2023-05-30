@@ -42,17 +42,12 @@ architecture Behavioral of Test_Proc is
     COMPONent Proc
         Port (  CLK : in STD_LOGIC;
                 RST : in STD_LOGIC;
-                VAL : out STD_LOGIC_VECTOR (7 downto 0);
-               RW : out STD_LOGIC;
-               MEMIN : out STD_LOGIC_VECTOR (7 downto 0);
-               MEMADDR : out STD_LOGIC_VECTOR (7 downto 0));
+                VAL : out STD_LOGIC_VECTOR (7 downto 0)
+                );
     end COMPONent;
    signal SRST : STD_LOGIC := '0';
    signal SCLK : STD_LOGIC := '0';
-   signal SRW : STD_LOGIC;
    signal SVAL : STD_LOGIC_VECTOR (7 downto 0);
-   signal SMEMIN : STD_LOGIC_VECTOR (7 downto 0);
-   signal SMEMADDR : STD_LOGIC_VECTOR (7 downto 0);
    
    
    -- Clock period definitions
@@ -65,10 +60,7 @@ begin
     test: Proc PORT MAP (
         RST => SRST,
         CLK => SCLK,
-        VAL => SVAL,
-        RW => SRW,
-        MEMIN => SMEMIN,
-        MEMADDR => SMEMADDR
+        VAL => SVAL
     );
 
     -- Clock process definitions
