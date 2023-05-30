@@ -43,14 +43,17 @@
 #define alloca _alloca
 #endif
 typedef void (*funcp)(char *, char *);
-extern void execute_68(char*, char *);
-extern void execute_69(char*, char *);
-extern void execute_61(char*, char *);
+extern void execute_72(char*, char *);
+extern void execute_73(char*, char *);
 extern void execute_62(char*, char *);
 extern void execute_63(char*, char *);
 extern void execute_64(char*, char *);
 extern void execute_65(char*, char *);
 extern void execute_66(char*, char *);
+extern void execute_67(char*, char *);
+extern void execute_68(char*, char *);
+extern void execute_69(char*, char *);
+extern void execute_70(char*, char *);
 extern void execute_50(char*, char *);
 extern void execute_52(char*, char *);
 extern void execute_53(char*, char *);
@@ -59,14 +62,15 @@ extern void execute_56(char*, char *);
 extern void execute_57(char*, char *);
 extern void execute_58(char*, char *);
 extern void execute_60(char*, char *);
+extern void execute_61(char*, char *);
 extern void vhdl_transfunc_eventcallback(char*, char*, unsigned, unsigned, unsigned, char *);
 extern void transaction_1(char*, char*, unsigned, unsigned, unsigned);
-funcp funcTab[18] = {(funcp)execute_68, (funcp)execute_69, (funcp)execute_61, (funcp)execute_62, (funcp)execute_63, (funcp)execute_64, (funcp)execute_65, (funcp)execute_66, (funcp)execute_50, (funcp)execute_52, (funcp)execute_53, (funcp)execute_54, (funcp)execute_56, (funcp)execute_57, (funcp)execute_58, (funcp)execute_60, (funcp)vhdl_transfunc_eventcallback, (funcp)transaction_1};
-const int NumRelocateId= 18;
+funcp funcTab[22] = {(funcp)execute_72, (funcp)execute_73, (funcp)execute_62, (funcp)execute_63, (funcp)execute_64, (funcp)execute_65, (funcp)execute_66, (funcp)execute_67, (funcp)execute_68, (funcp)execute_69, (funcp)execute_70, (funcp)execute_50, (funcp)execute_52, (funcp)execute_53, (funcp)execute_54, (funcp)execute_56, (funcp)execute_57, (funcp)execute_58, (funcp)execute_60, (funcp)execute_61, (funcp)vhdl_transfunc_eventcallback, (funcp)transaction_1};
+const int NumRelocateId= 22;
 
 void relocate(char *dp)
 {
-	iki_relocate(dp, "xsim.dir/Test_Proc_behav/xsim.reloc",  (void **)funcTab, 18);
+	iki_relocate(dp, "xsim.dir/Test_Proc_behav/xsim.reloc",  (void **)funcTab, 22);
 	iki_vhdl_file_variable_register(dp + 21568);
 	iki_vhdl_file_variable_register(dp + 21624);
 

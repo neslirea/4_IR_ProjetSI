@@ -52,20 +52,15 @@ begin
     process
     
     begin
-        wait until CLK'Event and CLK='1';
-        
-        
+        wait until CLK'Event and CLK='1';       
+                
         if (RST='0') then 
             Mem <= (others =>"00000000");
-            OUTPUT <= "00000000"; -- init de la valeur
         else
             if (RW='0') then -- écriture de DATA dans ARW   
                 Mem(conv_integer(Addr))<=INPUT;
-                OUTPUT <= "00000000"; -- init de la valeur
-            else
-                OUTPUT <= Mem(conv_integer(Addr));
             end if;
         end if;
-        
     end process;
+    OUTPUT <= Mem(conv_integer(Addr));
 end Behavioral;

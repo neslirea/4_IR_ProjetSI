@@ -180,6 +180,8 @@ begin
      --!!! LC  banc mem -> WRITE SI STORE (08)
     bancMem_w <= '0' when ex_op = x"08" else '1';  
     ---     
+            -- MUX bancMem_addrIn mem données
+    bancMem_addrIn <= ex_a when (ex_op=x"08")else ex_b;
 
     process
     begin
@@ -216,16 +218,13 @@ begin
                 ex_b <= di_b;
         else
                 ex_b <= alu_s;        
-        end if;                   
+        end if;   
+        --
+                        
         ex_op <= di_op;
         ex_a <= di_a;
-        -- MUX bancMem_addrIn mem données
-        if (ex_op=x"08") then
-            bancMem_addrIn <= ex_a;
-        else
-            bancMem_addrIn <= ex_b;
-        end if;
-        --
+        
+       
         -- MUX mem_b
         if ex_op=x"07" then 
             mem_b <= bancMem_out;
@@ -240,12 +239,9 @@ begin
         
 
     end process;
-    process
-    begin
-        wait until CLK'Event and CLK='1';              
-    -- TEST POUR SORTIR W
-    rw <= bancMem_w;
-    MEMIN <= bancMem_addrIn;
-    MEMADDR <= ex_b;
-     end process;
+
+             -- TEST POUR SORTIR W
+     rw <= bancMem_w;
+     MEMADDR <= bancMem_addrIn;
+     MEMIN <= ex_b;
 end Behavioral;
