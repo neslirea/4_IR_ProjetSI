@@ -85,7 +85,7 @@ architecture Behavioral of test_alea_detection is
 
 begin
     
-    -- Instantiate the AUL haha
+    -- Instantiate the alea_detection
     test: alea_detection PORT MAP (
             new_op => s_new_op,
             new_a => s_new_a,

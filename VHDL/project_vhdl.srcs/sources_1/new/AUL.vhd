@@ -35,10 +35,6 @@ entity AUL is
            A : in STD_LOGIC_VECTOR (7 downto 0); --nb1
            B : in STD_LOGIC_VECTOR (7 downto 0); --nb2
            Ctrl_Alu : in STD_LOGIC_VECTOR (2 downto 0); -- controle du calcul : +,-,*
-           --N : out STD_LOGIC; -- valeur négative en sortie
-           --O : out STD_LOGIC; -- overflow
-           --Z : out STD_LOGIC; -- sortie nulle
-           --C : out STD_LOGIC; -- carry
            S : out STD_LOGIC_VECTOR (7 downto 0)); -- sortie
 end AUL;
 
@@ -47,20 +43,10 @@ architecture Behavioral of AUL is
     signal var: STD_LOGIC_VECTOR (15 downto 0) := (others => '0');
 
 begin
-    --N <= '0';
-    --O <= '0';
-    --Z <= '0';
-    --C <= '0';
     var <= A*B;
     Auxiliaire <= A+B when Ctrl_Alu="000" else
                 (A)-(B) when Ctrl_Alu="001" else
                 var(7 downto 0) when Ctrl_Alu="010";
-    --if(var(15 downto 8)/="00000000") then
-    --O <= '1';
-    --end if;
-    --if(Auxiliaire="00000000") then
-    --Z <= '1';
-    --end if;
 
     S <= Auxiliaire;
 

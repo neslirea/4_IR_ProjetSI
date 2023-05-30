@@ -43,10 +43,6 @@ PORT  (
        A : in STD_LOGIC_VECTOR (7 downto 0); --nb1
        B : in STD_LOGIC_VECTOR (7 downto 0); --nb2
        Ctrl_Alu : in STD_LOGIC_VECTOR (2 downto 0); -- controle du calcul : +,-,*
-       --N : out STD_LOGIC; -- valeur négative en sortie
-       --O : out STD_LOGIC; -- overflow
-       --Z : out STD_LOGIC; -- sortie nulle
-       --C : out STD_LOGIC; -- carry
        S : out STD_LOGIC_VECTOR (7 downto 0)); -- sortie;
 END COMPONENT;
 --Inputs
@@ -54,10 +50,6 @@ signal Signal_A : std_logic_vector(7 downto 0) := x"02";
 signal Signal_B : std_logic_vector(7 downto 0) := x"40";
 signal Signal_Ctrl : std_logic_vector(2 downto 0) := "010";
 --Outputs
---signal Signal_N : std_logic;
---signal Signal_O : std_logic;
---signal Signal_Z : std_logic;
---signal Signal_C : std_logic;
 signal Signal_S : std_logic_vector(7 downto 0);
 
 
